@@ -34,6 +34,8 @@
             this.passwordLBL = new System.Windows.Forms.Label();
             this.locationLBL = new System.Windows.Forms.Label();
             this.userLocationLBL = new System.Windows.Forms.Label();
+            this.loginBTN = new System.Windows.Forms.Button();
+            this.cancelBTN = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // usernameTB
@@ -90,12 +92,33 @@
             this.userLocationLBL.TabIndex = 8;
             this.userLocationLBL.Text = "TimeZone";
             // 
+            // loginBTN
+            // 
+            this.loginBTN.Location = new System.Drawing.Point(114, 166);
+            this.loginBTN.Name = "loginBTN";
+            this.loginBTN.Size = new System.Drawing.Size(75, 23);
+            this.loginBTN.TabIndex = 9;
+            this.loginBTN.Text = "Login";
+            this.loginBTN.UseVisualStyleBackColor = true;
+            this.loginBTN.Click += new System.EventHandler(this.loginBTN_Click);
+            // 
+            // cancelBTN
+            // 
+            this.cancelBTN.Location = new System.Drawing.Point(310, 199);
+            this.cancelBTN.Name = "cancelBTN";
+            this.cancelBTN.Size = new System.Drawing.Size(75, 23);
+            this.cancelBTN.TabIndex = 10;
+            this.cancelBTN.Text = "Cancel";
+            this.cancelBTN.UseVisualStyleBackColor = true;
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(397, 234);
+            this.Controls.Add(this.cancelBTN);
+            this.Controls.Add(this.loginBTN);
             this.Controls.Add(this.userLocationLBL);
             this.Controls.Add(this.locationLBL);
             this.Controls.Add(this.passwordLBL);
@@ -116,6 +139,8 @@
         public System.Windows.Forms.Label userLocationLBL;
         public System.Windows.Forms.TextBox usernameTB;
         public System.Windows.Forms.TextBox passwordTB;
+        private System.Windows.Forms.Button loginBTN;
+        private System.Windows.Forms.Button cancelBTN;
     }
 }
 

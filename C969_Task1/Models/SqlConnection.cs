@@ -20,13 +20,13 @@ namespace C969_Task1.Models
             cnn = new MySqlConnection(connstring);
         }
 
-        public void LoginAuthentication()
+        public void LoginAuthentication(string username, string password)
         {
             int i = 0;
             cnn.Open();
             MySqlCommand cmd = cnn.CreateCommand();
-            cmd.CommandType = System.Data.CommandType.Text;
-            cmd.CommandText = $"select * from user where username ={loginForm.usernameTB} and password ={loginForm.passwordTB}";
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "select * from client_schedule.user where userName='"+username+"' and password= '"+password+"'";
             cmd.ExecuteNonQuery();
             DataTable dt = new DataTable();
             MySqlDataAdapter da = new MySqlDataAdapter(cmd);

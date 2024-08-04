@@ -16,24 +16,18 @@ namespace C969_Task1
 {
     public partial class LoginForm : Form
     {
-        
+        SqlConnection sqlConection = new SqlConnection();
         public LoginForm()
         {
             InitializeComponent();
             UserLocation.UserLocationString(this);
-
-            SqlConnection sqlConnection = new SqlConnection();
             
-            try
-            {
-                sqlConnection.LoginAuthentication();
-            }
-            catch
-            {
-                MessageBox.Show("No connection");
-            }
+            
         }
 
-
+        private void loginBTN_Click(object sender, EventArgs e)
+        {
+            sqlConection.LoginAuthentication(usernameTB.Text,passwordTB.Text);
+        }
     }
 }
