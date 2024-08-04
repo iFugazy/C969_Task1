@@ -110,13 +110,12 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox usernameTB;
-        private System.Windows.Forms.TextBox passwordTB;
         private System.Windows.Forms.Label usernameLBL;
         private System.Windows.Forms.Label passwordLBL;
         private System.Windows.Forms.Label locationLBL;
         public System.Windows.Forms.Label userLocationLBL;
+        public System.Windows.Forms.TextBox usernameTB;
+        public System.Windows.Forms.TextBox passwordTB;
     }
 }
 

@@ -26,9 +26,7 @@ namespace C969_Task1
             
             try
             {
-                sqlConnection.cnn.Open();
-                MessageBox.Show("It still works");
-                sqlConnection.cnn.Close();
+                sqlConnection.LoginAuthentication();
             }
             catch
             {
