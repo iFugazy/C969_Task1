@@ -24,6 +24,8 @@ namespace C969_Task1.Models
         {
             int i = 0;
             cnn.Open();
+
+            
             MySqlCommand cmd = cnn.CreateCommand();
             cmd.CommandType = CommandType.Text;
             cmd.CommandText = "select * from client_schedule.user where userName='"+username+"' and password= '"+password+"'";
@@ -36,10 +38,13 @@ namespace C969_Task1.Models
             if (i == 0)
             {
                 MessageBox.Show("You entered an invalid combination");
+                cnn.Close();
             }
             else
             {
                 MessageBox.Show("You are in!");
+                cnn.Close();
+                loginForm.Hide();
             }
         }
     }
