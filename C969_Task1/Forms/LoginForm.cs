@@ -22,7 +22,7 @@ namespace C969_Task1
         public LoginForm()
         {
             InitializeComponent();
-            UserLocation.UserLocationString(this);
+            LoginModel.UserLocationString(this);
             
             
         }
@@ -31,6 +31,16 @@ namespace C969_Task1
         {
             sqlConection.LoginAuthentication(usernameTB.Text,passwordTB.Text);
            
+        }
+
+        private void spanishRBTN_CheckedChanged(object sender, EventArgs e)
+        {
+            LoginModel.LoginTranslator(this);
+        }
+
+        private void cancelBTN_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
