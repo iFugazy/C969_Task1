@@ -110,8 +110,8 @@
     <Compile Include="Forms\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Models\SqlConnection.cs" />
-    <Compile Include="Models\Login\UserLocation.cs" />
+    <Compile Include="DataAccess\SqlConnection.cs" />
+    <Compile Include="Models\Login\LoginModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\LoginForm.resx">

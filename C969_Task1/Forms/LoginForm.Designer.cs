@@ -36,12 +36,14 @@
             this.userLocationLBL = new System.Windows.Forms.Label();
             this.loginBTN = new System.Windows.Forms.Button();
             this.cancelBTN = new System.Windows.Forms.Button();
+            this.englishRBTN = new System.Windows.Forms.RadioButton();
+            this.spanishRBTN = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
             // 
             // usernameTB
             // 
             this.usernameTB.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.usernameTB.Location = new System.Drawing.Point(114, 63);
+            this.usernameTB.Location = new System.Drawing.Point(187, 66);
             this.usernameTB.Name = "usernameTB";
             this.usernameTB.Size = new System.Drawing.Size(248, 25);
             this.usernameTB.TabIndex = 3;
@@ -49,44 +51,50 @@
             // passwordTB
             // 
             this.passwordTB.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.passwordTB.Location = new System.Drawing.Point(114, 123);
+            this.passwordTB.Location = new System.Drawing.Point(187, 140);
             this.passwordTB.Name = "passwordTB";
             this.passwordTB.Size = new System.Drawing.Size(248, 25);
             this.passwordTB.TabIndex = 4;
             // 
             // usernameLBL
             // 
-            this.usernameLBL.AutoSize = true;
+            this.usernameLBL.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.usernameLBL.Font = new System.Drawing.Font("Microsoft JhengHei UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.usernameLBL.Location = new System.Drawing.Point(32, 66);
+            this.usernameLBL.Location = new System.Drawing.Point(-37, 69);
             this.usernameLBL.Name = "usernameLBL";
-            this.usernameLBL.Size = new System.Drawing.Size(70, 17);
+            this.usernameLBL.Size = new System.Drawing.Size(218, 17);
             this.usernameLBL.TabIndex = 5;
             this.usernameLBL.Text = "Username";
+            this.usernameLBL.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // passwordLBL
             // 
-            this.passwordLBL.AutoSize = true;
+            this.passwordLBL.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.passwordLBL.Font = new System.Drawing.Font("Microsoft JhengHei UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.passwordLBL.Location = new System.Drawing.Point(34, 126);
+            this.passwordLBL.Location = new System.Drawing.Point(-33, 143);
             this.passwordLBL.Name = "passwordLBL";
-            this.passwordLBL.Size = new System.Drawing.Size(66, 17);
+            this.passwordLBL.Size = new System.Drawing.Size(214, 17);
             this.passwordLBL.TabIndex = 6;
             this.passwordLBL.Text = "Password";
+            this.passwordLBL.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // locationLBL
             // 
-            this.locationLBL.AutoSize = true;
-            this.locationLBL.Location = new System.Drawing.Point(13, 13);
+            this.locationLBL.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.locationLBL.Location = new System.Drawing.Point(8, 13);
             this.locationLBL.Name = "locationLBL";
-            this.locationLBL.Size = new System.Drawing.Size(51, 13);
+            this.locationLBL.Size = new System.Drawing.Size(62, 13);
             this.locationLBL.TabIndex = 7;
             this.locationLBL.Text = "Location:";
+            this.locationLBL.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // userLocationLBL
             // 
             this.userLocationLBL.AutoSize = true;
-            this.userLocationLBL.Location = new System.Drawing.Point(61, 13);
+            this.userLocationLBL.Location = new System.Drawing.Point(66, 13);
             this.userLocationLBL.Name = "userLocationLBL";
             this.userLocationLBL.Size = new System.Drawing.Size(55, 13);
             this.userLocationLBL.TabIndex = 8;
@@ -94,7 +102,7 @@
             // 
             // loginBTN
             // 
-            this.loginBTN.Location = new System.Drawing.Point(114, 166);
+            this.loginBTN.Location = new System.Drawing.Point(269, 182);
             this.loginBTN.Name = "loginBTN";
             this.loginBTN.Size = new System.Drawing.Size(75, 23);
             this.loginBTN.TabIndex = 9;
@@ -104,19 +112,45 @@
             // 
             // cancelBTN
             // 
-            this.cancelBTN.Location = new System.Drawing.Point(310, 199);
+            this.cancelBTN.Location = new System.Drawing.Point(431, 229);
             this.cancelBTN.Name = "cancelBTN";
             this.cancelBTN.Size = new System.Drawing.Size(75, 23);
             this.cancelBTN.TabIndex = 10;
             this.cancelBTN.Text = "Cancel";
             this.cancelBTN.UseVisualStyleBackColor = true;
+            this.cancelBTN.Click += new System.EventHandler(this.cancelBTN_Click);
+            // 
+            // englishRBTN
+            // 
+            this.englishRBTN.AutoSize = true;
+            this.englishRBTN.Checked = true;
+            this.englishRBTN.Location = new System.Drawing.Point(16, 229);
+            this.englishRBTN.Name = "englishRBTN";
+            this.englishRBTN.Size = new System.Drawing.Size(40, 17);
+            this.englishRBTN.TabIndex = 11;
+            this.englishRBTN.TabStop = true;
+            this.englishRBTN.Text = "EN";
+            this.englishRBTN.UseVisualStyleBackColor = true;
+            // 
+            // spanishRBTN
+            // 
+            this.spanishRBTN.AutoSize = true;
+            this.spanishRBTN.Location = new System.Drawing.Point(68, 229);
+            this.spanishRBTN.Name = "spanishRBTN";
+            this.spanishRBTN.Size = new System.Drawing.Size(39, 17);
+            this.spanishRBTN.TabIndex = 12;
+            this.spanishRBTN.Text = "ES";
+            this.spanishRBTN.UseVisualStyleBackColor = true;
+            this.spanishRBTN.CheckedChanged += new System.EventHandler(this.spanishRBTN_CheckedChanged);
             // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(397, 234);
+            this.ClientSize = new System.Drawing.Size(518, 264);
+            this.Controls.Add(this.spanishRBTN);
+            this.Controls.Add(this.englishRBTN);
             this.Controls.Add(this.cancelBTN);
             this.Controls.Add(this.loginBTN);
             this.Controls.Add(this.userLocationLBL);
@@ -133,14 +167,16 @@
         }
 
         #endregion
-        private System.Windows.Forms.Label usernameLBL;
-        private System.Windows.Forms.Label passwordLBL;
-        private System.Windows.Forms.Label locationLBL;
         public System.Windows.Forms.Label userLocationLBL;
         public System.Windows.Forms.TextBox usernameTB;
         public System.Windows.Forms.TextBox passwordTB;
-        private System.Windows.Forms.Button loginBTN;
-        private System.Windows.Forms.Button cancelBTN;
+        public System.Windows.Forms.Label usernameLBL;
+        public System.Windows.Forms.Label passwordLBL;
+        public System.Windows.Forms.Button loginBTN;
+        public System.Windows.Forms.Button cancelBTN;
+        public System.Windows.Forms.RadioButton englishRBTN;
+        public System.Windows.Forms.RadioButton spanishRBTN;
+        public System.Windows.Forms.Label locationLBL;
     }
 }
 
