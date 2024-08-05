@@ -5,15 +5,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using C969_Task1.Forms;
 using MySql.Data.MySqlClient;
 
 namespace C969_Task1.Models
 {
     public class SqlConnection
     {
-        LoginForm loginForm;
+        
         public string connstring;
         public MySqlConnection cnn;
+        AddCustomerForm addCustomerForm = new AddCustomerForm();
         public SqlConnection() 
         {            
             connstring = @"server=127.0.0.1; database=client_schedule; userid=sqlUser; password=Passw0rd!";
@@ -38,13 +40,13 @@ namespace C969_Task1.Models
             if (i == 0)
             {
                 MessageBox.Show("You entered an invalid combination");
-                cnn.Close();
+                
             }
             else
             {
-                MessageBox.Show("You are in!");
-                cnn.Close();
-                loginForm.Hide();
+                addCustomerForm.Show();
+                
+                
             }
         }
     }

@@ -11,12 +11,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data;
 using MySql.Data.MySqlClient;
+using C969_Task1.Forms;
 
 namespace C969_Task1
 {
     public partial class LoginForm : Form
     {
         SqlConnection sqlConection = new SqlConnection();
+        AddCustomerForm addCustomerForm = new AddCustomerForm();
         public LoginForm()
         {
             InitializeComponent();
@@ -28,6 +30,7 @@ namespace C969_Task1
         private void loginBTN_Click(object sender, EventArgs e)
         {
             sqlConection.LoginAuthentication(usernameTB.Text,passwordTB.Text);
+           
         }
     }
 }
