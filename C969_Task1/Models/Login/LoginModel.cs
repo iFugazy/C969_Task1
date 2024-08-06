@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using IpData;
+using IpData.Models;
 
 namespace C969_Task1.Models
 {
@@ -15,11 +17,19 @@ namespace C969_Task1.Models
         public static TimeSpan utcOffset = TimeZoneInfo.Local.GetUtcOffset(localDataTime);
         public static CultureInfo currentCulture = CultureInfo.CurrentCulture;
 
+        static string ipdataAPIKey = "ba3ee9df74076016dd30fdcbf4f68d15aff80eaec98e3fdc45b5243b";
 
-       
-        public static void UserLocationString(LoginForm loginForm)
+
+
+        public async static void UserLocationString(LoginForm loginForm)
         {
-            loginForm.userLocationLBL.Text = currentCulture.DisplayName;
+            var client = new IpDataClient(ipdataAPIKey);
+            var ipInfo = await client.Lookup("1.1.1.1");
+            
+               // Console.WriteLine($"Country name for {ipInfo.Ip} is {ipInfo.CountryName}");
+                loginForm.userLocationLBL.Text = ipInfo.Region;
+            
+            
         }
 
         public static void LoginTranslator(LoginForm loginForm)

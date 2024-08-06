@@ -16,6 +16,7 @@ namespace C969_Task1.Forms
         public AddCustomerForm()
         {
             InitializeComponent();
+          
 
         }
 

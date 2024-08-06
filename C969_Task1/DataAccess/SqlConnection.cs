@@ -44,8 +44,9 @@ namespace C969_Task1.Models
             }
             else
             {
-                addCustomerForm.Show();
-                
+                return;
+               
+              
                 
             }
         }
