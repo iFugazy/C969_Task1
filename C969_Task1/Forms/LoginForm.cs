@@ -12,28 +12,53 @@ using System.Windows.Forms;
 using MySql.Data;
 using MySql.Data.MySqlClient;
 using C969_Task1.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace C969_Task1
 {
     public partial class LoginForm : Form
     {
-        SqlConnection sqlConection = new SqlConnection();
+        public string connstring;
+        public MySqlConnection cnn;
         AddCustomerForm addCustomerForm = new AddCustomerForm();
         public LoginForm()
         {
             InitializeComponent();
-            LoginModel.UserLocationString(this);
-            
-            
+            LoginModel.UserLocationString(this);           
         }
 
         private void loginBTN_Click(object sender, EventArgs e)
         {
+            int i = 0;
 
-            sqlConection.LoginAuthentication(usernameTB.Text,passwordTB.Text, this, addCustomerForm);
-            
-            
-           
+            MySqlCommand cmd = cnn.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "select * from client_schedule.user where userName='" + usernameTB.Text + "' and password= '" + passwordTB.Text + "'";
+            cmd.ExecuteNonQuery();
+            DataTable dt = new DataTable();
+            MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+            da.Fill(dt);
+            i = Convert.ToInt32(dt.Rows.Count.ToString());
+
+            if (i == 0)
+            {
+                if (spanishRBTN.Checked is true)
+                {
+                    MessageBox.Show("El nombre de usuario y la contraseña no coinciden", "Error de inicio de sesión");
+
+                }
+                else
+                {
+                    MessageBox.Show("The username and password do not match", "Login Error");
+                }
+            }
+            else
+            {
+                addCustomerForm.Show();
+                this.Hide();
+
+                return;
+            }                    
         }
 
         private void spanishRBTN_CheckedChanged(object sender, EventArgs e)
@@ -44,6 +69,13 @@ namespace C969_Task1
         private void cancelBTN_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void LoginForm_Load(object sender, EventArgs e)
+        {            
+            connstring = @"server=127.0.0.1; database=client_schedule; userid=sqlUser; password=Passw0rd!";
+            cnn = new MySqlConnection(connstring);
+            cnn.Open();
         }
     }
 }
