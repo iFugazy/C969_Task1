@@ -30,9 +30,9 @@ namespace C969_Task1
         private void loginBTN_Click(object sender, EventArgs e)
         {
 
-            sqlConection.LoginAuthentication(usernameTB.Text,passwordTB.Text);
-            this.Hide();
-            addCustomerForm.Show();
+            sqlConection.LoginAuthentication(usernameTB.Text,passwordTB.Text, this, addCustomerForm);
+            
+            
            
         }
 

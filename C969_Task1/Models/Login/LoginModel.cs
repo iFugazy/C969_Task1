@@ -41,6 +41,8 @@ namespace C969_Task1.Models
                 loginForm.passwordLBL.Text = "Contraseña:";
                 loginForm.loginBTN.Text = "Acceso";
                 loginForm.cancelBTN.Text = "Cancelar";
+
+
             }
             else
             {

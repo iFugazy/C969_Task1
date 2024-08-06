@@ -15,17 +15,19 @@ namespace C969_Task1.Models
         
         public string connstring;
         public MySqlConnection cnn;
-        AddCustomerForm addCustomerForm = new AddCustomerForm();
+        
         public SqlConnection() 
         {            
             connstring = @"server=127.0.0.1; database=client_schedule; userid=sqlUser; password=Passw0rd!";
             cnn = new MySqlConnection(connstring);
+            cnn.Open();
+
         }
 
-        public void LoginAuthentication(string username, string password)
+        public void LoginAuthentication(string username, string password, LoginForm loginForm, AddCustomerForm addCustomerForm)
         {
             int i = 0;
-            cnn.Open();
+            
 
             
             MySqlCommand cmd = cnn.CreateCommand();
@@ -39,15 +41,22 @@ namespace C969_Task1.Models
 
             if (i == 0)
             {
-                MessageBox.Show("You entered an invalid combination");
-                
+                if (loginForm.spanishRBTN.Checked is true)
+                {
+                    MessageBox.Show("El nombre de usuario y la contraseña no coinciden", "Error de inicio de sesión");
+
+                }
+                else
+                {
+                    MessageBox.Show("The username and password do not match", "Login Error");
+                }
             }
             else
             {
-                return;
-               
-              
-                
+                addCustomerForm.Show();
+                loginForm.Hide();
+
+                return;                                            
             }
         }
     }

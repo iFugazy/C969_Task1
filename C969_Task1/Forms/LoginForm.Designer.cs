@@ -96,9 +96,8 @@
             this.userLocationLBL.AutoSize = true;
             this.userLocationLBL.Location = new System.Drawing.Point(66, 13);
             this.userLocationLBL.Name = "userLocationLBL";
-            this.userLocationLBL.Size = new System.Drawing.Size(55, 13);
+            this.userLocationLBL.Size = new System.Drawing.Size(0, 13);
             this.userLocationLBL.TabIndex = 8;
-            this.userLocationLBL.Text = "TimeZone";
             // 
             // loginBTN
             // 
