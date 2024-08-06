@@ -24,10 +24,10 @@ namespace C969_Task1.Models
         public async static void UserLocationString(LoginForm loginForm)
         {
             var client = new IpDataClient(ipdataAPIKey);
-            var ipInfo = await client.Lookup("1.1.1.1");
+            var ipInfo = await client.Lookup();
             
-               // Console.WriteLine($"Country name for {ipInfo.Ip} is {ipInfo.CountryName}");
-                loginForm.userLocationLBL.Text = ipInfo.Region;
+            
+            loginForm.userLocationLBL.Text = ipInfo.City + "/" + ipInfo.Region;
             
             
         }
