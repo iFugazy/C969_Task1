@@ -78,6 +78,7 @@ namespace C969_Task1.Forms
             else
             {
                 editCustomer.Show();
+                
             }
         }
     }
