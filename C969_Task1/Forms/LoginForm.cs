@@ -54,7 +54,9 @@ namespace C969_Task1
             }
             else
             {
-                addCustomerForm.Show();
+                
+                MainForm main = new MainForm(usernameTB.Text);
+                main.Show();
                 this.Hide();
 
                 return;
