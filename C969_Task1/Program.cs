@@ -17,7 +17,7 @@ namespace C969_Task1
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm("Kobe"));
+            Application.Run(new MainCustomerForm());
         }
     }
 }

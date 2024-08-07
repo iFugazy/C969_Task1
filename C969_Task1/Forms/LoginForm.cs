@@ -20,7 +20,7 @@ namespace C969_Task1
     {
         public string connstring;
         public MySqlConnection cnn;
-        AddCustomerForm addCustomerForm = new AddCustomerForm();
+        MainCustomerForm addCustomerForm = new MainCustomerForm();
         public LoginForm()
         {
             InitializeComponent();

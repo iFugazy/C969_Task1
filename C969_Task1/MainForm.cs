@@ -28,7 +28,7 @@ namespace C969_Task1
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            AddCustomerForm addCustomerForm = new AddCustomerForm();
+            MainCustomerForm addCustomerForm = new MainCustomerForm();
             addCustomerForm.Show();
         }
     }

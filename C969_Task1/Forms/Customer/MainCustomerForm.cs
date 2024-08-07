@@ -11,12 +11,12 @@ using MySql.Data.MySqlClient;
 
 namespace C969_Task1.Forms
 {
-    public partial class AddCustomerForm : Form
+    public partial class MainCustomerForm : Form
     {
 
         
 
-        public AddCustomerForm()
+        public MainCustomerForm()
         {
             InitializeComponent();
                      
@@ -36,7 +36,7 @@ namespace C969_Task1.Forms
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {     
-            textBox1.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+            //textBox1.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
 
             
         }
