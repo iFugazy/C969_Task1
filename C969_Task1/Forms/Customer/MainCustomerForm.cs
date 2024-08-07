@@ -40,5 +40,31 @@ namespace C969_Task1.Forms
 
             
         }
+
+        private void deleteBTN_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 1)
+            {
+                DialogResult result = MessageBox.Show("Are you sure you would like to delete these customers?", "Delete Customers", MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
+                {
+                    foreach (DataGridViewRow drv in dataGridView1.SelectedRows)
+                    {
+                        dataGridView1.Rows.RemoveAt(drv.Index);
+                    }
+                }
+                
+            }
+            else
+            {
+                DialogResult result = MessageBox.Show("Are you sure you would like to delete this customer?", "Delete Customer", MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes) 
+                {
+                    dataGridView1.Rows.Remove(dataGridView1.CurrentRow);
+
+                }
+            }
+            
+        }
     }
 }
