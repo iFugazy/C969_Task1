@@ -61,12 +61,13 @@
             // 
             // editBTN
             // 
-            this.editBTN.Location = new System.Drawing.Point(182, 392);
+            this.editBTN.Location = new System.Drawing.Point(186, 392);
             this.editBTN.Name = "editBTN";
             this.editBTN.Size = new System.Drawing.Size(95, 23);
             this.editBTN.TabIndex = 2;
             this.editBTN.Text = "Edit Customer";
             this.editBTN.UseVisualStyleBackColor = true;
+            this.editBTN.Click += new System.EventHandler(this.editBTN_Click);
             // 
             // deleteBTN
             // 
@@ -96,10 +97,9 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button addBTN;
         private System.Windows.Forms.Button editBTN;
         private System.Windows.Forms.Button deleteBTN;
+        public System.Windows.Forms.DataGridView dataGridView1;
     }
 }

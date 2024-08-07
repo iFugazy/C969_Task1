@@ -7,19 +7,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using C969_Task1.Forms.Customer;
 using MySql.Data.MySqlClient;
 
 namespace C969_Task1.Forms
 {
     public partial class MainCustomerForm : Form
-    {
-
-        
+    {        
 
         public MainCustomerForm()
         {
             InitializeComponent();
-                     
+
+            
+
         }
 
         private void AddCustomerForm_Load(object sender, EventArgs e)
@@ -65,6 +66,13 @@ namespace C969_Task1.Forms
                 }
             }
             
+        }
+
+        private void editBTN_Click(object sender, EventArgs e)
+        {
+            EditCustomer editCustomer = new EditCustomer(this);
+
+            editCustomer.Show();
         }
     }
 }
