@@ -13,14 +13,14 @@ namespace C969_Task1.Forms.Customer
 {
     public partial class EditCustomer : Form
     {
-        MySqlConnection cnn = new MySqlConnection("datasource=127.0.0.1; port=3306; Username=sqlUser; Password=Passw0rd!");
-
+        MySqlConnection conn = new MySqlConnection("server=localhost; user=sqlUser; pwd=Passw0rd!; Database=client_schedule");
         MainCustomerForm main;
         public EditCustomer(MainCustomerForm mainCustomerForm)
         {
             InitializeComponent();
             this.main = mainCustomerForm;
-            cnn.Open();
+            conn.Open();
+
         }
 
         private void EditCustomer_Load(object sender, EventArgs e)
@@ -31,16 +31,40 @@ namespace C969_Task1.Forms.Customer
             textBox4.Text = main.dataGridView1.CurrentRow.Cells[3].Value.ToString();
         }
 
+
         private void button1_Click(object sender, EventArgs e)
         {
-            string id = main.dataGridView1.CurrentRow.Cells[0].Value.ToString();
-            string updateQuery = "UPDATE client_schedule.address, client_schedule.customer SET customer.CustomerName = '" + textBox1.Text + "', address.address = '" + textBox2.Text + "', address.PostalCode = '" + textBox3.Text + "', address.Phone = '" + textBox4.Text + "' WHERE customer.CustomerName = '" + id + "'";
-            
-           
-            MySqlCommand command = new MySqlCommand(updateQuery, cnn);
+            try
+            {
+                int num = main.dataGridView1.CurrentRow.Index + 1;
+                string id = num.ToString() ;
+                string updateQuery = "UPDATE client_schedule.customer SET customer.CustomerName = '" + textBox1.Text +"' WHERE customer.addressId = '" +id+  "'";
+                string updateQuery2 = "UPDATE client_schedule.address SET address.address = '" + textBox2.Text + "', address.PostalCode = '" + textBox3.Text + "', address.Phone = '" + textBox4.Text + "' WHERE address.addressId = '" +id+ "'";
+                MySqlCommand command = new MySqlCommand(updateQuery, conn);
+                MySqlCommand command2 = new MySqlCommand(updateQuery2, conn);
+                command.ExecuteNonQuery();
+                command2.ExecuteNonQuery();
+            }
+            catch
+            {
 
+            }
+            finally
+            {
+                MySqlDataAdapter adapter = new MySqlDataAdapter("SELECT \r\ncustomer.customerName as \"Customer Name\", \r\naddress.address as \"Address\",\r\naddress.PostalCode as \"Postal Code\",\r\naddress.Phone as \"Phone Number\"\r\n\r\nFROM client_schedule.address, client_schedule.customer\r\n\r\nWhere customer.addressId = address.addressId;", conn);
+                DataSet ds = new DataSet();
+
+                
+                adapter.Fill(ds, "customer");
+                main.dataGridView1.DataSource = ds.Tables["customer"];
+                conn.Close();
+            }
+            
+            
+            
+
+            
             this.Close();
-            MySqlDataReader reader = command.ExecuteReader();
 
 
         }
