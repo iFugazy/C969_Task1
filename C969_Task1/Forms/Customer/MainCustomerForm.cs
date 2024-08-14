@@ -8,13 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using C969_Task1.Forms.Customer;
+using C969_Task1.Models;
 using MySql.Data.MySqlClient;
 
 namespace C969_Task1.Forms
 {
     public partial class MainCustomerForm : Form
-    {        
-
+    {
+        DatabaseConnection db = new DatabaseConnection();
         public MainCustomerForm()
         {
             InitializeComponent();
@@ -25,14 +26,15 @@ namespace C969_Task1.Forms
 
         private void AddCustomerForm_Load(object sender, EventArgs e)
         {
-            MySqlConnection cnn = new MySqlConnection("datasource=127.0.0.1; port=3306; Username=sqlUser; Password=Passw0rd!");
-            MySqlDataAdapter adapter = new MySqlDataAdapter("SELECT \r\ncustomer.customerName as \"Customer Name\", \r\naddress.address as \"Address\",\r\naddress.PostalCode as \"Postal Code\",\r\naddress.Phone as \"Phone Number\"\r\n\r\nFROM client_schedule.address, client_schedule.customer\r\n\r\nWhere customer.addressId = address.addressId;", cnn);
+            
+           
+            MySqlDataAdapter adapter = new MySqlDataAdapter("SELECT \r\ncustomer.customerName as \"Customer Name\", \r\naddress.address as \"Address\",\r\naddress.PostalCode as \"Postal Code\",\r\naddress.Phone as \"Phone Number\"\r\n\r\nFROM client_schedule.address, client_schedule.customer\r\n\r\nWhere customer.addressId = address.addressId;", db.connstring);
             DataSet ds = new DataSet();
 
-            cnn.Open();
+            db.OpenConnection();
             adapter.Fill(ds, "customer");
             dataGridView1.DataSource = ds.Tables["customer"];
-            cnn.Close();
+            db.CloseConnection();
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
