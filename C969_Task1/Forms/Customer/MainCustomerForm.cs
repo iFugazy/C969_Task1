@@ -81,5 +81,11 @@ namespace C969_Task1.Forms
                 
             }
         }
+
+        private void addBTN_Click(object sender, EventArgs e)
+        {
+            AddCustomer addCustomer = new AddCustomer();
+            addCustomer.Show();
+        }
     }
 }

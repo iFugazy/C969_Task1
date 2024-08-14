@@ -58,6 +58,7 @@
             this.addBTN.TabIndex = 1;
             this.addBTN.Text = "Add Customer";
             this.addBTN.UseVisualStyleBackColor = true;
+            this.addBTN.Click += new System.EventHandler(this.addBTN_Click);
             // 
             // editBTN
             // 
