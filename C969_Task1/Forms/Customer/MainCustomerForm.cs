@@ -46,7 +46,6 @@ namespace C969_Task1.Forms
                 {
                     foreach (DataGridViewRow drv in dataGridView1.SelectedRows)
                     {
-                        //dataGridView1.Rows.RemoveAt(drv.Index);
                         db.DeleteCustomer("customerID", drv.Cells[0].Value.ToString());
                         db.RefreshData(db.mainTableString, dataGridView1);
                         return;

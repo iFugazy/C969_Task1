@@ -61,6 +61,11 @@ namespace C969_Task1.Models
 
         }
 
+        /// <summary>
+        /// Deletes a customer from the database and refreshes the data grid view to show the changes
+        /// </summary>
+        /// <param name="column"></param>
+        /// <param name="value"></param>
         public void DeleteCustomer(string column, string value)
         {
             List<string> Query = new List<string>
@@ -80,17 +85,33 @@ namespace C969_Task1.Models
 
         }
 
+        /// <summary>
+        /// Adds a customer to the database and refreshes the data grid view to show the changes
+        /// </summary>
+        /// <param name="customerID"></param>
+        /// <param name="customerName"></param>
+        /// <param name="AddressID"></param>
+        /// <param name="active"></param>
+        /// <param name="createDate"></param>
+        /// <param name="createdBy"></param>
+        /// <param name="lastUpdate"></param>
+        /// <param name="lastUpdateBy"></param>
         public void AddCustomer( string customerID, string customerName, string AddressID, int active, DateTime createDate, string createdBy, DateTime lastUpdate, string lastUpdateBy )
         {
+            List<string> Query = new List<string>
+            {
+                "INSERT INTO client_schedule.address VALUES('" + AddressID + "', '213 Auburn',' ', '2', '12345', '123-1524', now(), '" + lastUpdateBy + "', now(), '" + lastUpdateBy + "')",
+                "INSERT INTO client_schedule.customer VALUES('" + customerID + "', '" + customerName + "', '" + AddressID + "', '" + active + "', current_date(), '" + createdBy + "', current_date(), '" + lastUpdateBy + "')"
+            };
+
             MySqlConnection conn = GetConnection();
             conn.Open();
-            string insertQuery = "INSERT INTO client_schedule.customer VALUES('" + customerID + "', '" + customerName+ "', '" + AddressID + "', '" + active + "', current_date(), '" + createdBy + "', current_date(), '" + lastUpdateBy + "')";
-            string insertAddressQuery = "INSERT INTO client_schedule.address VALUES('" + AddressID + "', '213 Auburn',' ', '2', '12345', '123-1524', now(), '" + lastUpdateBy + "', now(), '" +lastUpdateBy + "')";
-            MySqlCommand command = new MySqlCommand(insertQuery, conn);
-            MySqlCommand command2 = new MySqlCommand(insertAddressQuery, conn);
-            command2.ExecuteNonQuery();
-            command.ExecuteNonQuery();
-            
+            foreach (string query in Query)
+            {
+                MySqlCommand command = new MySqlCommand(query, conn);
+                command.ExecuteNonQuery();
+            }
+
         }
     }
 }
