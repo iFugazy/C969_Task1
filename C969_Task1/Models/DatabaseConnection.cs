@@ -63,18 +63,21 @@ namespace C969_Task1.Models
 
         public void DeleteCustomer(string column, string value)
         {
+            List<string> Query = new List<string>
+            {
+                "DELETE FROM client_schedule.customer WHERE " + column + " = '" + value + "'",
+                "DELETE FROM client_schedule.address WHERE addressId = '" + value + "'",
+                "DELETE FROM client_schedule.appointment WHERE " + column + " = '" + value + "'"
+            };
+
             MySqlConnection conn = GetConnection();
             conn.Open();
-            string deleteCustomerQuery = "DELETE FROM client_schedule.customer WHERE customerId = '" + value + "'";
-            string deleteAddressQuery = "DELETE FROM client_schedule.address WHERE addressId = '" + value + "'";
-            string deleteAppointmentQuery = "DELETE FROM client_schedule.appointment WHERE customerId = '" + value + "'";
-            MySqlCommand command = new MySqlCommand(deleteCustomerQuery, conn);
-            MySqlCommand command2 = new MySqlCommand(deleteAddressQuery, conn);
-            MySqlCommand command3 = new MySqlCommand(deleteAppointmentQuery, conn);
-            command3.ExecuteNonQuery();
+            foreach (string query in Query)
+            {
+                MySqlCommand command = new MySqlCommand(query, conn);
+                command.ExecuteNonQuery();
+            }
 
-            command.ExecuteNonQuery();
-            command2.ExecuteNonQuery();
         }
 
         public void AddCustomer( string customerID, string customerName, string AddressID, int active, DateTime createDate, string createdBy, DateTime lastUpdate, string lastUpdateBy )
