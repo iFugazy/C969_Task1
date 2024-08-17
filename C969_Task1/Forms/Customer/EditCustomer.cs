@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using C969_Task1.Models;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,13 +14,13 @@ namespace C969_Task1.Forms.Customer
 {
     public partial class EditCustomer : Form
     {
-        MySqlConnection conn = new MySqlConnection("server=localhost; user=sqlUser; pwd=Passw0rd!; Database=client_schedule");
+        DatabaseConnection db = new DatabaseConnection();
         MainCustomerForm main;
         public EditCustomer(MainCustomerForm mainCustomerForm)
         {
             InitializeComponent();
             this.main = mainCustomerForm;
-            conn.Open();
+            db.OpenConnection();
 
         }
 
@@ -40,8 +41,8 @@ namespace C969_Task1.Forms.Customer
                 string id = num.ToString() ;
                 string updateQuery = "UPDATE client_schedule.customer SET customer.CustomerName = '" + textBox1.Text +"' WHERE customer.addressId = '" +id+  "'";
                 string updateQuery2 = "UPDATE client_schedule.address SET address.address = '" + textBox2.Text + "', address.PostalCode = '" + textBox3.Text + "', address.Phone = '" + textBox4.Text + "' WHERE address.addressId = '" +id+ "'";
-                MySqlCommand command = new MySqlCommand(updateQuery, conn);
-                MySqlCommand command2 = new MySqlCommand(updateQuery2, conn);
+                MySqlCommand command = new MySqlCommand(updateQuery, db.GetConnection());
+                MySqlCommand command2 = new MySqlCommand(updateQuery2, db.GetConnection());
                 command.ExecuteNonQuery();
                 command2.ExecuteNonQuery();
             }
@@ -51,13 +52,14 @@ namespace C969_Task1.Forms.Customer
             }
             finally
             {
-                MySqlDataAdapter adapter = new MySqlDataAdapter("SELECT \r\ncustomer.customerName as \"Customer Name\", \r\naddress.address as \"Address\",\r\naddress.PostalCode as \"Postal Code\",\r\naddress.Phone as \"Phone Number\"\r\n\r\nFROM client_schedule.address, client_schedule.customer\r\n\r\nWhere customer.addressId = address.addressId;", conn);
+                MySqlDataAdapter adapter = new MySqlDataAdapter("SELECT \r\ncustomer.customerName as \"Customer Name\", \r\naddress.address as \"Address\",\r\naddress.PostalCode as \"Postal Code\",\r\naddress.Phone as \"Phone Number\"\r\n\r\nFROM client_schedule.address, client_schedule.customer\r\n\r\nWhere customer.addressId = address.addressId;", db.connstring);
                 DataSet ds = new DataSet();
+                
 
                 
                 adapter.Fill(ds, "customer");
                 main.dataGridView1.DataSource = ds.Tables["customer"];
-                conn.Close();
+                db.CloseConnection();
             }
             
             

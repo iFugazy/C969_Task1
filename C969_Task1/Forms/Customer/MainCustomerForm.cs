@@ -16,6 +16,7 @@ namespace C969_Task1.Forms
     public partial class MainCustomerForm : Form
     {
         DatabaseConnection db = new DatabaseConnection();
+
         public MainCustomerForm()
         {
             InitializeComponent();
@@ -28,22 +29,23 @@ namespace C969_Task1.Forms
         {
             
            
-            MySqlDataAdapter adapter = new MySqlDataAdapter("SELECT \r\ncustomer.customerName as \"Customer Name\", \r\naddress.address as \"Address\",\r\naddress.PostalCode as \"Postal Code\",\r\naddress.Phone as \"Phone Number\"\r\n\r\nFROM client_schedule.address, client_schedule.customer\r\n\r\nWhere customer.addressId = address.addressId;", db.connstring);
-            DataSet ds = new DataSet();
-
-            db.OpenConnection();
-            adapter.Fill(ds, "customer");
-            dataGridView1.DataSource = ds.Tables["customer"];
-            db.CloseConnection();
+            db.RefreshData(db.mainTableString, dataGridView1);
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
-        {     
+        {
             //textBox1.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
-
             
+            //MessageBox.Show(GetCustomerID().ToString());
+
+
         }
 
+        /// <summary>
+        /// Deletes a customer from the database and refreshes the data grid view to show the changes
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void deleteBTN_Click(object sender, EventArgs e)
         {
             if (dataGridView1.SelectedRows.Count > 1)
@@ -53,7 +55,11 @@ namespace C969_Task1.Forms
                 {
                     foreach (DataGridViewRow drv in dataGridView1.SelectedRows)
                     {
-                        dataGridView1.Rows.RemoveAt(drv.Index);
+                        //dataGridView1.Rows.RemoveAt(drv.Index);
+                        db.DeleteCustomer("customerID", drv.Cells[0].Value.ToString());
+                        db.RefreshData(db.mainTableString, dataGridView1);
+                        return;
+
                     }
                 }
                 
@@ -63,8 +69,9 @@ namespace C969_Task1.Forms
                 DialogResult result = MessageBox.Show("Are you sure you would like to delete this customer?", "Delete Customer", MessageBoxButtons.YesNo);
                 if (result == DialogResult.Yes) 
                 {
-                    dataGridView1.Rows.Remove(dataGridView1.CurrentRow);
-
+                    db.DeleteCustomer("customerID", dataGridView1.CurrentRow.Cells[0].Value.ToString());
+                    db.RefreshData(db.mainTableString, dataGridView1);
+                    return;
                 }
             }
             
@@ -88,6 +95,23 @@ namespace C969_Task1.Forms
         {
             AddCustomer addCustomer = new AddCustomer();
             addCustomer.Show();
+        }
+
+        public int GetCustomerID()
+        {
+            int id = 0;
+            db.OpenConnection();
+            string query = "SELECT customerID FROM client_schedule.customer";
+            MySqlDataReader dr = db.DBCommand(query).ExecuteReader();
+            while (dr.Read())
+            {
+                if (dataGridView1.CurrentRow.Cells[0].Value.ToString() == dr.GetValue(0).ToString())
+                {
+                    id = int.Parse(dr.GetValue(0).ToString());
+                }
+            }
+            db.CloseConnection();
+            return id;
         }
     }
 }
