@@ -31,20 +31,21 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.phoneNumberTB = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.postalCodeTB = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.address1TB = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.customerNameTB = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.activeCB = new System.Windows.Forms.CheckBox();
+            this.address2TB = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(12, 211);
+            this.button2.Location = new System.Drawing.Point(11, 243);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 21;
@@ -53,7 +54,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(135, 211);
+            this.button1.Location = new System.Drawing.Point(134, 243);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 20;
@@ -70,44 +71,44 @@
             this.label5.TabIndex = 19;
             this.label5.Text = "Add Customer";
             // 
-            // textBox4
+            // phoneNumberTB
             // 
-            this.textBox4.Location = new System.Drawing.Point(119, 143);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 18;
+            this.phoneNumberTB.Location = new System.Drawing.Point(119, 169);
+            this.phoneNumberTB.Name = "phoneNumberTB";
+            this.phoneNumberTB.Size = new System.Drawing.Size(100, 20);
+            this.phoneNumberTB.TabIndex = 18;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(35, 146);
+            this.label4.Location = new System.Drawing.Point(35, 172);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(78, 13);
             this.label4.TabIndex = 17;
             this.label4.Text = "Phone Number";
             // 
-            // textBox3
+            // postalCodeTB
             // 
-            this.textBox3.Location = new System.Drawing.Point(119, 107);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 16;
+            this.postalCodeTB.Location = new System.Drawing.Point(119, 133);
+            this.postalCodeTB.Name = "postalCodeTB";
+            this.postalCodeTB.Size = new System.Drawing.Size(100, 20);
+            this.postalCodeTB.TabIndex = 16;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(49, 110);
+            this.label3.Location = new System.Drawing.Point(49, 136);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(64, 13);
             this.label3.TabIndex = 15;
             this.label3.Text = "Postal Code";
             // 
-            // textBox2
+            // address1TB
             // 
-            this.textBox2.Location = new System.Drawing.Point(119, 71);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 14;
+            this.address1TB.Location = new System.Drawing.Point(119, 71);
+            this.address1TB.Name = "address1TB";
+            this.address1TB.Size = new System.Drawing.Size(100, 20);
+            this.address1TB.TabIndex = 14;
             // 
             // label2
             // 
@@ -118,12 +119,12 @@
             this.label2.TabIndex = 13;
             this.label2.Text = "Address";
             // 
-            // textBox1
+            // customerNameTB
             // 
-            this.textBox1.Location = new System.Drawing.Point(119, 35);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 12;
+            this.customerNameTB.Location = new System.Drawing.Point(119, 35);
+            this.customerNameTB.Name = "customerNameTB";
+            this.customerNameTB.Size = new System.Drawing.Size(100, 20);
+            this.customerNameTB.TabIndex = 12;
             // 
             // label1
             // 
@@ -134,32 +135,40 @@
             this.label1.TabIndex = 11;
             this.label1.Text = "Customer Name";
             // 
-            // checkBox1
+            // activeCB
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(144, 178);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(56, 17);
-            this.checkBox1.TabIndex = 22;
-            this.checkBox1.Text = "Active";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.activeCB.AutoSize = true;
+            this.activeCB.Location = new System.Drawing.Point(143, 199);
+            this.activeCB.Name = "activeCB";
+            this.activeCB.Size = new System.Drawing.Size(56, 17);
+            this.activeCB.TabIndex = 22;
+            this.activeCB.Text = "Active";
+            this.activeCB.UseVisualStyleBackColor = true;
+            // 
+            // address2TB
+            // 
+            this.address2TB.Location = new System.Drawing.Point(119, 92);
+            this.address2TB.Name = "address2TB";
+            this.address2TB.Size = new System.Drawing.Size(100, 20);
+            this.address2TB.TabIndex = 23;
             // 
             // AddCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(262, 247);
-            this.Controls.Add(this.checkBox1);
+            this.ClientSize = new System.Drawing.Size(262, 278);
+            this.Controls.Add(this.address2TB);
+            this.Controls.Add(this.activeCB);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.phoneNumberTB);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.postalCodeTB);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.address1TB);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.customerNameTB);
             this.Controls.Add(this.label1);
             this.Name = "AddCustomer";
             this.Text = "AddCustomer";
@@ -173,14 +182,15 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox phoneNumberTB;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox postalCodeTB;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox address1TB;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox customerNameTB;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox activeCB;
+        private System.Windows.Forms.TextBox address2TB;
     }
 }

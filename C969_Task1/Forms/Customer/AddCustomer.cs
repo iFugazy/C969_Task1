@@ -24,7 +24,13 @@ namespace C969_Task1.Forms.Customer
 
         private void button1_Click(object sender, EventArgs e)
         {
-            db.AddCustomer("4", "Darren", "4", 1,  DateTime.Now, "admin", DateTime.Now, "admin");
+            db.AddCustomer(
+                customerNameTB.Text,
+                activeCB.Checked ? 1 : 0,
+                address1TB.Text,
+                address2TB.Text,
+                postalCodeTB.Text,
+                phoneNumberTB.Text);
         }
 
     }

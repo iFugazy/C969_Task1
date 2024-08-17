@@ -21,10 +21,12 @@ namespace C969_Task1
         public string connstring;
         public MySqlConnection cnn;
         MainCustomerForm addCustomerForm = new MainCustomerForm();
+
         public LoginForm()
         {
             InitializeComponent();
-            LoginModel.UserLocationString(this);           
+            LoginModel.UserLocationString(this);
+  
         }
 
         private void loginBTN_Click(object sender, EventArgs e)
@@ -54,13 +56,16 @@ namespace C969_Task1
             }
             else
             {
-                
+
                 MainForm main = new MainForm(usernameTB.Text);
+                addCustomerForm.userName = usernameTB.Text;
                 main.Show();
                 this.Hide();
+                
 
                 return;
-            }                    
+
+            }
         }
 
         private void spanishRBTN_CheckedChanged(object sender, EventArgs e)

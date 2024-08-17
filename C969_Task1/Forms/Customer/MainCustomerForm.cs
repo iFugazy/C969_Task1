@@ -17,10 +17,14 @@ namespace C969_Task1.Forms
     {
         DatabaseConnection db = new DatabaseConnection();
 
+        public string userName { get; set; }
+        public int customerID { get; set; }
+
+
         public MainCustomerForm()
         {
             InitializeComponent();
-
+            this.customerID = dataGridView1.Rows.Count;
             
 
         }
@@ -30,6 +34,8 @@ namespace C969_Task1.Forms
             
            
             db.RefreshData(db.mainTableString, dataGridView1);
+            
+
         }
 
         /// <summary>
@@ -97,11 +103,17 @@ namespace C969_Task1.Forms
             {
                 if (dataGridView1.CurrentRow.Cells[0].Value.ToString() == dr.GetValue(0).ToString())
                 {
+                   
                     id = int.Parse(dr.GetValue(0).ToString());
                 }
             }
             db.CloseConnection();
             return id;
+        }
+
+        public int GetRowCount()
+        {
+            return dataGridView1.Rows.Count;
         }
     }
 }
