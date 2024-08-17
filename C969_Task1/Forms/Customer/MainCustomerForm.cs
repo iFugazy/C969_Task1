@@ -32,15 +32,6 @@ namespace C969_Task1.Forms
             db.RefreshData(db.mainTableString, dataGridView1);
         }
 
-        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            //textBox1.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
-            
-            //MessageBox.Show(GetCustomerID().ToString());
-
-
-        }
-
         /// <summary>
         /// Deletes a customer from the database and refreshes the data grid view to show the changes
         /// </summary>

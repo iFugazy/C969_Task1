@@ -24,8 +24,7 @@ namespace C969_Task1.Forms.Customer
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string insertQuery = "INSERT INTO client_schedule.customer(customerID, customerName, addressId, active, createDate, createdBy, lastUpdate ) VALUES('" + main.dataGridView1.RowCount + 1 + "','" + textBox1.Text + "','" + 1 + "','" + 1 + "','" + "admin" + "','" + DateTime.Now + "')";
-            db.DBCommand(insertQuery);
+            db.AddCustomer("4", "Darren", "4", 1,  DateTime.Now, "admin", DateTime.Now, "admin");
         }
 
     }

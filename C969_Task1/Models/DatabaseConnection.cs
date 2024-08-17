@@ -11,8 +11,8 @@ namespace C969_Task1.Models
 {
     public class DatabaseConnection
     {
-        public string connstring = "datasource=127.0.0.1; port=3306; Username=root; Password=Giants12!";
-        //public string connstring = "server=localhost; user=sqlUser; pwd=Passw0rd!; Database=client_schedule";
+        //public string connstring = "datasource=127.0.0.1; port=3306; Username=root; Password=Giants12!";
+        public string connstring = "server=localhost; user=sqlUser; pwd=Passw0rd!; Database=client_schedule";
 
         public string mainTableString = "SELECT customer.customerID as \"Customer ID\",\r\ncustomer.customerName as \"Customer Name\", \r\naddress.address as \"Address\",\r\naddress.PostalCode as \"Postal Code\",\r\naddress.Phone as \"Phone Number\"\r\n\r\nFROM client_schedule.address, client_schedule.customer\r\n\r\nWhere customer.addressId = address.addressId;";
 
@@ -77,12 +77,15 @@ namespace C969_Task1.Models
             command2.ExecuteNonQuery();
         }
 
-        public void AddCustomer( string customerID, string customerName, string AddressID, bool active, DateTime createDate, string createdBy, DateTime lastUpdate, string lastUpdateBy )
+        public void AddCustomer( string customerID, string customerName, string AddressID, int active, DateTime createDate, string createdBy, DateTime lastUpdate, string lastUpdateBy )
         {
             MySqlConnection conn = GetConnection();
             conn.Open();
-            string insertQuery = "INSERT INTO client_schedule.customer VALUES('" + customerID + "', '" + customerName+ "', '" + AddressID + "', '" + active + "', '" + createDate + "', '" + createdBy + "', '" + lastUpdate + "', '" + lastUpdateBy + "')";
+            string insertQuery = "INSERT INTO client_schedule.customer VALUES('" + customerID + "', '" + customerName+ "', '" + AddressID + "', '" + active + "', current_date(), '" + createdBy + "', current_date(), '" + lastUpdateBy + "')";
+            string insertAddressQuery = "INSERT INTO client_schedule.address VALUES('" + AddressID + "', '213 Auburn',' ', '2', '12345', '123-1524', now(), '" + lastUpdateBy + "', now(), '" +lastUpdateBy + "')";
             MySqlCommand command = new MySqlCommand(insertQuery, conn);
+            MySqlCommand command2 = new MySqlCommand(insertAddressQuery, conn);
+            command2.ExecuteNonQuery();
             command.ExecuteNonQuery();
             
         }
