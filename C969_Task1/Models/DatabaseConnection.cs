@@ -102,7 +102,7 @@ namespace C969_Task1.Models
 
             List<string> Query = new List<string>
             {
-                "INSERT INTO client_schedule.address VALUES('" + customerID.ToString() + "','" + address1 + "' ,'" + address2 + "', '2', '12345', '123-1524', now(), '" + main.userName + "', now(), '" + main.userName + "')",
+                "INSERT INTO client_schedule.address VALUES('" + customerID.ToString() + "','" + address1 + "' ,'" + address2 + "', '2', '" + postal + "', '" + number +"', now(), '" + main.userName + "', now(), '" + main.userName + "')",
                 "INSERT INTO client_schedule.customer VALUES('" + customerID.ToString() + "', '" + customerName + "', '" + customerID.ToString() + "', '" + active + "', current_date(), '" + main.userName + "', current_date(), '" + main.userName + "')"
             };
 

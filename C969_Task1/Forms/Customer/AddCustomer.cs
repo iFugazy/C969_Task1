@@ -21,11 +21,19 @@ namespace C969_Task1.Forms.Customer
         {
             InitializeComponent();
             db.RefreshData(db.mainTableString, dataGridView1);
+            address1TB.BackColor = Color.IndianRed;
+            customerNameTB.BackColor = Color.IndianRed;
+            phoneNumberTB.BackColor = Color.IndianRed;
             
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if (customerNameTB.Text == "" || address1TB.Text == "" || phoneNumberTB.Text == "")
+            {
+                MessageBox.Show("Please fill out all required fields", "Error");
+                return;
+            }
 
             db.AddCustomer(
                 dataGridView1.Rows.Count + 1,
@@ -42,14 +50,31 @@ namespace C969_Task1.Forms.Customer
 
         private void button3_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
             main.Show();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
             main.Show();
+        }
+
+        private void customerNameTB_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            customerNameTB.BackColor = Color.White;
+        }
+
+        private void address1TB_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            customerNameTB.BackColor = Color.White;
+
+        }
+
+        private void phoneNumberTB_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            customerNameTB.BackColor = Color.White;
+
         }
     }
 }

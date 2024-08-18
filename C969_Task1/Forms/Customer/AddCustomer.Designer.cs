@@ -81,6 +81,7 @@
             this.phoneNumberTB.Name = "phoneNumberTB";
             this.phoneNumberTB.Size = new System.Drawing.Size(100, 20);
             this.phoneNumberTB.TabIndex = 18;
+            this.phoneNumberTB.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.phoneNumberTB_KeyPress);
             // 
             // label4
             // 
@@ -113,6 +114,7 @@
             this.address1TB.Name = "address1TB";
             this.address1TB.Size = new System.Drawing.Size(100, 20);
             this.address1TB.TabIndex = 14;
+            this.address1TB.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.address1TB_KeyPress);
             // 
             // label2
             // 
@@ -129,6 +131,7 @@
             this.customerNameTB.Name = "customerNameTB";
             this.customerNameTB.Size = new System.Drawing.Size(100, 20);
             this.customerNameTB.TabIndex = 12;
+            this.customerNameTB.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.customerNameTB_KeyPress);
             // 
             // label1
             // 
