@@ -41,24 +41,28 @@
             this.label1 = new System.Windows.Forms.Label();
             this.activeCB = new System.Windows.Forms.CheckBox();
             this.address2TB = new System.Windows.Forms.TextBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.button3 = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(11, 243);
+            this.button2.Location = new System.Drawing.Point(554, 243);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 21;
             this.button2.Text = "Cancel";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(134, 243);
+            this.button1.Location = new System.Drawing.Point(124, 243);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 20;
-            this.button1.Text = "Submit";
+            this.button1.Text = "Add";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -152,11 +156,38 @@
             this.address2TB.Size = new System.Drawing.Size(100, 20);
             this.address2TB.TabIndex = 23;
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(237, 8);
+            this.dataGridView1.MultiSelect = false;
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(482, 208);
+            this.dataGridView1.TabIndex = 24;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(644, 243);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 25;
+            this.button3.Text = "Submit";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // AddCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(262, 278);
+            this.ClientSize = new System.Drawing.Size(731, 278);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.address2TB);
             this.Controls.Add(this.activeCB);
             this.Controls.Add(this.button2);
@@ -172,6 +203,7 @@
             this.Controls.Add(this.label1);
             this.Name = "AddCustomer";
             this.Text = "AddCustomer";
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -192,5 +224,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.CheckBox activeCB;
         private System.Windows.Forms.TextBox address2TB;
+        public System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button button3;
     }
 }

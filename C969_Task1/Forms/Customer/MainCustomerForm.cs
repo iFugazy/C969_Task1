@@ -91,6 +91,7 @@ namespace C969_Task1.Forms
         {
             AddCustomer addCustomer = new AddCustomer();
             addCustomer.Show();
+            this.Hide();
         }
 
         public int GetCustomerID()

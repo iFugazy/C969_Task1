@@ -96,16 +96,10 @@ namespace C969_Task1.Models
         /// <param name="createdBy"></param>
         /// <param name="lastUpdate"></param>
         /// <param name="lastUpdateBy"></param>
-        public void AddCustomer(string customerName, int active, string address1, string address2, string postal, string number )
+        public void AddCustomer(int customerID, string customerName, int active, string address1, string address2, string postal, string number )
         {
             MainCustomerForm main = new MainCustomerForm();
 
-            string query = "SELECT customerID FROM client_schedule.customer";
-            MySqlDataReader dr = DBCommand(query).ExecuteReader();
-            MySqlCommand command = GetConnection().CreateCommand();
-            int custID = RowCount;
-            MessageBox.Show(custID.ToString());
-            /*int customerID = main.dataGridView1.Rows.Count + 1;
             List<string> Query = new List<string>
             {
                 "INSERT INTO client_schedule.address VALUES('" + customerID.ToString() + "','" + address1 + "' ,'" + address2 + "', '2', '12345', '123-1524', now(), '" + main.userName + "', now(), '" + main.userName + "')",
@@ -118,7 +112,7 @@ namespace C969_Task1.Models
             {
                 MySqlCommand command = new MySqlCommand(query, conn);
                 command.ExecuteNonQuery();
-            }*/
+            }
 
         }
     }

@@ -20,19 +20,37 @@ namespace C969_Task1.Forms.Customer
         public AddCustomer()
         {
             InitializeComponent();
+            db.RefreshData(db.mainTableString, dataGridView1);
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+
             db.AddCustomer(
+                dataGridView1.Rows.Count + 1,
                 customerNameTB.Text,
                 activeCB.Checked ? 1 : 0,
                 address1TB.Text,
                 address2TB.Text,
                 postalCodeTB.Text,
                 phoneNumberTB.Text);
+
+            db.RefreshData(db.mainTableString, dataGridView1);
+
         }
 
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            main.Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            main.Show();
+        }
     }
 }
     
