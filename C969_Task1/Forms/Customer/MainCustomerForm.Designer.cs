@@ -41,18 +41,18 @@
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(36, 25);
+            this.dataGridView1.Location = new System.Drawing.Point(36, 22);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(396, 340);
+            this.dataGridView1.Size = new System.Drawing.Size(632, 340);
             this.dataGridView1.TabIndex = 0;
             // 
             // addBTN
             // 
-            this.addBTN.Location = new System.Drawing.Point(36, 392);
+            this.addBTN.Location = new System.Drawing.Point(36, 382);
             this.addBTN.Name = "addBTN";
             this.addBTN.Size = new System.Drawing.Size(104, 23);
             this.addBTN.TabIndex = 1;
@@ -62,7 +62,7 @@
             // 
             // editBTN
             // 
-            this.editBTN.Location = new System.Drawing.Point(186, 392);
+            this.editBTN.Location = new System.Drawing.Point(315, 382);
             this.editBTN.Name = "editBTN";
             this.editBTN.Size = new System.Drawing.Size(95, 23);
             this.editBTN.TabIndex = 2;
@@ -72,7 +72,7 @@
             // 
             // deleteBTN
             // 
-            this.deleteBTN.Location = new System.Drawing.Point(321, 392);
+            this.deleteBTN.Location = new System.Drawing.Point(557, 382);
             this.deleteBTN.Name = "deleteBTN";
             this.deleteBTN.Size = new System.Drawing.Size(111, 23);
             this.deleteBTN.TabIndex = 3;
@@ -84,7 +84,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(471, 450);
+            this.ClientSize = new System.Drawing.Size(701, 428);
             this.Controls.Add(this.deleteBTN);
             this.Controls.Add(this.editBTN);
             this.Controls.Add(this.addBTN);
