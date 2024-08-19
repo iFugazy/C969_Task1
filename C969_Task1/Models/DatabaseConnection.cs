@@ -44,7 +44,7 @@ namespace C969_Task1.Models
             conn.Open();
             MySqlCommand command = new MySqlCommand(query, conn);
             command.ExecuteNonQuery();
-            
+
 
             return command;
         }
@@ -96,7 +96,7 @@ namespace C969_Task1.Models
         /// <param name="createdBy"></param>
         /// <param name="lastUpdate"></param>
         /// <param name="lastUpdateBy"></param>
-        public void AddCustomer(int customerID, string customerName, int active, string address1, string address2, string postal, string number )
+        public void AddCustomer(int customerID, string customerName, int active, string address1, string address2, string postal, string number)
         {
             MainCustomerForm main = new MainCustomerForm();
 

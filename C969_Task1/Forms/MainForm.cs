@@ -13,12 +13,12 @@ namespace C969_Task1
 {
     public partial class MainForm : Form
     {
-        
+
         public string userName { get; set; }
         public MainForm(string username)
         {
             InitializeComponent();
-            
+
             this.userName = username;
         }
 
@@ -26,7 +26,7 @@ namespace C969_Task1
         {
             LoginForm login = new LoginForm();
             label1.Text = $"Welcome {userName}!";
-            
+
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
