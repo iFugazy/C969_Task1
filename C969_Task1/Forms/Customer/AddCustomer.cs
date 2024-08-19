@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using C969_Task1.Models;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,22 +14,68 @@ namespace C969_Task1.Forms.Customer
 {
     public partial class AddCustomer : Form
     {
-        MySqlConnection conn = new MySqlConnection("server=localhost; user=sqlUser; pwd=Passw0rd!; Database=client_schedule");
+        DatabaseConnection db = new DatabaseConnection();
         MainCustomerForm main = new MainCustomerForm();
 
         public AddCustomer()
         {
             InitializeComponent();
+            db.RefreshData(db.mainTableString, dataGridView1);
+            address1TB.BackColor = Color.IndianRed;
+            customerNameTB.BackColor = Color.IndianRed;
+            phoneNumberTB.BackColor = Color.IndianRed;
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string insertQuery = "INSERT INTO client_schedule.customer(customerID, customerName, addressId, active, createDate, createdBy, lastUpdate ) VALUES('" + main.dataGridView1.RowCount + 1 + "','" + textBox1.Text + "','" + 1 + "','" + 1 + "','" + DateTime.Now + "','" + "admin" + "','" + DateTime.Now + "')";
-            conn.Open();
-            MySqlCommand command = new MySqlCommand(insertQuery, conn);
-            command.ExecuteNonQuery();
-            conn.Close();
+            if (customerNameTB.Text == "" || address1TB.Text == "" || phoneNumberTB.Text == "")
+            {
+                MessageBox.Show("Please fill out all required fields", "Error");
+                return;
+            }
+
+            db.AddCustomer(
+                dataGridView1.Rows.Count + 1,
+                customerNameTB.Text,
+                activeCB.Checked ? 1 : 0,
+                address1TB.Text,
+                address2TB.Text,
+                postalCodeTB.Text,
+                phoneNumberTB.Text);
+
+            db.RefreshData(db.mainTableString, dataGridView1);
+
         }
 
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            main.Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            main.Show();
+        }
+
+        private void customerNameTB_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            customerNameTB.BackColor = Color.White;
+        }
+
+        private void address1TB_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            customerNameTB.BackColor = Color.White;
+
+        }
+
+        private void phoneNumberTB_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            customerNameTB.BackColor = Color.White;
+
+        }
     }
 }
+    
