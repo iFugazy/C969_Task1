@@ -10,7 +10,7 @@ using IpData.Models;
 
 namespace C969_Task1.Models
 {
-    public static class LoginModel
+    public static class User
     {
         public static TimeZoneInfo localZone = TimeZoneInfo.Local;
         public static DateTime localDataTime = DateTime.Now;
