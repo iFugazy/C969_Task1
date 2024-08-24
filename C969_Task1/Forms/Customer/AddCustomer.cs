@@ -46,6 +46,9 @@ namespace C969_Task1.Forms.Customer
 
             db.RefreshData(db.mainTableString, dataGridView1);
 
+
+
+
         }
 
         private void button3_Click(object sender, EventArgs e)

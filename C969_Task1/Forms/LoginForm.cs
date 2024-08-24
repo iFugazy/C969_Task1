@@ -28,20 +28,23 @@ namespace C969_Task1
             User.UserLocationString(this);           
         }
 
+
+
         private void loginBTN_Click(object sender, EventArgs e)
         {
             int i = 0;
 
-            MySqlCommand cmd = cnn.CreateCommand();
+           /* MySqlCommand cmd = cnn.CreateCommand();
             cmd.CommandType = CommandType.Text;
             cmd.CommandText = "select * from client_schedule.user where userName='" + usernameTB.Text + "' and password= '" + passwordTB.Text + "'";
             cmd.ExecuteNonQuery();
             DataTable dt = new DataTable();
             MySqlDataAdapter da = new MySqlDataAdapter(cmd);
             da.Fill(dt);
-            i = Convert.ToInt32(dt.Rows.Count.ToString());
+            i = Convert.ToInt32(dt.Rows.Count.ToString());*/
 
-            if (i == 0)
+
+            /*if (i == 0)
             {
                 if (spanishRBTN.Checked is true)
                 {
@@ -64,12 +67,21 @@ namespace C969_Task1
 
                 return;
 
-            }
+            }*/
+
+            User user = new User();
+            user.CheckUser(usernameTB.Text, passwordTB.Text);
+
+            MessageBox.Show("Welcome " + user.userName + "!");
+
+            MainCustomerForm main = new MainCustomerForm();
+            main.Show();
+            this.Hide();
         }
 
         private void spanishRBTN_CheckedChanged(object sender, EventArgs e)
         {
-            User.LoginTranslator(this);
+            /*User.LoginTranslator(this);*/
         }
 
         private void cancelBTN_Click(object sender, EventArgs e)

@@ -1,4 +1,5 @@
 ﻿using C969_Task1.Forms;
+using C969_Task1.Forms.Customer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +18,7 @@ namespace C969_Task1
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainCustomerForm());
+            Application.Run(new AddCustomer());
         }
     }
 }
