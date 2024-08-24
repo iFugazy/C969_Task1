@@ -13,7 +13,6 @@ namespace C969_Task1.Models
         public string enteredCountry { get; set; }
         DatabaseConnection db = new DatabaseConnection();
 
-
         public Country(string enteredCountry)
         {
             this.enteredCountry = enteredCountry;
@@ -26,22 +25,20 @@ namespace C969_Task1.Models
             }
         }
 
-        public void CheckCountries()
+        public int CheckCountries()
         {
 
             foreach (string country in countries)
             {
                 if (enteredCountry == country)
                 {
-                    break;
+                    return GetCountryID();
                 }
-                else
-                {
-                    AddCountry();
-                    return;
-
-                }
+                
             }
+            int countryID = NewCountryID();
+            AddCountry();
+            return countryID;
         }
 
         public int GetCountryID()
@@ -63,14 +60,21 @@ namespace C969_Task1.Models
         public void AddCountry()
         {
             string query = $"INSERT INTO country (countryId, country, createDate, createdBy, lastUpdate, lastUpdateBy) VALUES ('{NewCountryID()}','{enteredCountry}', now(), '{User.userName}', now(), '{User.userName}')";
-            db.DBCommand(query).ExecuteNonQuery();
+            try
+            {
+                db.DBCommand(query).ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         public int NewCountryID()
         {
             int newCountryID = 0;
 
-            string query = "SELECT MAX(cityId) FROM city";
+            string query = "SELECT MAX(countryId) FROM country";
 
             MySqlDataReader rdr = db.DBCommand(query).ExecuteReader();
             while (rdr.Read())

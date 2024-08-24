@@ -30,7 +30,8 @@ namespace C969_Task1.Forms.Customer
 
         private void button1_Click(object sender, EventArgs e)
         {
-            City city = new City(cityCB.Text);
+            City city = new City(cityCB.Text, countryCB.Text);
+            
 
             if (customerNameTB.Text == "" || address1TB.Text == "" || phoneNumberTB.Text == "")
             {

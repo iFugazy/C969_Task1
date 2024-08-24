@@ -13,12 +13,16 @@ namespace C969_Task1.Models
     {
         List<String> cities = new List<String>();
         public string enteredCity { get; set; }
+        public string enteredCountry { get; set; }  
+        
         AddCustomer addCustomer = new AddCustomer();
         DatabaseConnection db = new DatabaseConnection();
-        public City(string enteredCity)
+        public City(string enteredCity, string enteredCountry)
         {
             this.enteredCity = enteredCity;
-
+            this.enteredCountry = enteredCountry;
+  
+            Country country = new Country(enteredCountry);
             string query = "SELECT * FROM city";
             MySqlDataReader rdr = db.DBCommand(query).ExecuteReader();
             while (rdr.Read())
@@ -64,7 +68,9 @@ namespace C969_Task1.Models
 
         public void AddCity()
         {
-            string query = $"INSERT INTO city (cityId, city, countryId, createDate, createdBy, lastUpdate, lastUpdateBy) VALUES ('{NewCityID()}','{enteredCity}', 1, '{DateTime.Now.ToUniversalTime().ToString("yyyy-MM-dd HH:mm:ss")}', '{User.userName}', '{DateTime.Now.ToUniversalTime().ToString("yyyy-MM-dd HH:mm:ss")}', '{User.userName}')";
+            
+            Country country = new Country(enteredCountry);
+            string query = $"INSERT INTO city (cityId, city, countryId, createDate, createdBy, lastUpdate, lastUpdateBy) VALUES ('{NewCityID()}','{enteredCity}', '{country.CheckCountries()}', '{DateTime.Now.ToUniversalTime().ToString("yyyy-MM-dd HH:mm:ss")}', '{User.userName}', '{DateTime.Now.ToUniversalTime().ToString("yyyy-MM-dd HH:mm:ss")}', '{User.userName}')";
             try
             {
                 db.DBCommand(query).ExecuteNonQuery();
