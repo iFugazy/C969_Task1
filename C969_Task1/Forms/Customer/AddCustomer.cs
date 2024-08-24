@@ -46,8 +46,11 @@ namespace C969_Task1.Forms.Customer
 
             db.RefreshData(db.mainTableString, dataGridView1);
 */
-            City city = new City(cityCB.Text);
-            city.AddCity();
+            /*City city = new City(cityCB.Text);
+            city.AddCity();*/
+
+            
+            MessageBox.Show(User.userName);
 
 
         }

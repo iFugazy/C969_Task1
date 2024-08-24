@@ -23,14 +23,14 @@ namespace C969_Task1.Models
 
         static string ipdataAPIKey = "ba3ee9df74076016dd30fdcbf4f68d15aff80eaec98e3fdc45b5243b";
 
-        public int userID { get; set; }
-        public string userName { get; set; }
-        public string password { get; set; }
-        public int active { get; set; }
-        public DateTime createDate { get; set; }
-        public string createdBy { get; set; }
-        public DateTime lastUpdate { get; set; }
-        public string lastUpdateBy { get; set; }
+        public static int userID { get; set; }
+        public static string userName { get; set; }
+        public static string password { get; set; }
+        public static int active { get; set; }
+        public static DateTime createDate { get; set; }
+        public static string createdBy { get; set; }
+        public static DateTime lastUpdate { get; set; }
+        public static string lastUpdateBy { get; set; }
 
 
         public async static void UserLocationString(LoginForm loginForm)
@@ -44,11 +44,13 @@ namespace C969_Task1.Models
             
         }
 
-        public  User()
+        public  User(string userName, string password)
         {
+            User.userName = userName;
+            User.password = password;
         }
 
-        public void CheckUser(string userName, string password)
+        public static void CheckUser(string userName, string password)
         {
 
 
@@ -63,14 +65,14 @@ namespace C969_Task1.Models
             {
                 if (rdr.HasRows)
                 {
-                    this.userID = Convert.ToInt32(rdr["userId"]);
-                    this.userName = rdr["userName"].ToString();
-                    this.password = rdr["password"].ToString();
-                    this.active = Convert.ToInt32(rdr["active"]);
-                    this.createDate = Convert.ToDateTime(rdr["createDate"]);
-                    this.createdBy = rdr["createdBy"].ToString();
-                    this.lastUpdate = Convert.ToDateTime(rdr["lastUpdate"]);
-                    this.lastUpdateBy = rdr["lastUpdateBy"].ToString();
+                    User.userID = Convert.ToInt32(rdr["userId"]);
+                    User.userName = rdr["userName"].ToString();
+                    User.password = rdr["password"].ToString();
+                    User.active = Convert.ToInt32(rdr["active"]);
+                    User.createDate = Convert.ToDateTime(rdr["createDate"]);
+                    User.createdBy = rdr["createdBy"].ToString();
+                    User.lastUpdate = Convert.ToDateTime(rdr["lastUpdate"]);
+                    User.lastUpdateBy = rdr["lastUpdateBy"].ToString();
                 }
             }
         }

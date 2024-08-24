@@ -69,10 +69,10 @@ namespace C969_Task1
 
             }*/
 
-            User user = new User();
-            user.CheckUser(usernameTB.Text, passwordTB.Text);
+            
+            User.CheckUser(usernameTB.Text, passwordTB.Text);
 
-            MessageBox.Show("Welcome " + user.userName + "!");
+            MessageBox.Show("Welcome " + User.userName + "!");
 
             MainCustomerForm main = new MainCustomerForm();
             main.Show();

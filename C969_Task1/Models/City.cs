@@ -39,7 +39,7 @@ namespace C969_Task1.Models
                 }
                 else
                 {
-                    AddCity();
+                    AddCity;
                    
                 }
 
@@ -65,7 +65,7 @@ namespace C969_Task1.Models
 
         public void AddCity()
         {
-            string query = $"INSERT INTO city (cityId, city, countryId, createDate, createdBy, lastUpdate, lastUpdateBy) VALUES ('{NewCityID()}','{enteredCity}', 1, '{DateTime.Now.ToUniversalTime().ToString("yyyy-MM-dd HH:mm:ss")}', 'admin', '{DateTime.Now.ToUniversalTime().ToString("yyyy-MM-dd HH:mm:ss")}', 'admin')";
+            string query = $"INSERT INTO city (cityId, city, countryId, createDate, createdBy, lastUpdate, lastUpdateBy) VALUES ('{NewCityID()}','{enteredCity}', 1, '{DateTime.Now.ToUniversalTime().ToString("yyyy-MM-dd HH:mm:ss")}', '{User.userName}', '{DateTime.Now.ToUniversalTime().ToString("yyyy-MM-dd HH:mm:ss")}', '{User.userName}')";
             try
             {
                 db.DBCommand(query).ExecuteNonQuery();
