@@ -274,7 +274,7 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label cityLabel;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox cityCB;
-        private System.Windows.Forms.ComboBox countryCB;
+        public System.Windows.Forms.ComboBox cityCB;
+        public System.Windows.Forms.ComboBox countryCB;
     }
 }

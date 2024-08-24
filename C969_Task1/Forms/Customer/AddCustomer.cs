@@ -29,7 +29,7 @@ namespace C969_Task1.Forms.Customer
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (customerNameTB.Text == "" || address1TB.Text == "" || phoneNumberTB.Text == "")
+            /*if (customerNameTB.Text == "" || address1TB.Text == "" || phoneNumberTB.Text == "")
             {
                 MessageBox.Show("Please fill out all required fields", "Error");
                 return;
@@ -45,8 +45,9 @@ namespace C969_Task1.Forms.Customer
                 phoneNumberTB.Text);
 
             db.RefreshData(db.mainTableString, dataGridView1);
-
-
+*/
+            City city = new City(cityCB.Text);
+            city.AddCity();
 
 
         }
