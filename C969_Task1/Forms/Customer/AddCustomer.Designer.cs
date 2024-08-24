@@ -248,6 +248,7 @@
             this.Controls.Add(this.label1);
             this.Name = "AddCustomer";
             this.Text = "AddCustomer";
+            this.Load += new System.EventHandler(this.AddCustomer_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -79,6 +79,26 @@ namespace C969_Task1.Forms.Customer
             customerNameTB.BackColor = Color.White;
 
         }
+
+        private void AddCustomer_Load(object sender, EventArgs e)
+        {
+            string query = "SELECT * FROM client_schedule.city";
+            string query2 = "SELECT * FROM client_schedule.country";
+     
+            MySqlDataReader dr = db.DBCommand(query).ExecuteReader();
+            MySqlDataReader dr2 = db.DBCommand(query2).ExecuteReader();
+
+            while (dr.Read())
+            {
+                cityCB.Items.Add(dr.GetValue(1).ToString());
+                
+            }
+
+            while (dr2.Read())
+            {
+                countryCB.Items.Add(dr2.GetValue(1).ToString());
+            }
+        }
     }
 }
     
