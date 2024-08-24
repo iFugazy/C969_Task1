@@ -260,21 +260,21 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox phoneNumberTB;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox postalCodeTB;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox address1TB;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox customerNameTB;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.CheckBox activeCB;
-        private System.Windows.Forms.TextBox address2TB;
         public System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label cityLabel;
         private System.Windows.Forms.Label label7;
         public System.Windows.Forms.ComboBox cityCB;
         public System.Windows.Forms.ComboBox countryCB;
+        public System.Windows.Forms.TextBox phoneNumberTB;
+        public System.Windows.Forms.TextBox postalCodeTB;
+        public System.Windows.Forms.TextBox address1TB;
+        public System.Windows.Forms.TextBox customerNameTB;
+        public System.Windows.Forms.TextBox address2TB;
+        public System.Windows.Forms.CheckBox activeCB;
     }
 }

@@ -98,13 +98,13 @@ namespace C969_Task1.Models
         /// <param name="createdBy"></param>
         /// <param name="lastUpdate"></param>
         /// <param name="lastUpdateBy"></param>
-        public void AddCustomer(int customerID, string customerName, int active, string address1, string address2, string postal, string number)
+        public void AddCustomer(int customerID, string customerName, int active, string address1, string address2, string cityId, string postal, string number)
         {
             MainCustomerForm main = new MainCustomerForm();
 
             List<string> Query = new List<string>
             {
-                "INSERT INTO client_schedule.address VALUES('" + customerID.ToString() + "','" + address1 + "' ,'" + address2 + "', '2', '" + postal + "', '" + number +"', now(), '" + User.userName + "', now(), '" + User.userName + "')",
+                $"INSERT INTO client_schedule.address VALUES('" + customerID.ToString() + "','" + address1 + "' ,'" + address2 + "', '" + cityId +"', '" + postal + "', '" + number +"', now(), '" + User.userName + "', now(), '" + User.userName + "')",
                 "INSERT INTO client_schedule.customer VALUES('" + customerID.ToString() + "', '" + customerName + "', '" + customerID.ToString() + "', '" + active + "', current_date(), '" + User.userName + "', current_date(), '" + User.userName + "')"
             };
 

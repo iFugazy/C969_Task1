@@ -15,7 +15,7 @@ namespace C969_Task1.Models
         public string enteredCity { get; set; }
         AddCustomer addCustomer = new AddCustomer();
         DatabaseConnection db = new DatabaseConnection();
-        public City(string enteredCity) 
+        public City(string enteredCity)
         {
             this.enteredCity = enteredCity;
 
@@ -27,40 +27,39 @@ namespace C969_Task1.Models
             }
         }
 
-        public void CheckCities()
+        public int CheckCities()
         {
-            
+
             foreach (string city in cities)
             {
-               if (enteredCity == city)
+                if (enteredCity == city)
                 {
-                    MessageBox.Show("City already exists");
-                    return;
+                    
+                    return GetCityID();
                 }
-                else
-                {
-                    AddCity;
-                   
-                }
-
 
             }
+            int cityID = NewCityID();
+            AddCity();
+            return cityID;
         }
 
         public int GetCityID()
         {
+
             string query = $"SELECT cityID FROM city WHERE city = '{enteredCity}'";
             MySqlDataReader rdr = db.DBCommand(query).ExecuteReader();
             rdr.Read();
-            if(rdr.HasRows)
+            if (rdr.HasRows)
             {
                 return Convert.ToInt32(rdr.GetValue(0));
             }
-            else
-            {
-                return 0;
-            }
-            
+
+            return 0;
+
+
+
+
         }
 
         public void AddCity()
@@ -71,31 +70,30 @@ namespace C969_Task1.Models
                 db.DBCommand(query).ExecuteNonQuery();
 
             }
-            catch 
+            catch
             {
-                
+
             }
         }
 
         public int NewCityID()
         {
 
-            int newAddressID = 0;
+            int newCityID = 0;
 
             string query = "SELECT MAX(cityId) FROM city";
 
             MySqlDataReader rdr = db.DBCommand(query).ExecuteReader();
             while (rdr.Read())
             {
-                newAddressID = Convert.ToInt32(rdr.GetValue(0)) + 1;
+                newCityID = Convert.ToInt32(rdr.GetValue(0)) + 1;
             }
-            
+
             rdr.Close();
             
-
-            return newAddressID;
-
+            return newCityID;
         }
+
 
     }
 }

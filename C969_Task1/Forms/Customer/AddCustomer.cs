@@ -17,6 +17,7 @@ namespace C969_Task1.Forms.Customer
         DatabaseConnection db = new DatabaseConnection();
         MainCustomerForm main = new MainCustomerForm();
 
+
         public AddCustomer()
         {
             InitializeComponent();
@@ -29,7 +30,9 @@ namespace C969_Task1.Forms.Customer
 
         private void button1_Click(object sender, EventArgs e)
         {
-            /*if (customerNameTB.Text == "" || address1TB.Text == "" || phoneNumberTB.Text == "")
+            City city = new City(cityCB.Text);
+
+            if (customerNameTB.Text == "" || address1TB.Text == "" || phoneNumberTB.Text == "")
             {
                 MessageBox.Show("Please fill out all required fields", "Error");
                 return;
@@ -41,16 +44,13 @@ namespace C969_Task1.Forms.Customer
                 activeCB.Checked ? 1 : 0,
                 address1TB.Text,
                 address2TB.Text,
+                city.CheckCities().ToString(),
                 postalCodeTB.Text,
                 phoneNumberTB.Text);
 
             db.RefreshData(db.mainTableString, dataGridView1);
-*/
-            /*City city = new City(cityCB.Text);
-            city.AddCity();*/
 
-            
-            MessageBox.Show(User.userName);
+
 
 
         }
