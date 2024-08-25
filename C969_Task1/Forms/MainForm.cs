@@ -23,6 +23,7 @@ namespace C969_Task1
             this.userName = username;
 
             dataGridView1.DataSource = Appointment.AppointmentsByWeek();
+            dataGridView2.DataSource = Appointment.AppointmentsByUser(User.userID);
         }
 
         private void MainForm_Load(object sender, EventArgs e)

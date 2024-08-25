@@ -74,7 +74,7 @@ namespace C969_Task1
 
             MessageBox.Show("Welcome " + User.userName + "!");
 
-            MainCustomerForm main = new MainCustomerForm();
+            MainForm main = new MainForm(User.userName);
             main.Show();
             this.Hide();
         }
