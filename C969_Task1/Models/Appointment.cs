@@ -65,5 +65,55 @@ namespace C969_Task1.Models
 
             return appointmentInfo;
         }
+
+        public static DataTable AppointmentsByMonth()
+        {
+            DatabaseConnection db = new DatabaseConnection();
+
+            appointmentInfo.Clear();
+
+            string Query = "SELECT appointmentID, customerID, userID, title, description, contact, url, start, end FROM appointment WHERE MONTH(start) = MONTH(CURRENT_DATE())";
+
+            MySqlDataAdapter adapter = new MySqlDataAdapter(db.DBCommand(Query));
+
+            adapter.Fill(appointmentInfo);
+
+            foreach (DataRow row in appointmentInfo.Rows)
+            {
+
+                DateTime start = (DateTime)appointmentInfo.Rows[0]["start"];
+                appointmentInfo.Rows[0]["start"] = start.ToLocalTime();
+
+                DateTime end = (DateTime)appointmentInfo.Rows[0]["start"];
+                appointmentInfo.Rows[0]["start"] = start.ToLocalTime();
+            }
+
+            return appointmentInfo;
+        }
+
+        public static DataTable AppointmentsByWeek()
+        {
+            DatabaseConnection db = new DatabaseConnection();
+
+            appointmentInfo.Clear();
+
+            string Query = "SELECT appointmentID, customerID, userID, title, description, contact, url, start, end FROM appointment WHERE WEEK(start) = WEEK(CURRENT_DATE())";
+
+            MySqlDataAdapter adapter = new MySqlDataAdapter(db.DBCommand(Query));
+
+            adapter.Fill(appointmentInfo);
+
+            foreach (DataRow row in appointmentInfo.Rows)
+            {
+
+                DateTime start = (DateTime)appointmentInfo.Rows[0]["start"];
+                appointmentInfo.Rows[0]["start"] = start.ToLocalTime();
+
+                DateTime end = (DateTime)appointmentInfo.Rows[0]["start"];
+                appointmentInfo.Rows[0]["start"] = start.ToLocalTime();
+            }
+
+            return appointmentInfo;
+        }
     }
 }
