@@ -7,6 +7,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -23,8 +24,12 @@ namespace C969_Task1.Forms.Customer
             InitializeComponent();
             db.RefreshData(db.mainTableString, dataGridView1);
             address1TB.BackColor = Color.IndianRed;
+            postalCodeTB.BackColor = Color.IndianRed;
             customerNameTB.BackColor = Color.IndianRed;
             phoneNumberTB.BackColor = Color.IndianRed;
+            cityCB.BackColor = Color.IndianRed;
+            countryCB.BackColor = Color.IndianRed;
+
             
         }
 
@@ -75,28 +80,64 @@ namespace C969_Task1.Forms.Customer
 
         private void address1TB_KeyPress(object sender, KeyPressEventArgs e)
         {
-            customerNameTB.BackColor = Color.White;
+            address1TB.BackColor = Color.White;
 
+        }
+        private void postalCodeTB_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            postalCodeTB.BackColor = Color.White;
         }
 
         private void phoneNumberTB_KeyPress(object sender, KeyPressEventArgs e)
         {
-            customerNameTB.BackColor = Color.White;
+            var regex = new Regex(@"[^0-9-\b]");
+            if (regex.IsMatch(e.KeyChar.ToString()))
+            {
+                e.Handled = true;
+            }
+            phoneNumberTB.BackColor = Color.White;
 
+        }
+        
+
+        private void cityCB_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            cityCB.BackColor = Color.White;
+        }
+
+        private void cityCB_Leave(object sender, EventArgs e)
+        {
+            if (cityCB.Text == "")
+            {
+                cityCB.BackColor = Color.IndianRed;
+            }
+        }
+
+        private void countryCB_Leave(object sender, EventArgs e)
+        {
+            if (countryCB.Text == "")
+            {
+                countryCB.BackColor = Color.IndianRed;
+            }
+        }
+
+        private void countryCB_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            countryCB.BackColor = Color.White;
         }
 
         private void AddCustomer_Load(object sender, EventArgs e)
         {
             string query = "SELECT * FROM client_schedule.city";
             string query2 = "SELECT * FROM client_schedule.country";
-     
+
             MySqlDataReader dr = db.DBCommand(query).ExecuteReader();
             MySqlDataReader dr2 = db.DBCommand(query2).ExecuteReader();
 
             while (dr.Read())
             {
                 cityCB.Items.Add(dr.GetValue(1).ToString());
-                
+
             }
 
             while (dr2.Read())
@@ -104,6 +145,8 @@ namespace C969_Task1.Forms.Customer
                 countryCB.Items.Add(dr2.GetValue(1).ToString());
             }
         }
+
+
     }
 }
     

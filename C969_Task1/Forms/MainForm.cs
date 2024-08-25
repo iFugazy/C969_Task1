@@ -1,4 +1,5 @@
 ﻿using C969_Task1.Forms;
+using C969_Task1.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,12 +21,14 @@ namespace C969_Task1
             InitializeComponent();
 
             this.userName = username;
+
+            dataGridView1.DataSource = Appointment.AllAppointments();
         }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
             LoginForm login = new LoginForm();
-            label1.Text = $"Welcome {userName}!";
+            //label1.Text = $"Welcome {userName}!";
 
         }
 

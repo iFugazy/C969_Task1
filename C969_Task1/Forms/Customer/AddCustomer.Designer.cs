@@ -102,6 +102,7 @@
             this.postalCodeTB.Name = "postalCodeTB";
             this.postalCodeTB.Size = new System.Drawing.Size(121, 20);
             this.postalCodeTB.TabIndex = 16;
+            this.postalCodeTB.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.postalCodeTB_KeyPress);
             // 
             // label3
             // 
@@ -213,6 +214,8 @@
             this.cityCB.Name = "cityCB";
             this.cityCB.Size = new System.Drawing.Size(121, 21);
             this.cityCB.TabIndex = 29;
+            this.cityCB.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cityCB_KeyPress);
+            this.cityCB.Leave += new System.EventHandler(this.cityCB_Leave);
             // 
             // countryCB
             // 
@@ -221,6 +224,8 @@
             this.countryCB.Name = "countryCB";
             this.countryCB.Size = new System.Drawing.Size(121, 21);
             this.countryCB.TabIndex = 30;
+            this.countryCB.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.countryCB_KeyPress);
+            this.countryCB.Leave += new System.EventHandler(this.countryCB_Leave);
             // 
             // AddCustomer
             // 
