@@ -15,7 +15,7 @@ namespace C969_Task1.Models
         public int userID { get; set; }
         public string title { get; set; }
         public string description { get; set; }
-        public string  contact { get; set; }
+        public string contact { get; set; }
         public string url { get; set; }
         public DateTime start { get; set; }
         public DateTime end { get; set; }
@@ -49,7 +49,7 @@ namespace C969_Task1.Models
             appointmentInfo.Clear();
 
             string Query = "SELECT appointmentID, customerID, userID, title, description, contact, url, start, end FROM appointment";
-            
+
             MySqlDataAdapter adapter = new MySqlDataAdapter(db.DBCommand(Query));
 
             adapter.Fill(appointmentInfo);
@@ -167,6 +167,8 @@ namespace C969_Task1.Models
             string Query = $"DELETE FROM appointment WHERE appointmentID = {appointmentID}";
 
             db.DBCommand(Query);
+
+
         }
 
         public static int NewAppointmentID()
@@ -184,6 +186,27 @@ namespace C969_Task1.Models
             {
                 return 0;
             }
+
+        }
+
+        public static void RefreshDataNonUser(DataTable table, System.Windows.Forms.DataGridView dataGridView)
+        {
+
+            dataGridView.DataSource = table;
+        }
+
+        public static void RefreshDataUser(DataTable table, System.Windows.Forms.DataGridView dataGridView)
+        {
+            DatabaseConnection db = new DatabaseConnection();
+
+            table.Clear();
+
+            MySqlDataAdapter adapter = new MySqlDataAdapter(db.DBCommand("SELECT * FROM appointment"));
+
+            adapter.Fill(table);
+
+            dataGridView.DataSource = table;
+        }
 
     }
 }

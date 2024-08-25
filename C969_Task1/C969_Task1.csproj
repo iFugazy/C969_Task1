@@ -122,6 +122,12 @@
     <Compile Include="Forms\Customer\EditCustomer.Designer.cs">
       <DependentUpon>EditCustomer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Customer\MainAppointmentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Customer\MainAppointmentForm.Designer.cs">
+      <DependentUpon>MainAppointmentForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Customer\MainCustomerForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -152,6 +158,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Customer\EditCustomer.resx">
       <DependentUpon>EditCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Customer\MainAppointmentForm.resx">
+      <DependentUpon>MainAppointmentForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Customer\MainCustomerForm.resx">
       <DependentUpon>MainCustomerForm.cs</DependentUpon>
@@ -194,6 +203,9 @@
     <None Include="Resources\icons8-home-50 %281%29.png" />
     <None Include="Resources\icons8-home-50.png" />
     <None Include="Resources\Home_Icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Forms\Appointment\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
