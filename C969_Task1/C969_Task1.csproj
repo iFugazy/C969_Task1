@@ -204,8 +204,6 @@
     <None Include="Resources\icons8-home-50.png" />
     <None Include="Resources\Home_Icon.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Forms\Appointment\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

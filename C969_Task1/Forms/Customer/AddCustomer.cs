@@ -30,13 +30,13 @@ namespace C969_Task1.Forms.Customer
             cityCB.BackColor = Color.IndianRed;
             countryCB.BackColor = Color.IndianRed;
 
-            
+
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             City city = new City(cityCB.Text, countryCB.Text);
-            
+
 
             if (customerNameTB.Text == "" || address1TB.Text == "" || phoneNumberTB.Text == "")
             {
@@ -98,7 +98,7 @@ namespace C969_Task1.Forms.Customer
             phoneNumberTB.BackColor = Color.White;
 
         }
-        
+
 
         private void cityCB_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -149,4 +149,3 @@ namespace C969_Task1.Forms.Customer
 
     }
 }
-    

@@ -50,12 +50,12 @@ namespace C969_Task1.Forms.Customer
                     "UPDATE client_schedule.customer SET customerName = '" + customerNameTB.Text + "', active = '" + active.ToString() + "' WHERE(customerId = '" + id + "')",
                     "UPDATE client_schedule.address SET address.address = '" + address1TB.Text + "', address.address2 = '" + address2TB.Text + "', address.PostalCode = '" + postalCodeTB.Text + "', address.Phone = '" + phoneNumberTB.Text + "' WHERE address.addressId = '" + id + "'"
                 };
-               
-                foreach(String query in updateQuery)
+
+                foreach (String query in updateQuery)
                 {
                     db.DBCommand(query).ExecuteNonQuery();
                 }
-                
+
             }
             catch (Exception ex)
             {
@@ -65,11 +65,11 @@ namespace C969_Task1.Forms.Customer
             {
                 db.RefreshData(db.mainTableString, main.dataGridView1);
             }
-            
-            
-            
 
-            
+
+
+
+
             this.Close();
 
 

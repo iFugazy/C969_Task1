@@ -30,5 +30,11 @@ namespace C969_Task1.Forms.Customer
             }
             
         }
+
+        private void addBTN_Click(object sender, EventArgs e)
+        {
+            Appointment appointment = new Appointment();
+
+        }
     }
 }
