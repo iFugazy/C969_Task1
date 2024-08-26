@@ -62,6 +62,7 @@
             this.addBTN.TabIndex = 5;
             this.addBTN.Text = "Add Customer";
             this.addBTN.UseVisualStyleBackColor = true;
+            this.addBTN.Click += new System.EventHandler(this.addBTN_Click_1);
             // 
             // dataGridView1
             // 

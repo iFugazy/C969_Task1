@@ -15,8 +15,10 @@ namespace C969_Task1.Models
         public int userID { get; set; }
         public string title { get; set; }
         public string description { get; set; }
+        public string location { get; set; }
         public string contact { get; set; }
         public string url { get; set; }
+        public string Type { get; set; }
         public DateTime start { get; set; }
         public DateTime end { get; set; }
 
@@ -25,7 +27,7 @@ namespace C969_Task1.Models
         public static DataTable userAppointmentInfo = new DataTable();
 
 
-        public Appointment(int appointmentID, int customerID, int userID, string title, string description, string contact, string url, DateTime start, DateTime end)
+        public Appointment(int appointmentID, int customerID, int userID, string title, string description, string location, string Type,string contact, string url, DateTime start, DateTime end)
         {
             this.appointmentID = appointmentID;
             this.customerID = customerID;
@@ -36,6 +38,9 @@ namespace C969_Task1.Models
             this.url = url;
             this.start = start;
             this.end = end;
+            this.location = location;
+            this.Type = Type;
+         
         }
 
         public Appointment()
@@ -146,7 +151,7 @@ namespace C969_Task1.Models
         {
             DatabaseConnection db = new DatabaseConnection();
 
-            string Query = $"INSERT INTO appointment (customerID, userID, title, description, contact, url, start, end) VALUES ({appointment.customerID}, {appointment.userID}, '{appointment.title}', '{appointment.description}', '{appointment.contact}', '{appointment.url}', '{appointment.start.ToUniversalTime().ToString("yyyy-MM-dd HH:mm:ss")}', '{appointment.end.ToUniversalTime().ToString("yyyy-MM-dd HH:mm:ss")}')";
+            string Query = $"INSERT INTO appointment (appointmentID, customerID, userID, title, description, location, type, contact, url, start, end, createDate, createdBy, lastUpdate, lastUpdateBy ) VALUES ({appointment.appointmentID},{appointment.customerID}, {appointment.userID}, '{appointment.title}', '{appointment.description}', '{appointment.location}', '{appointment.Type}', '{appointment.contact}', '{appointment.url}', '{appointment.start.ToUniversalTime().ToString("yyyy-MM-dd HH:mm:ss")}', '{appointment.end.ToUniversalTime().ToString("yyyy-MM-dd HH:mm:ss")}', Now(), 'test', Now(), 'test')";
 
             db.DBCommand(Query);
         }
@@ -175,35 +180,24 @@ namespace C969_Task1.Models
         {
             DatabaseConnection db = new DatabaseConnection();
 
-            string query = "SELECT MAX(appointmentID) FROM appointment";
+            int newAppointmentID = 0;
+
+            string query = "SELECT MAX(appointmentId) FROM appointment";
+
             MySqlDataReader rdr = db.DBCommand(query).ExecuteReader();
-            rdr.Read();
-            if (rdr.HasRows)
+            while (rdr.Read())
             {
-                return Convert.ToInt32(rdr.GetValue(0)) + 1;
+                newAppointmentID = Convert.ToInt32(rdr.GetValue(0)) + 1;
             }
-            else
-            {
-                return 0;
-            }
+
+            rdr.Close();
+
+            return newAppointmentID;
 
         }
 
-        public static void RefreshDataNonUser(DataTable table, System.Windows.Forms.DataGridView dataGridView)
+        public static void RefreshData(DataTable table, System.Windows.Forms.DataGridView dataGridView)
         {
-
-            dataGridView.DataSource = table;
-        }
-
-        public static void RefreshDataUser(DataTable table, System.Windows.Forms.DataGridView dataGridView)
-        {
-            DatabaseConnection db = new DatabaseConnection();
-
-            table.Clear();
-
-            MySqlDataAdapter adapter = new MySqlDataAdapter(db.DBCommand("SELECT * FROM appointment"));
-
-            adapter.Fill(table);
 
             dataGridView.DataSource = table;
         }

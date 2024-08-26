@@ -25,16 +25,17 @@ namespace C969_Task1.Forms.Customer
             if (result == DialogResult.Yes)
             {
                 Appointment.DeleteAppointment(int.Parse(dataGridView1.CurrentRow.Cells[0].Value.ToString()));
-                Appointment.RefreshDataNonUser(Appointment.AppointmentsByUser(1), dataGridView1);
+                Appointment.RefreshData(Appointment.AppointmentsByUser(1), dataGridView1);
                 return;
             }
             
         }
 
-        private void addBTN_Click(object sender, EventArgs e)
+        private void addBTN_Click_1(object sender, EventArgs e)
         {
-            Appointment appointment = new Appointment();
-
+            AddAppointment addAppointment = new AddAppointment();
+            addAppointment.Show();
+            this.Hide();
         }
     }
 }
