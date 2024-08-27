@@ -28,35 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.typeTB = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.locationTB = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.urlTB = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.endDataTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.startDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.descriptionTB = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.cityLabel = new System.Windows.Forms.Label();
-            this.address2TB = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.titleTB = new System.Windows.Forms.TextBox();
+            this.updateBTN = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
-            this.postalCodeTB = new System.Windows.Forms.TextBox();
+            this.contactTB = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.address1TB = new System.Windows.Forms.TextBox();
+            this.userIDTB = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.customerIDTB = new System.Windows.Forms.TextBox();
+            this.cancelBTN = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // textBox4
+            // typeTB
             // 
-            this.textBox4.Location = new System.Drawing.Point(113, 218);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(200, 20);
-            this.textBox4.TabIndex = 83;
+            this.typeTB.Location = new System.Drawing.Point(113, 218);
+            this.typeTB.Name = "typeTB";
+            this.typeTB.Size = new System.Drawing.Size(200, 20);
+            this.typeTB.TabIndex = 83;
             // 
             // label10
             // 
@@ -67,12 +68,12 @@
             this.label10.TabIndex = 82;
             this.label10.Text = "Type";
             // 
-            // textBox3
+            // locationTB
             // 
-            this.textBox3.Location = new System.Drawing.Point(113, 192);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(200, 20);
-            this.textBox3.TabIndex = 81;
+            this.locationTB.Location = new System.Drawing.Point(113, 192);
+            this.locationTB.Name = "locationTB";
+            this.locationTB.Size = new System.Drawing.Size(200, 20);
+            this.locationTB.TabIndex = 81;
             // 
             // label9
             // 
@@ -83,12 +84,12 @@
             this.label9.TabIndex = 80;
             this.label9.Text = "Location";
             // 
-            // textBox2
+            // urlTB
             // 
-            this.textBox2.Location = new System.Drawing.Point(113, 271);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(200, 20);
-            this.textBox2.TabIndex = 79;
+            this.urlTB.Location = new System.Drawing.Point(113, 271);
+            this.urlTB.Name = "urlTB";
+            this.urlTB.Size = new System.Drawing.Size(200, 20);
+            this.urlTB.TabIndex = 79;
             // 
             // label8
             // 
@@ -99,20 +100,20 @@
             this.label8.TabIndex = 78;
             this.label8.Text = "URL";
             // 
-            // dateTimePicker2
+            // endDataTimePicker
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(113, 333);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(152, 20);
-            this.dateTimePicker2.TabIndex = 76;
+            this.endDataTimePicker.Location = new System.Drawing.Point(113, 333);
+            this.endDataTimePicker.Name = "endDataTimePicker";
+            this.endDataTimePicker.Size = new System.Drawing.Size(152, 20);
+            this.endDataTimePicker.TabIndex = 76;
             // 
-            // dateTimePicker1
+            // startDateTimePicker
             // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(113, 301);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(152, 20);
-            this.dateTimePicker1.TabIndex = 75;
+            this.startDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.startDateTimePicker.Location = new System.Drawing.Point(113, 301);
+            this.startDateTimePicker.Name = "startDateTimePicker";
+            this.startDateTimePicker.Size = new System.Drawing.Size(152, 20);
+            this.startDateTimePicker.TabIndex = 75;
             // 
             // label6
             // 
@@ -123,13 +124,13 @@
             this.label6.TabIndex = 74;
             this.label6.Text = "End";
             // 
-            // textBox1
+            // descriptionTB
             // 
-            this.textBox1.Location = new System.Drawing.Point(113, 143);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(200, 43);
-            this.textBox1.TabIndex = 73;
+            this.descriptionTB.Location = new System.Drawing.Point(113, 143);
+            this.descriptionTB.Multiline = true;
+            this.descriptionTB.Name = "descriptionTB";
+            this.descriptionTB.Size = new System.Drawing.Size(200, 43);
+            this.descriptionTB.TabIndex = 73;
             // 
             // label7
             // 
@@ -149,21 +150,22 @@
             this.cityLabel.TabIndex = 71;
             this.cityLabel.Text = "Title";
             // 
-            // address2TB
+            // titleTB
             // 
-            this.address2TB.Location = new System.Drawing.Point(113, 110);
-            this.address2TB.Name = "address2TB";
-            this.address2TB.Size = new System.Drawing.Size(200, 20);
-            this.address2TB.TabIndex = 70;
+            this.titleTB.Location = new System.Drawing.Point(113, 110);
+            this.titleTB.Name = "titleTB";
+            this.titleTB.Size = new System.Drawing.Size(200, 20);
+            this.titleTB.TabIndex = 70;
             // 
-            // button1
+            // updateBTN
             // 
-            this.button1.Location = new System.Drawing.Point(174, 370);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 69;
-            this.button1.Text = "Add";
-            this.button1.UseVisualStyleBackColor = true;
+            this.updateBTN.Location = new System.Drawing.Point(174, 370);
+            this.updateBTN.Name = "updateBTN";
+            this.updateBTN.Size = new System.Drawing.Size(75, 23);
+            this.updateBTN.TabIndex = 69;
+            this.updateBTN.Text = "Update";
+            this.updateBTN.UseVisualStyleBackColor = true;
+            this.updateBTN.Click += new System.EventHandler(this.button1_Click);
             // 
             // label4
             // 
@@ -174,12 +176,12 @@
             this.label4.TabIndex = 68;
             this.label4.Text = "Start";
             // 
-            // postalCodeTB
+            // contactTB
             // 
-            this.postalCodeTB.Location = new System.Drawing.Point(113, 245);
-            this.postalCodeTB.Name = "postalCodeTB";
-            this.postalCodeTB.Size = new System.Drawing.Size(200, 20);
-            this.postalCodeTB.TabIndex = 67;
+            this.contactTB.Location = new System.Drawing.Point(113, 245);
+            this.contactTB.Name = "contactTB";
+            this.contactTB.Size = new System.Drawing.Size(200, 20);
+            this.contactTB.TabIndex = 67;
             // 
             // label3
             // 
@@ -190,13 +192,13 @@
             this.label3.TabIndex = 66;
             this.label3.Text = "Contact";
             // 
-            // address1TB
+            // userIDTB
             // 
-            this.address1TB.Location = new System.Drawing.Point(113, 79);
-            this.address1TB.Name = "address1TB";
-            this.address1TB.ReadOnly = true;
-            this.address1TB.Size = new System.Drawing.Size(200, 20);
-            this.address1TB.TabIndex = 65;
+            this.userIDTB.Location = new System.Drawing.Point(113, 79);
+            this.userIDTB.Name = "userIDTB";
+            this.userIDTB.ReadOnly = true;
+            this.userIDTB.Size = new System.Drawing.Size(200, 20);
+            this.userIDTB.TabIndex = 65;
             // 
             // label2
             // 
@@ -216,38 +218,49 @@
             this.label1.TabIndex = 63;
             this.label1.Text = "Customer ID";
             // 
-            // textBox5
+            // customerIDTB
             // 
-            this.textBox5.Location = new System.Drawing.Point(113, 53);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.ReadOnly = true;
-            this.textBox5.Size = new System.Drawing.Size(200, 20);
-            this.textBox5.TabIndex = 84;
+            this.customerIDTB.Location = new System.Drawing.Point(113, 53);
+            this.customerIDTB.Name = "customerIDTB";
+            this.customerIDTB.ReadOnly = true;
+            this.customerIDTB.Size = new System.Drawing.Size(200, 20);
+            this.customerIDTB.TabIndex = 84;
+            // 
+            // cancelBTN
+            // 
+            this.cancelBTN.Location = new System.Drawing.Point(12, 415);
+            this.cancelBTN.Name = "cancelBTN";
+            this.cancelBTN.Size = new System.Drawing.Size(75, 23);
+            this.cancelBTN.TabIndex = 85;
+            this.cancelBTN.Text = "Cancel";
+            this.cancelBTN.UseVisualStyleBackColor = true;
+            this.cancelBTN.Click += new System.EventHandler(this.cancelBTN_Click);
             // 
             // EditAppointment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(377, 450);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.cancelBTN);
+            this.Controls.Add(this.customerIDTB);
+            this.Controls.Add(this.typeTB);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.locationTB);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.urlTB);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.dateTimePicker2);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.endDataTimePicker);
+            this.Controls.Add(this.startDateTimePicker);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.descriptionTB);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.cityLabel);
-            this.Controls.Add(this.address2TB);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.titleTB);
+            this.Controls.Add(this.updateBTN);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.postalCodeTB);
+            this.Controls.Add(this.contactTB);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.address1TB);
+            this.Controls.Add(this.userIDTB);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "EditAppointment";
@@ -260,26 +273,27 @@
 
         #endregion
 
-        public System.Windows.Forms.TextBox textBox4;
+        public System.Windows.Forms.TextBox typeTB;
         private System.Windows.Forms.Label label10;
-        public System.Windows.Forms.TextBox textBox3;
+        public System.Windows.Forms.TextBox locationTB;
         private System.Windows.Forms.Label label9;
-        public System.Windows.Forms.TextBox textBox2;
+        public System.Windows.Forms.TextBox urlTB;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker endDataTimePicker;
+        private System.Windows.Forms.DateTimePicker startDateTimePicker;
         private System.Windows.Forms.Label label6;
-        public System.Windows.Forms.TextBox textBox1;
+        public System.Windows.Forms.TextBox descriptionTB;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label cityLabel;
-        public System.Windows.Forms.TextBox address2TB;
-        private System.Windows.Forms.Button button1;
+        public System.Windows.Forms.TextBox titleTB;
+        private System.Windows.Forms.Button updateBTN;
         private System.Windows.Forms.Label label4;
-        public System.Windows.Forms.TextBox postalCodeTB;
+        public System.Windows.Forms.TextBox contactTB;
         private System.Windows.Forms.Label label3;
-        public System.Windows.Forms.TextBox address1TB;
+        public System.Windows.Forms.TextBox userIDTB;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        public System.Windows.Forms.TextBox textBox5;
+        public System.Windows.Forms.TextBox customerIDTB;
+        private System.Windows.Forms.Button cancelBTN;
     }
 }

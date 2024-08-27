@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace C969_Task1.Forms.Customer
 {
@@ -36,26 +37,42 @@ namespace C969_Task1.Forms.Customer
 
             while (dr.Read())
             {
-                dateTimePicker1.Format = DateTimePickerFormat.Custom;
-                dateTimePicker1.CustomFormat = "MM/dd/yyyy hh:mm tt";
+                startDateTimePicker.Format = DateTimePickerFormat.Custom;
+                startDateTimePicker.CustomFormat = "MM/dd/yyyy hh:mm tt";
 
-                dateTimePicker2.Format = DateTimePickerFormat.Custom;
-                dateTimePicker2.CustomFormat = "MM/dd/yyyy hh:mm tt";
+                endDataTimePicker.Format = DateTimePickerFormat.Custom;
+                endDataTimePicker.CustomFormat = "MM/dd/yyyy hh:mm tt";
 
-                textBox5.Text = (dr.GetValue(1).ToString());
-                address1TB.Text = dr.GetValue(2).ToString();
-                address2TB.Text = dr.GetValue(3).ToString();
-                textBox1.Text = dr.GetValue(4).ToString();
-                textBox3.Text = dr.GetValue(5).ToString();
-                textBox4.Text = dr.GetValue(6).ToString();
-                postalCodeTB.Text = dr.GetValue(7).ToString();
-                textBox2.Text = dr.GetValue(8).ToString();
-                dateTimePicker1.Value = Convert.ToDateTime(dr.GetValue(9));
-                dateTimePicker2.Value = Convert.ToDateTime(dr.GetValue(10));
-
-               
-
+                customerIDTB.Text = (dr.GetValue(1).ToString());
+                userIDTB.Text = dr.GetValue(2).ToString();
+                titleTB.Text = dr.GetValue(3).ToString();
+                descriptionTB.Text = dr.GetValue(4).ToString();
+                locationTB.Text = dr.GetValue(5).ToString();
+                typeTB.Text = dr.GetValue(6).ToString();
+                contactTB.Text = dr.GetValue(7).ToString();
+                urlTB.Text = dr.GetValue(8).ToString();
+                startDateTimePicker.Value = Convert.ToDateTime(dr.GetValue(9));
+                endDataTimePicker.Value = Convert.ToDateTime(dr.GetValue(10));
+              
             }
+
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Appointment appointmentToUpdate = new Appointment(appointmentID, int.Parse(customerIDTB.Text), int.Parse(userIDTB.Text), titleTB.Text, descriptionTB.Text, locationTB.Text, typeTB.Text, contactTB.Text, urlTB.Text, startDateTimePicker.Value, endDataTimePicker.Value);
+            Appointment.UpdateAppointment(appointmentToUpdate);
+            Appointment.RefreshData(Appointment.AppointmentsByUser(1), mainAppointmentForm.dataGridView1);
+
+            this.Close();
+            mainAppointmentForm.Show();
+        }
+
+        private void cancelBTN_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            mainAppointmentForm.Show();
         }
     }
 }
