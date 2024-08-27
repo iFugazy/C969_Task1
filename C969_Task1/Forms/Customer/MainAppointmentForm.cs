@@ -37,5 +37,13 @@ namespace C969_Task1.Forms.Customer
             addAppointment.Show();
             this.Hide();
         }
+
+        private void editBTN_Click(object sender, EventArgs e)
+        {
+            int appointmentID = int.Parse(dataGridView1.CurrentRow.Cells[0].Value.ToString());
+            EditAppointment editAppointment = new EditAppointment(appointmentID);
+            editAppointment.Show();
+            this.Hide();
+        }
     }
 }

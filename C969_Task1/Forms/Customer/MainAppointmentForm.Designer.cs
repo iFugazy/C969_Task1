@@ -41,7 +41,7 @@
             this.deleteBTN.Name = "deleteBTN";
             this.deleteBTN.Size = new System.Drawing.Size(111, 23);
             this.deleteBTN.TabIndex = 7;
-            this.deleteBTN.Text = "Delete Customer";
+            this.deleteBTN.Text = "Delete Appointment";
             this.deleteBTN.UseVisualStyleBackColor = true;
             this.deleteBTN.Click += new System.EventHandler(this.deleteBTN_Click);
             // 
@@ -51,8 +51,9 @@
             this.editBTN.Name = "editBTN";
             this.editBTN.Size = new System.Drawing.Size(95, 23);
             this.editBTN.TabIndex = 6;
-            this.editBTN.Text = "Edit Customer";
+            this.editBTN.Text = "Edit Appointment";
             this.editBTN.UseVisualStyleBackColor = true;
+            this.editBTN.Click += new System.EventHandler(this.editBTN_Click);
             // 
             // addBTN
             // 
@@ -60,7 +61,7 @@
             this.addBTN.Name = "addBTN";
             this.addBTN.Size = new System.Drawing.Size(104, 23);
             this.addBTN.TabIndex = 5;
-            this.addBTN.Text = "Add Customer";
+            this.addBTN.Text = "Add Appointment";
             this.addBTN.UseVisualStyleBackColor = true;
             this.addBTN.Click += new System.EventHandler(this.addBTN_Click_1);
             // 
