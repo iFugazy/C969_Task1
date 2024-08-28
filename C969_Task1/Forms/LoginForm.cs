@@ -20,12 +20,11 @@ namespace C969_Task1
     {
         public string connstring;
         public MySqlConnection cnn;
-        MainCustomerForm addCustomerForm = new MainCustomerForm();
 
         public LoginForm()
         {
             InitializeComponent();
-            User.UserLocationString(this);           
+            //User.UserLocationString(this);           
         }
 
 
@@ -58,24 +57,23 @@ namespace C969_Task1
             }
             else
             {
+                User.CheckUser(usernameTB.Text, passwordTB.Text);
 
-                MainForm main = new MainForm(User.userName);
-                main.Show();
                 this.Hide();
-
+                MainForm mainForm = new MainForm();
+                mainForm.Show();
 
                 return;
 
             }
+            
 
-
-            User.CheckUser(usernameTB.Text, passwordTB.Text);
 
         }
 
         private void spanishRBTN_CheckedChanged(object sender, EventArgs e)
         {
-            User.LoginTranslator(this);
+            //User.LoginTranslator(this);
         }
 
         private void cancelBTN_Click(object sender, EventArgs e)

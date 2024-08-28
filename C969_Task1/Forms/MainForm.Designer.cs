@@ -113,6 +113,7 @@
             this.appointmentBTN.TabIndex = 62;
             this.appointmentBTN.Text = "Appointment Center";
             this.appointmentBTN.UseVisualStyleBackColor = true;
+            this.appointmentBTN.Click += new System.EventHandler(this.appointmentBTN_Click);
             // 
             // MainForm
             // 

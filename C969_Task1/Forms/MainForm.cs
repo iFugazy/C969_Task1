@@ -15,23 +15,19 @@ namespace C969_Task1
 {
     public partial class MainForm : Form
     {
-        LoginForm login = new LoginForm();
         MainCustomerForm mainCustomer = new MainCustomerForm();
         MainAppointmentForm mainAppointment = new MainAppointmentForm();
-        public string userName { get; set; }
-        public MainForm(string username)
+        public MainForm()
         {
             InitializeComponent();
 
-            this.userName = username;
 
             dataGridView1.DataSource = Appointment.AppointmentsByWeek();
         }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            LoginForm login = new LoginForm();
-            //label1.Text = $"Welcome {userName}!";
+            label1.Text = $"Welcome {User.userName}!";
 
             List<string> comboboxItems = new List<string>
             {
@@ -48,12 +44,6 @@ namespace C969_Task1
             }
 
 
-        }
-
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
-            MainCustomerForm addCustomerForm = new MainCustomerForm();
-            addCustomerForm.Show();
         }
 
         private void comboBox1_DropDownClosed(object sender, EventArgs e)

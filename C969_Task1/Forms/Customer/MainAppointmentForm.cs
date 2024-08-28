@@ -13,6 +13,7 @@ namespace C969_Task1.Forms.Customer
 {
     public partial class MainAppointmentForm : Form
     {
+        
         public MainAppointmentForm()
         {
             InitializeComponent();
@@ -43,6 +44,13 @@ namespace C969_Task1.Forms.Customer
             int appointmentID = int.Parse(dataGridView1.CurrentRow.Cells[0].Value.ToString());
             EditAppointment editAppointment = new EditAppointment(appointmentID);
             editAppointment.Show();
+            this.Hide();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MainForm mainForm = new MainForm();
+            mainForm.Show();
             this.Hide();
         }
     }

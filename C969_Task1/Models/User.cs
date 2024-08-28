@@ -35,11 +35,21 @@ namespace C969_Task1.Models
 
         public async static void UserLocationString(LoginForm loginForm)
         {
-            var client = new IpDataClient(ipdataAPIKey);
-            var ipInfo = await client.Lookup();
+            try
+            {
+                var client = new IpDataClient(ipdataAPIKey);
+                var ipInfo = await client.Lookup();
+                loginForm.userLocationLBL.Text = ipInfo.City + "/" + ipInfo.Region;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error with location API\n\n {ex.Message}", "API Error");
+            }
             
             
-            loginForm.userLocationLBL.Text = ipInfo.City + "/" + ipInfo.Region;
+            
+            
             
             
         }

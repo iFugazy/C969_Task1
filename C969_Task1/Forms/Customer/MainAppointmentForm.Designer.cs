@@ -32,12 +32,13 @@
             this.editBTN = new System.Windows.Forms.Button();
             this.addBTN = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // deleteBTN
             // 
-            this.deleteBTN.Location = new System.Drawing.Point(555, 383);
+            this.deleteBTN.Location = new System.Drawing.Point(281, 382);
             this.deleteBTN.Name = "deleteBTN";
             this.deleteBTN.Size = new System.Drawing.Size(111, 23);
             this.deleteBTN.TabIndex = 7;
@@ -47,7 +48,7 @@
             // 
             // editBTN
             // 
-            this.editBTN.Location = new System.Drawing.Point(313, 383);
+            this.editBTN.Location = new System.Drawing.Point(164, 382);
             this.editBTN.Name = "editBTN";
             this.editBTN.Size = new System.Drawing.Size(95, 23);
             this.editBTN.TabIndex = 6;
@@ -57,7 +58,7 @@
             // 
             // addBTN
             // 
-            this.addBTN.Location = new System.Drawing.Point(34, 383);
+            this.addBTN.Location = new System.Drawing.Point(34, 382);
             this.addBTN.Name = "addBTN";
             this.addBTN.Size = new System.Drawing.Size(104, 23);
             this.addBTN.TabIndex = 5;
@@ -80,11 +81,22 @@
             this.dataGridView1.Size = new System.Drawing.Size(632, 340);
             this.dataGridView1.TabIndex = 4;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(555, 382);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(111, 23);
+            this.button1.TabIndex = 8;
+            this.button1.Text = "Confirm Changes";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // MainAppointmentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(701, 428);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.deleteBTN);
             this.Controls.Add(this.editBTN);
             this.Controls.Add(this.addBTN);
@@ -102,5 +114,6 @@
         private System.Windows.Forms.Button editBTN;
         private System.Windows.Forms.Button addBTN;
         public System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button button1;
     }
 }
