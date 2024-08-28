@@ -128,7 +128,7 @@ namespace C969_Task1.Models
 
             userAppointmentInfo.Clear();
 
-            string Query = $"SELECT appointmentID, customerID, userID, title, type, description, contact, url, start, end FROM appointment WHERE userID = {userID}";
+            string Query = $"SELECT appointmentID, customerID, userID, title, type, description, location, contact, url, start, end FROM appointment WHERE userID = {userID}";
 
             MySqlDataAdapter adapter = new MySqlDataAdapter(db.DBCommand(Query));
 
