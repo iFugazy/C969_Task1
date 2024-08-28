@@ -37,24 +37,29 @@ namespace C969_Task1.Forms.Customer
         private void button1_Click(object sender, EventArgs e)
         {
             City city = new City(cityCB.Text, countryCB.Text);
-
+            int addressID = Address.NewAddressID();
 
             if (customerNameTB.Text == "" || address1TB.Text == "" || phoneNumberTB.Text == "")
             {
                 MessageBox.Show("Please fill out all required fields", "Error");
                 return;
             }
+
+            try
+            {
+                Address address = new Address(addressID, address1TB.Text, address2TB.Text, city.CheckCities(), int.Parse(postalCodeTB.Text), int.Parse(phoneNumberTB.Text), User.userName, User.userName);
+                Address.AddAddress(address);
+            }
+            catch { }
+
+            try
+            {
+                Models.Customer customer = new Models.Customer(Models.Customer.NewCustomerID(), customerNameTB.Text, addressID, activeCB.Checked ? 1 : 0, User.userName, User.userName);
+                Models.Customer.AddCustomer(customer);
+            }
+            catch { }
+
             
-           
-            db.AddCustomer(
-                dataGridView1.Rows.Count + 1,
-                customerNameTB.Text,
-                activeCB.Checked ? 1 : 0,
-                address1TB.Text,
-                address2TB.Text,
-                city.CheckCities().ToString(),
-                postalCodeTB.Text,
-                phoneNumberTB.Text);
 
             db.RefreshData(db.mainTableString, dataGridView1);
 
@@ -71,8 +76,9 @@ namespace C969_Task1.Forms.Customer
 
         private void button2_Click(object sender, EventArgs e)
         {
-            this.Close();
-            main.Show();
+            MessageBox.Show(Address.NewAddressID().ToString());
+            /*this.Close();
+            main.Show();*/
         }
 
         private void customerNameTB_KeyPress(object sender, KeyPressEventArgs e)
