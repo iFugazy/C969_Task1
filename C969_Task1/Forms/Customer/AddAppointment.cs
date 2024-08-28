@@ -59,7 +59,7 @@ namespace C969_Task1.Forms.Customer
             //Add data to datagrids
             //CHANGE TO ACTUAL LOGGED IN USER
             dataGridView1.DataSource = Appointment.AppointmentsByUser(1);
-            dataGridView2.DataSource = Models.Customer.SimpleCustomerList();
+            dataGridView2.DataSource = Models.Customer.SimpleCustomerData();
         }
 
         private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)

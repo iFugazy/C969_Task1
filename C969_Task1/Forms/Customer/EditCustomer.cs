@@ -23,11 +23,19 @@ namespace C969_Task1.Forms.Customer
             this.main = mainCustomerForm;
             db.OpenConnection();
 
+            address1TB.BackColor = Color.IndianRed;
+            postalCodeTB.BackColor = Color.IndianRed;
+            customerNameTB.BackColor = Color.IndianRed;
+            phoneNumberTB.BackColor = Color.IndianRed;
+            cityCB.BackColor = Color.IndianRed;
+            countryCB.BackColor = Color.IndianRed;
+
         }
 
         private void EditCustomer_Load(object sender, EventArgs e)
         {
-            customerIDTB.Text = main.dataGridView1.CurrentRow.Cells[0].Value.ToString();
+            //string query = $"SELECT * FROM client_schedule.customer where customerID = '{appointmentID}'";
+
             customerNameTB.Text = main.dataGridView1.CurrentRow.Cells[1].Value.ToString();
             activeCB.Checked = Convert.ToBoolean(main.dataGridView1.CurrentRow.Cells[2].Value);
             address1TB.Text = main.dataGridView1.CurrentRow.Cells[3].Value.ToString();
@@ -78,6 +86,11 @@ namespace C969_Task1.Forms.Customer
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void phoneNumberTB_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

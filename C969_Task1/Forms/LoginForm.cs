@@ -24,7 +24,7 @@ namespace C969_Task1
         public LoginForm()
         {
             InitializeComponent();
-            //User.UserLocationString(this);           
+            User.UserLocationString(this);           
         }
 
 
@@ -73,7 +73,7 @@ namespace C969_Task1
 
         private void spanishRBTN_CheckedChanged(object sender, EventArgs e)
         {
-            //User.LoginTranslator(this);
+            User.LoginTranslator(this);
         }
 
         private void cancelBTN_Click(object sender, EventArgs e)

@@ -116,5 +116,12 @@ namespace C969_Task1.Forms
         {
             return dataGridView1.Rows.Count;
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            MainForm mainForm = new MainForm();
+            mainForm.Show();
+        }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using C969_Task1.Models;
 using MySql.Data.MySqlClient;
+using Org.BouncyCastle.Security;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -43,7 +44,8 @@ namespace C969_Task1.Forms.Customer
                 MessageBox.Show("Please fill out all required fields", "Error");
                 return;
             }
-
+            
+           
             db.AddCustomer(
                 dataGridView1.Rows.Count + 1,
                 customerNameTB.Text,
