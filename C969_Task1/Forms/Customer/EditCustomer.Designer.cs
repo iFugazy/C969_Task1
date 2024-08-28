@@ -62,6 +62,7 @@
             this.countryCB.Name = "countryCB";
             this.countryCB.Size = new System.Drawing.Size(121, 21);
             this.countryCB.TabIndex = 45;
+            this.countryCB.Leave += new System.EventHandler(this.countryCB_Leave);
             // 
             // cityCB
             // 
@@ -70,6 +71,7 @@
             this.cityCB.Name = "cityCB";
             this.cityCB.Size = new System.Drawing.Size(121, 21);
             this.cityCB.TabIndex = 44;
+            this.cityCB.Leave += new System.EventHandler(this.cityCB_Leave);
             // 
             // label7
             // 
@@ -122,6 +124,8 @@
             this.phoneNumberTB.Name = "phoneNumberTB";
             this.phoneNumberTB.Size = new System.Drawing.Size(121, 20);
             this.phoneNumberTB.TabIndex = 38;
+            this.phoneNumberTB.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.phoneNumberTB_KeyPress);
+            this.phoneNumberTB.Leave += new System.EventHandler(this.phoneNumberTB_Leave);
             // 
             // label4
             // 
@@ -138,6 +142,7 @@
             this.postalCodeTB.Name = "postalCodeTB";
             this.postalCodeTB.Size = new System.Drawing.Size(121, 20);
             this.postalCodeTB.TabIndex = 36;
+            this.postalCodeTB.Leave += new System.EventHandler(this.postalCodeTB_Leave);
             // 
             // label3
             // 
@@ -154,6 +159,7 @@
             this.address1TB.Name = "address1TB";
             this.address1TB.Size = new System.Drawing.Size(121, 20);
             this.address1TB.TabIndex = 34;
+            this.address1TB.Leave += new System.EventHandler(this.address1TB_Leave);
             // 
             // label2
             // 
@@ -170,6 +176,7 @@
             this.customerNameTB.Name = "customerNameTB";
             this.customerNameTB.Size = new System.Drawing.Size(121, 20);
             this.customerNameTB.TabIndex = 32;
+            this.customerNameTB.Leave += new System.EventHandler(this.customerNameTB_Leave);
             // 
             // label1
             // 
