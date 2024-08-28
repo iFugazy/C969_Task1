@@ -53,7 +53,7 @@ namespace C969_Task1.Models
 
             appointmentInfo.Clear();
 
-            string Query = "SELECT appointmentID, customerID, userID, title, description, contact, url, start, end FROM appointment";
+            string Query = "SELECT appointmentID, customerID, userID, title, type, description, contact, url, start, end FROM appointment";
 
             MySqlDataAdapter adapter = new MySqlDataAdapter(db.DBCommand(Query));
 
@@ -78,7 +78,7 @@ namespace C969_Task1.Models
 
             appointmentInfo.Clear();
 
-            string Query = "SELECT appointmentID, customerID, userID, title, description, contact, url, start, end FROM appointment WHERE MONTH(start) = MONTH(CURRENT_DATE())";
+            string Query = "SELECT appointmentID, customerID, userID, title,type, description, contact, url, start, end FROM appointment WHERE MONTH(start) = MONTH(CURRENT_DATE())";
 
             MySqlDataAdapter adapter = new MySqlDataAdapter(db.DBCommand(Query));
 
@@ -103,7 +103,7 @@ namespace C969_Task1.Models
 
             appointmentInfo.Clear();
 
-            string Query = "SELECT appointmentID, customerID, userID, title, description, contact, url, start, end FROM appointment WHERE WEEK(start) = WEEK(CURRENT_DATE())";
+            string Query = "SELECT appointmentID, customerID, userID, title, type, description, contact, url, start, end FROM appointment WHERE WEEK(start) = WEEK(CURRENT_DATE())";
 
             MySqlDataAdapter adapter = new MySqlDataAdapter(db.DBCommand(Query));
 
@@ -128,7 +128,7 @@ namespace C969_Task1.Models
 
             userAppointmentInfo.Clear();
 
-            string Query = $"SELECT appointmentID, customerID, userID, title, description, contact, url, start, end FROM appointment WHERE userID = {userID}";
+            string Query = $"SELECT appointmentID, customerID, userID, title, type, description, contact, url, start, end FROM appointment WHERE userID = {userID}";
 
             MySqlDataAdapter adapter = new MySqlDataAdapter(db.DBCommand(Query));
 

@@ -18,6 +18,7 @@ namespace C969_Task1.Forms.Customer
         {
             InitializeComponent();
             dataGridView1.DataSource = Appointment.AppointmentsByUser(1);
+            dataGridView2.DataSource = Models.Customer.SimpleCustomerData();
         }
 
         private void deleteBTN_Click(object sender, EventArgs e)
@@ -52,6 +53,25 @@ namespace C969_Task1.Forms.Customer
             MainForm mainForm = new MainForm();
             mainForm.Show();
             this.Hide();
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var selectedRow = dataGridView1.SelectedRows[0];
+            var customerID = selectedRow.Cells["CustomerID"].Value.ToString();
+
+            foreach (DataGridViewRow row in dataGridView2.Rows)
+            {
+                if (row.Cells["CustomerID"].Value != null && row.Cells["CustomerID"].Value.ToString() == customerID)
+                {
+                    row.Selected = true;
+
+                    dataGridView2.FirstDisplayedScrollingRowIndex = row.Index;
+
+                    break;
+                }
+
+            }
         }
     }
 }

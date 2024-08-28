@@ -38,7 +38,7 @@ namespace C969_Task1.Models
 
             CustomerData.Clear();
 
-            string Query = "SELECT customerID, customerName, addressID, active FROM customer";
+            string Query = "SELECT customerID, customerName, active FROM customer";
 
             MySqlDataAdapter adapter = new MySqlDataAdapter(db.DBCommand(Query));
 

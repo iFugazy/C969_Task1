@@ -19,7 +19,6 @@ namespace C969_Task1.Forms.Customer
         DatabaseConnection db = new DatabaseConnection();
         MainCustomerForm main = new MainCustomerForm();
 
-
         public AddCustomer()
         {
             InitializeComponent();
@@ -30,8 +29,6 @@ namespace C969_Task1.Forms.Customer
             phoneNumberTB.BackColor = Color.IndianRed;
             cityCB.BackColor = Color.IndianRed;
             countryCB.BackColor = Color.IndianRed;
-
-
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -57,14 +54,9 @@ namespace C969_Task1.Forms.Customer
                 Models.Customer customer = new Models.Customer(Models.Customer.NewCustomerID(), customerNameTB.Text, addressID, activeCB.Checked ? 1 : 0, User.userName, User.userName);
                 Models.Customer.AddCustomer(customer);
             }
-            catch { }
-
-            
+            catch { } 
 
             db.RefreshData(db.mainTableString, dataGridView1);
-
-
-
 
         }
 

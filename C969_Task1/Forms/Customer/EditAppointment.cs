@@ -62,6 +62,7 @@ namespace C969_Task1.Forms.Customer
 
         private void button1_Click(object sender, EventArgs e)
         {
+            //FIX ISSUE WHERE FEILDS ARENT POPULATING CORRECTLY
             Appointment appointmentToUpdate = new Appointment(appointmentID, int.Parse(customerIDTB.Text), int.Parse(userIDTB.Text), titleTB.Text, descriptionTB.Text, locationTB.Text, typeTB.Text, contactTB.Text, urlTB.Text, startDateTimePicker.Value, endDataTimePicker.Value);
             Appointment.UpdateAppointment(appointmentToUpdate);
             Appointment.RefreshData(Appointment.AppointmentsByUser(1), mainAppointmentForm.dataGridView1);
