@@ -77,7 +77,7 @@ namespace C969_Task1.Models
             }
         }
 
-        private static void LoginTranslator(LoginForm loginForm)
+        public static void LoginTranslator(LoginForm loginForm)
         {
             if (loginForm.spanishRBTN.Checked is true)
             {

@@ -18,7 +18,7 @@ namespace C969_Task1
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainAppointmentForm());
+            Application.Run(new LoginForm());
         }
     }
 }

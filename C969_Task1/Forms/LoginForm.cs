@@ -34,17 +34,17 @@ namespace C969_Task1
         {
             int i = 0;
 
-           /* MySqlCommand cmd = cnn.CreateCommand();
+            MySqlCommand cmd = cnn.CreateCommand();
             cmd.CommandType = CommandType.Text;
             cmd.CommandText = "select * from client_schedule.user where userName='" + usernameTB.Text + "' and password= '" + passwordTB.Text + "'";
             cmd.ExecuteNonQuery();
             DataTable dt = new DataTable();
             MySqlDataAdapter da = new MySqlDataAdapter(cmd);
             da.Fill(dt);
-            i = Convert.ToInt32(dt.Rows.Count.ToString());*/
+            i = Convert.ToInt32(dt.Rows.Count.ToString());
 
 
-            /*if (i == 0)
+            if (i == 0)
             {
                 if (spanishRBTN.Checked is true)
                 {
@@ -59,29 +59,23 @@ namespace C969_Task1
             else
             {
 
-                MainForm main = new MainForm(usernameTB.Text);
-                addCustomerForm.userName = usernameTB.Text;
+                MainForm main = new MainForm(User.userName);
                 main.Show();
                 this.Hide();
-                
+
 
                 return;
 
-            }*/
+            }
 
-            
+
             User.CheckUser(usernameTB.Text, passwordTB.Text);
 
-            MessageBox.Show("Welcome " + User.userName + "!");
-
-            MainForm main = new MainForm(User.userName);
-            main.Show();
-            this.Hide();
         }
 
         private void spanishRBTN_CheckedChanged(object sender, EventArgs e)
         {
-            /*User.LoginTranslator(this);*/
+            User.LoginTranslator(this);
         }
 
         private void cancelBTN_Click(object sender, EventArgs e)

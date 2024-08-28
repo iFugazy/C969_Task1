@@ -1,4 +1,5 @@
 ﻿using C969_Task1.Forms;
+using C969_Task1.Forms.Customer;
 using C969_Task1.Models;
 using System;
 using System.Collections.Generic;
@@ -14,7 +15,9 @@ namespace C969_Task1
 {
     public partial class MainForm : Form
     {
-
+        LoginForm login = new LoginForm();
+        MainCustomerForm mainCustomer = new MainCustomerForm();
+        MainAppointmentForm mainAppointment = new MainAppointmentForm();
         public string userName { get; set; }
         public MainForm(string username)
         {
@@ -71,6 +74,23 @@ namespace C969_Task1
             {
                 dataGridView1.DataSource = Appointment.AppointmentsByUser(User.userID);
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Environment.Exit(0);
+        }
+
+        private void customerBTN_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            mainCustomer.Show();
+        }
+
+        private void appointmentBTN_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            mainAppointment.Show();
         }
     }
 }
