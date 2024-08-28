@@ -73,5 +73,11 @@ namespace C969_Task1.Forms.Customer
 
             }
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            AppointmentDetails appointmentDetails = new AppointmentDetails(dataGridView1.CurrentRow.Cells[0].Value.ToString(), dataGridView1.CurrentRow.Cells[2].Value.ToString(), dataGridView1.CurrentRow.Cells[1].Value.ToString());
+            appointmentDetails.Show();
+        }
     }
 }

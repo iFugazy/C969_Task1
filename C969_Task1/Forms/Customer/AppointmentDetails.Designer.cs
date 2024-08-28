@@ -45,23 +45,23 @@
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.textBox12 = new System.Windows.Forms.TextBox();
-            this.textBox13 = new System.Windows.Forms.TextBox();
-            this.textBox14 = new System.Windows.Forms.TextBox();
-            this.textBox15 = new System.Windows.Forms.TextBox();
-            this.textBox16 = new System.Windows.Forms.TextBox();
-            this.textBox17 = new System.Windows.Forms.TextBox();
+            this.appointmentIDTB = new System.Windows.Forms.TextBox();
+            this.appointmentTitleTB = new System.Windows.Forms.TextBox();
+            this.appointmentDescriptionTB = new System.Windows.Forms.TextBox();
+            this.appointmentLocationTB = new System.Windows.Forms.TextBox();
+            this.appointmentContactTB = new System.Windows.Forms.TextBox();
+            this.appointmentTypeTB = new System.Windows.Forms.TextBox();
+            this.appointmentURLTB = new System.Windows.Forms.TextBox();
+            this.appointmentStartTB = new System.Windows.Forms.TextBox();
+            this.appointmentEndTB = new System.Windows.Forms.TextBox();
+            this.appointmentCreateTB = new System.Windows.Forms.TextBox();
+            this.appointmentCreatedTB = new System.Windows.Forms.TextBox();
+            this.appointmentUpdateTB = new System.Windows.Forms.TextBox();
+            this.appointmentUpdatedTB = new System.Windows.Forms.TextBox();
+            this.customerIDTB = new System.Windows.Forms.TextBox();
+            this.customerNameTB = new System.Windows.Forms.TextBox();
+            this.userIDTB = new System.Windows.Forms.TextBox();
+            this.userNameTB = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.label18 = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -232,142 +232,142 @@
             this.label17.Text = "Appointment Last Updated By";
             this.label17.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
-            // textBox1
+            // appointmentIDTB
             // 
-            this.textBox1.Location = new System.Drawing.Point(208, 41);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(188, 20);
-            this.textBox1.TabIndex = 17;
+            this.appointmentIDTB.Location = new System.Drawing.Point(208, 41);
+            this.appointmentIDTB.Name = "appointmentIDTB";
+            this.appointmentIDTB.ReadOnly = true;
+            this.appointmentIDTB.Size = new System.Drawing.Size(188, 20);
+            this.appointmentIDTB.TabIndex = 17;
             // 
-            // textBox2
+            // appointmentTitleTB
             // 
-            this.textBox2.Location = new System.Drawing.Point(208, 72);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(188, 20);
-            this.textBox2.TabIndex = 18;
+            this.appointmentTitleTB.Location = new System.Drawing.Point(208, 72);
+            this.appointmentTitleTB.Name = "appointmentTitleTB";
+            this.appointmentTitleTB.ReadOnly = true;
+            this.appointmentTitleTB.Size = new System.Drawing.Size(188, 20);
+            this.appointmentTitleTB.TabIndex = 18;
             // 
-            // textBox3
+            // appointmentDescriptionTB
             // 
-            this.textBox3.Location = new System.Drawing.Point(208, 100);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(188, 60);
-            this.textBox3.TabIndex = 19;
+            this.appointmentDescriptionTB.Location = new System.Drawing.Point(208, 100);
+            this.appointmentDescriptionTB.Multiline = true;
+            this.appointmentDescriptionTB.Name = "appointmentDescriptionTB";
+            this.appointmentDescriptionTB.ReadOnly = true;
+            this.appointmentDescriptionTB.Size = new System.Drawing.Size(188, 60);
+            this.appointmentDescriptionTB.TabIndex = 19;
             // 
-            // textBox4
+            // appointmentLocationTB
             // 
-            this.textBox4.Location = new System.Drawing.Point(208, 177);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.ReadOnly = true;
-            this.textBox4.Size = new System.Drawing.Size(188, 20);
-            this.textBox4.TabIndex = 20;
+            this.appointmentLocationTB.Location = new System.Drawing.Point(208, 177);
+            this.appointmentLocationTB.Name = "appointmentLocationTB";
+            this.appointmentLocationTB.ReadOnly = true;
+            this.appointmentLocationTB.Size = new System.Drawing.Size(188, 20);
+            this.appointmentLocationTB.TabIndex = 20;
             // 
-            // textBox5
+            // appointmentContactTB
             // 
-            this.textBox5.Location = new System.Drawing.Point(208, 215);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.ReadOnly = true;
-            this.textBox5.Size = new System.Drawing.Size(188, 20);
-            this.textBox5.TabIndex = 21;
+            this.appointmentContactTB.Location = new System.Drawing.Point(208, 215);
+            this.appointmentContactTB.Name = "appointmentContactTB";
+            this.appointmentContactTB.ReadOnly = true;
+            this.appointmentContactTB.Size = new System.Drawing.Size(188, 20);
+            this.appointmentContactTB.TabIndex = 21;
             // 
-            // textBox6
+            // appointmentTypeTB
             // 
-            this.textBox6.Location = new System.Drawing.Point(208, 246);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.ReadOnly = true;
-            this.textBox6.Size = new System.Drawing.Size(188, 20);
-            this.textBox6.TabIndex = 22;
+            this.appointmentTypeTB.Location = new System.Drawing.Point(208, 246);
+            this.appointmentTypeTB.Name = "appointmentTypeTB";
+            this.appointmentTypeTB.ReadOnly = true;
+            this.appointmentTypeTB.Size = new System.Drawing.Size(188, 20);
+            this.appointmentTypeTB.TabIndex = 22;
             // 
-            // textBox7
+            // appointmentURLTB
             // 
-            this.textBox7.Location = new System.Drawing.Point(208, 282);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.ReadOnly = true;
-            this.textBox7.Size = new System.Drawing.Size(188, 20);
-            this.textBox7.TabIndex = 23;
+            this.appointmentURLTB.Location = new System.Drawing.Point(208, 282);
+            this.appointmentURLTB.Name = "appointmentURLTB";
+            this.appointmentURLTB.ReadOnly = true;
+            this.appointmentURLTB.Size = new System.Drawing.Size(188, 20);
+            this.appointmentURLTB.TabIndex = 23;
             // 
-            // textBox8
+            // appointmentStartTB
             // 
-            this.textBox8.Location = new System.Drawing.Point(208, 324);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.ReadOnly = true;
-            this.textBox8.Size = new System.Drawing.Size(188, 20);
-            this.textBox8.TabIndex = 24;
+            this.appointmentStartTB.Location = new System.Drawing.Point(208, 324);
+            this.appointmentStartTB.Name = "appointmentStartTB";
+            this.appointmentStartTB.ReadOnly = true;
+            this.appointmentStartTB.Size = new System.Drawing.Size(188, 20);
+            this.appointmentStartTB.TabIndex = 24;
             // 
-            // textBox9
+            // appointmentEndTB
             // 
-            this.textBox9.Location = new System.Drawing.Point(208, 364);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.ReadOnly = true;
-            this.textBox9.Size = new System.Drawing.Size(188, 20);
-            this.textBox9.TabIndex = 25;
+            this.appointmentEndTB.Location = new System.Drawing.Point(208, 364);
+            this.appointmentEndTB.Name = "appointmentEndTB";
+            this.appointmentEndTB.ReadOnly = true;
+            this.appointmentEndTB.Size = new System.Drawing.Size(188, 20);
+            this.appointmentEndTB.TabIndex = 25;
             // 
-            // textBox10
+            // appointmentCreateTB
             // 
-            this.textBox10.Location = new System.Drawing.Point(208, 402);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.ReadOnly = true;
-            this.textBox10.Size = new System.Drawing.Size(188, 20);
-            this.textBox10.TabIndex = 26;
+            this.appointmentCreateTB.Location = new System.Drawing.Point(208, 402);
+            this.appointmentCreateTB.Name = "appointmentCreateTB";
+            this.appointmentCreateTB.ReadOnly = true;
+            this.appointmentCreateTB.Size = new System.Drawing.Size(188, 20);
+            this.appointmentCreateTB.TabIndex = 26;
             // 
-            // textBox11
+            // appointmentCreatedTB
             // 
-            this.textBox11.Location = new System.Drawing.Point(208, 441);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.ReadOnly = true;
-            this.textBox11.Size = new System.Drawing.Size(188, 20);
-            this.textBox11.TabIndex = 27;
+            this.appointmentCreatedTB.Location = new System.Drawing.Point(208, 441);
+            this.appointmentCreatedTB.Name = "appointmentCreatedTB";
+            this.appointmentCreatedTB.ReadOnly = true;
+            this.appointmentCreatedTB.Size = new System.Drawing.Size(188, 20);
+            this.appointmentCreatedTB.TabIndex = 27;
             // 
-            // textBox12
+            // appointmentUpdateTB
             // 
-            this.textBox12.Location = new System.Drawing.Point(208, 480);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.ReadOnly = true;
-            this.textBox12.Size = new System.Drawing.Size(188, 20);
-            this.textBox12.TabIndex = 28;
+            this.appointmentUpdateTB.Location = new System.Drawing.Point(208, 480);
+            this.appointmentUpdateTB.Name = "appointmentUpdateTB";
+            this.appointmentUpdateTB.ReadOnly = true;
+            this.appointmentUpdateTB.Size = new System.Drawing.Size(188, 20);
+            this.appointmentUpdateTB.TabIndex = 28;
             // 
-            // textBox13
+            // appointmentUpdatedTB
             // 
-            this.textBox13.Location = new System.Drawing.Point(208, 513);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.ReadOnly = true;
-            this.textBox13.Size = new System.Drawing.Size(188, 20);
-            this.textBox13.TabIndex = 29;
+            this.appointmentUpdatedTB.Location = new System.Drawing.Point(208, 513);
+            this.appointmentUpdatedTB.Name = "appointmentUpdatedTB";
+            this.appointmentUpdatedTB.ReadOnly = true;
+            this.appointmentUpdatedTB.Size = new System.Drawing.Size(188, 20);
+            this.appointmentUpdatedTB.TabIndex = 29;
             // 
-            // textBox14
+            // customerIDTB
             // 
-            this.textBox14.Location = new System.Drawing.Point(559, 41);
-            this.textBox14.Name = "textBox14";
-            this.textBox14.ReadOnly = true;
-            this.textBox14.Size = new System.Drawing.Size(188, 20);
-            this.textBox14.TabIndex = 30;
+            this.customerIDTB.Location = new System.Drawing.Point(559, 41);
+            this.customerIDTB.Name = "customerIDTB";
+            this.customerIDTB.ReadOnly = true;
+            this.customerIDTB.Size = new System.Drawing.Size(188, 20);
+            this.customerIDTB.TabIndex = 30;
             // 
-            // textBox15
+            // customerNameTB
             // 
-            this.textBox15.Location = new System.Drawing.Point(559, 79);
-            this.textBox15.Name = "textBox15";
-            this.textBox15.ReadOnly = true;
-            this.textBox15.Size = new System.Drawing.Size(188, 20);
-            this.textBox15.TabIndex = 31;
+            this.customerNameTB.Location = new System.Drawing.Point(559, 79);
+            this.customerNameTB.Name = "customerNameTB";
+            this.customerNameTB.ReadOnly = true;
+            this.customerNameTB.Size = new System.Drawing.Size(188, 20);
+            this.customerNameTB.TabIndex = 31;
             // 
-            // textBox16
+            // userIDTB
             // 
-            this.textBox16.Location = new System.Drawing.Point(559, 116);
-            this.textBox16.Name = "textBox16";
-            this.textBox16.ReadOnly = true;
-            this.textBox16.Size = new System.Drawing.Size(188, 20);
-            this.textBox16.TabIndex = 32;
+            this.userIDTB.Location = new System.Drawing.Point(559, 116);
+            this.userIDTB.Name = "userIDTB";
+            this.userIDTB.ReadOnly = true;
+            this.userIDTB.Size = new System.Drawing.Size(188, 20);
+            this.userIDTB.TabIndex = 32;
             // 
-            // textBox17
+            // userNameTB
             // 
-            this.textBox17.Location = new System.Drawing.Point(559, 148);
-            this.textBox17.Name = "textBox17";
-            this.textBox17.ReadOnly = true;
-            this.textBox17.Size = new System.Drawing.Size(188, 20);
-            this.textBox17.TabIndex = 33;
+            this.userNameTB.Location = new System.Drawing.Point(559, 148);
+            this.userNameTB.Name = "userNameTB";
+            this.userNameTB.ReadOnly = true;
+            this.userNameTB.Size = new System.Drawing.Size(188, 20);
+            this.userNameTB.TabIndex = 33;
             // 
             // button1
             // 
@@ -377,6 +377,7 @@
             this.button1.TabIndex = 34;
             this.button1.Text = "Finish";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label18
             // 
@@ -395,23 +396,23 @@
             this.ClientSize = new System.Drawing.Size(800, 558);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox17);
-            this.Controls.Add(this.textBox16);
-            this.Controls.Add(this.textBox15);
-            this.Controls.Add(this.textBox14);
-            this.Controls.Add(this.textBox13);
-            this.Controls.Add(this.textBox12);
-            this.Controls.Add(this.textBox11);
-            this.Controls.Add(this.textBox10);
-            this.Controls.Add(this.textBox9);
-            this.Controls.Add(this.textBox8);
-            this.Controls.Add(this.textBox7);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.userNameTB);
+            this.Controls.Add(this.userIDTB);
+            this.Controls.Add(this.customerNameTB);
+            this.Controls.Add(this.customerIDTB);
+            this.Controls.Add(this.appointmentUpdatedTB);
+            this.Controls.Add(this.appointmentUpdateTB);
+            this.Controls.Add(this.appointmentCreatedTB);
+            this.Controls.Add(this.appointmentCreateTB);
+            this.Controls.Add(this.appointmentEndTB);
+            this.Controls.Add(this.appointmentStartTB);
+            this.Controls.Add(this.appointmentURLTB);
+            this.Controls.Add(this.appointmentTypeTB);
+            this.Controls.Add(this.appointmentContactTB);
+            this.Controls.Add(this.appointmentLocationTB);
+            this.Controls.Add(this.appointmentDescriptionTB);
+            this.Controls.Add(this.appointmentTitleTB);
+            this.Controls.Add(this.appointmentIDTB);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.label15);
@@ -431,6 +432,7 @@
             this.Controls.Add(this.label1);
             this.Name = "AppointmentDetails";
             this.Text = "AppointmentDetails";
+            this.Load += new System.EventHandler(this.AppointmentDetails_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -455,24 +457,24 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.TextBox textBox11;
-        private System.Windows.Forms.TextBox textBox12;
-        private System.Windows.Forms.TextBox textBox13;
-        private System.Windows.Forms.TextBox textBox14;
-        private System.Windows.Forms.TextBox textBox15;
-        private System.Windows.Forms.TextBox textBox16;
-        private System.Windows.Forms.TextBox textBox17;
+        private System.Windows.Forms.TextBox appointmentTitleTB;
+        private System.Windows.Forms.TextBox appointmentDescriptionTB;
+        private System.Windows.Forms.TextBox appointmentLocationTB;
+        private System.Windows.Forms.TextBox appointmentContactTB;
+        private System.Windows.Forms.TextBox appointmentTypeTB;
+        private System.Windows.Forms.TextBox appointmentURLTB;
+        private System.Windows.Forms.TextBox appointmentStartTB;
+        private System.Windows.Forms.TextBox appointmentEndTB;
+        private System.Windows.Forms.TextBox appointmentCreateTB;
+        private System.Windows.Forms.TextBox appointmentCreatedTB;
+        private System.Windows.Forms.TextBox appointmentUpdateTB;
+        private System.Windows.Forms.TextBox appointmentUpdatedTB;
+        private System.Windows.Forms.TextBox customerIDTB;
+        private System.Windows.Forms.TextBox customerNameTB;
+        private System.Windows.Forms.TextBox userIDTB;
+        private System.Windows.Forms.TextBox userNameTB;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.TextBox appointmentIDTB;
     }
 }
