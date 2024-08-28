@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.Common;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -202,5 +203,44 @@ namespace C969_Task1.Models
             dataGridView.DataSource = table;
         }
 
+        public static bool OverlappingAppointment(Appointment appointment)
+        {
+            DatabaseConnection db = new DatabaseConnection();
+            
+            string qry = $"SELECT * FROM appointment WHERE userId = '{appointment.userID}' and ((start >= '{appointment.start.ToUniversalTime().ToString("yyyy-MM-dd HH:mm:ss")}' and start <= '{appointment.end.ToUniversalTime().ToString("yyyy-MM-dd HH:mm:ss")}') or (end >= '{appointment.start.ToUniversalTime().ToString("yyyy-MM-dd HH:mm:ss")}' and end <= '{appointment.end.ToUniversalTime().ToString("yyyy-MM-dd HH:mm:ss")}'))";
+
+            MySqlDataReader rdr = db.DBCommand(qry).ExecuteReader();
+
+            rdr.Read();
+
+            if (rdr.HasRows)
+            {
+                rdr.Close();
+                return false;
+            }
+            else
+            {
+                rdr.Close();
+                return true;
+            }
+        }
+
+        public static bool WithinBusinessHours(Appointment appointment)
+        {
+            DateTime businessStart = DateTime.Today.AddHours(8);
+            DateTime businessEnd = DateTime.Today.AddHours(17);
+
+            DateTime appointmentStart = DateTime.Parse(appointment.start.ToString());
+            DateTime appointmentEnd = DateTime.Parse(appointment.end.ToString());
+
+            if (appointmentStart.TimeOfDay >= businessStart.TimeOfDay && appointmentStart.TimeOfDay <= businessEnd.TimeOfDay && appointmentEnd.TimeOfDay > businessStart.TimeOfDay && appointmentEnd.TimeOfDay <= businessEnd.TimeOfDay)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }
