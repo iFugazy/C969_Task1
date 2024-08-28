@@ -75,7 +75,7 @@ namespace C969_Task1.Models
         {
             DatabaseConnection db = new DatabaseConnection();
 
-            string Query = "UPDATE customer SET customerName = '" + customer.customerName + "', addressID = '" + customer.addressID + "', active = '" + customer.active + "', createDate = 'NOW()', createdBy = '" + customer.createdBy + "', lastUpdate = 'NOW()', lastUpdateBy = '" + customer.lastUpdateBy + "' WHERE customerID = '" + customer.customerID + "'";
+            string Query = "UPDATE customer SET customerName = '" + customer.customerName + "', addressID = '" + customer.addressID + "', active = '" + customer.active + "', createDate = now(), createdBy = '" + customer.createdBy + "', lastUpdate = now(), lastUpdateBy = '" + customer.lastUpdateBy + "' WHERE customerID = '" + customer.customerID + "'";
 
             db.DBCommand(Query).ExecuteNonQuery();
         }

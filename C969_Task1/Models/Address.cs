@@ -13,12 +13,12 @@ namespace C969_Task1.Models
         public string address { get; set; }
         public string address2 { get; set; }
         public int cityID { get; set; }
-        public int postalCode { get; set; }
-        public int phone { get; set; }
+        public string postalCode { get; set; }
+        public string phone { get; set; }
         public string createdBy { get; set; }
         public string lastUpdateBy { get; set; }
 
-        public Address(int addressID, string address, string address2, int cityID, int postalCode, int phone, string createdBy, string lastUpdateBy)
+        public Address(int addressID, string address, string address2, int cityID, string postalCode, string phone, string createdBy, string lastUpdateBy)
         {
             this.addressID = addressID;
             this.address = address;

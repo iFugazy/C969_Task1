@@ -18,14 +18,14 @@ namespace C969_Task1.Forms
         DatabaseConnection db = new DatabaseConnection();
 
         public string userName { get; set; }
-        public int customerID { get; set; }
+        public static int customerID { get; set; }
 
 
         public MainCustomerForm()
         {
             InitializeComponent();
-            this.customerID = dataGridView1.Rows.Count;
             
+           
 
         }
 
@@ -75,13 +75,15 @@ namespace C969_Task1.Forms
 
         private void editBTN_Click(object sender, EventArgs e)
         {
-            EditCustomer editCustomer = new EditCustomer(this);
+            customerID = GetCustomerID();
+            EditCustomer editCustomer = new EditCustomer(customerID);
             if(dataGridView1.SelectedRows.Count > 1)
             {
                 MessageBox.Show("Please only select one row", "Too many rows are selected");
             }
             else
             {
+                this.Hide();
                 editCustomer.Show();
                 
             }

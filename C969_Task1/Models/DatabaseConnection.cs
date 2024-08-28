@@ -25,6 +25,19 @@ namespace C969_Task1.Models
             return cnn;
         }
 
+        public static DataTable MainCustomerData()
+        {
+            DatabaseConnection db = new DatabaseConnection();
+
+            DataTable dt = new DataTable();
+
+            MySqlDataAdapter adapter = new MySqlDataAdapter(db.mainTableString, db.connstring);
+
+            adapter.Fill(dt);
+
+            return dt;
+        }
+
 
         public void OpenConnection()
         {

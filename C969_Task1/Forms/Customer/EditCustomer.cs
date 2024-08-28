@@ -7,21 +7,26 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Google.Protobuf.Reflection.SourceCodeInfo.Types;
 
 namespace C969_Task1.Forms.Customer
 {
     public partial class EditCustomer : Form
     {
         DatabaseConnection db = new DatabaseConnection();
-        MainCustomerForm main;
-        public EditCustomer(MainCustomerForm mainCustomerForm)
+        MainCustomerForm main = new MainCustomerForm();
+        public int CustomerID { get; set; }
+        public int CityID { get; set; }
+        public int CountryID { get; set; }
+        public EditCustomer(int CustomerID)
         {
             InitializeComponent();
-            this.main = mainCustomerForm;
-            db.OpenConnection();
+            this.CustomerID = CustomerID;
+            
 
             address1TB.BackColor = Color.IndianRed;
             postalCodeTB.BackColor = Color.IndianRed;
@@ -34,51 +39,44 @@ namespace C969_Task1.Forms.Customer
 
         private void EditCustomer_Load(object sender, EventArgs e)
         {
-            //string query = $"SELECT * FROM client_schedule.customer where customerID = '{appointmentID}'";
+            string customerQuery = $"SELECT * FROM client_schedule.customer where customerID = '{CustomerID}'";
+            string addressQuery = $"SELECT * FROM client_schedule.address where addressId = '{CustomerID}'";
+            MySqlDataReader drCustomer = db.DBCommand(customerQuery).ExecuteReader();
+            MySqlDataReader drAddress = db.DBCommand(addressQuery).ExecuteReader();
 
-            customerNameTB.Text = main.dataGridView1.CurrentRow.Cells[1].Value.ToString();
-            activeCB.Checked = Convert.ToBoolean(main.dataGridView1.CurrentRow.Cells[2].Value);
-            address1TB.Text = main.dataGridView1.CurrentRow.Cells[3].Value.ToString();
-            address2TB.Text = main.dataGridView1.CurrentRow.Cells[4].Value.ToString();
-            postalCodeTB.Text = main.dataGridView1.CurrentRow.Cells[5].Value.ToString();
-            phoneNumberTB.Text = main.dataGridView1.CurrentRow.Cells[6].Value.ToString();
-        }
-
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            try
+            while (drCustomer.Read())
             {
-                int num = main.dataGridView1.CurrentRow.Index + 1;
-                string id = num.ToString();
-                int active = activeCB.Checked ? 1 : 0;
-
-                List<string> updateQuery = new List<string>
-                {
-                    "UPDATE client_schedule.customer SET customerName = '" + customerNameTB.Text + "', active = '" + active.ToString() + "' WHERE(customerId = '" + id + "')",
-                    "UPDATE client_schedule.address SET address.address = '" + address1TB.Text + "', address.address2 = '" + address2TB.Text + "', address.PostalCode = '" + postalCodeTB.Text + "', address.Phone = '" + phoneNumberTB.Text + "' WHERE address.addressId = '" + id + "'"
-                };
-
-                foreach (String query in updateQuery)
-                {
-                    db.DBCommand(query).ExecuteNonQuery();
-                }
+                customerNameTB.Text = (drCustomer.GetValue(1).ToString());
+                activeCB.Checked = Convert.ToBoolean(drCustomer.GetValue(3).ToString());
+                
 
             }
-            catch (Exception ex)
+
+            while (drAddress.Read())
             {
-                MessageBox.Show(ex.Message);
+                // cityCB.Text = main.dataGridView1.CurrentRow.Cells[7].Value.ToString();
+                //countryCB.Text = main.dataGridView1.CurrentRow.Cells[8].Value.ToString();
+                address1TB.Text = (drAddress.GetValue(1).ToString());
+                address2TB.Text = (drAddress.GetValue(2).ToString());
+                postalCodeTB.Text = (drAddress.GetValue(4).ToString());        
+                phoneNumberTB.Text = (drAddress.GetValue(5).ToString());   
+                this.CityID = drAddress.GetInt32(3);
             }
-            finally
+
+            string cityQuery = $"SELECT * FROM client_schedule.city where cityId = '{CityID}'";
+            MySqlDataReader drCity = db.DBCommand(cityQuery).ExecuteReader();
+            while (drCity.Read())
             {
-                db.RefreshData(db.mainTableString, main.dataGridView1);
+                cityCB.Text = drCity.GetValue(1).ToString();
+                this.CountryID = drCity.GetInt32(2);
             }
 
-
-
-
-
-            this.Close();
+            string countryQuery = $"SELECT * FROM client_schedule.country where countryId = '{CountryID}'";
+            MySqlDataReader drCountry = db.DBCommand(countryQuery).ExecuteReader();
+            while (drCountry.Read())
+            {
+                countryCB.Text = drCountry.GetValue(1).ToString();
+            }
 
 
         }
@@ -91,6 +89,27 @@ namespace C969_Task1.Forms.Customer
         private void phoneNumberTB_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+           // MAKE IT SO THAT WHEN THE USER CHANGES THE CITY OR COUNTRY, THE APP CHECKS IF THE CITY OR COUNTRY EXISTS, IF NOT, ADD IT TO THE DATABASE
+
+            Models.Customer customer = new Models.Customer(CustomerID, customerNameTB.Text, CustomerID, activeCB.Checked ? 1 : 0, User.userName, User.userName);
+            Address address = new Address(CustomerID, address1TB.Text, address2TB.Text, CityID, postalCodeTB.Text, phoneNumberTB.Text, User.userName, User.userName);
+
+            Address.UpdateAddress(address);
+            Models.Customer.UpdateCustomer(customer);
+            
+            
+            
+            
+            Appointment.RefreshData(DatabaseConnection.MainCustomerData(), main.dataGridView1);
+
+            
+
+            this.Close();
+            main.Show();
         }
     }
 }

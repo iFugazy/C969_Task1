@@ -18,6 +18,7 @@ namespace C969_Task1.Forms.Customer
         DatabaseConnection db = new DatabaseConnection(); 
         MainAppointmentForm mainAppointmentForm = new MainAppointmentForm();
         public int appointmentID { get; set; }
+
         public EditAppointment()
         {
             InitializeComponent();

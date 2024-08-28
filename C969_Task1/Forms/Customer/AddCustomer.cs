@@ -47,7 +47,7 @@ namespace C969_Task1.Forms.Customer
 
             try
             {
-                Address address = new Address(addressID, address1TB.Text, address2TB.Text, city.CheckCities(), int.Parse(postalCodeTB.Text), int.Parse(phoneNumberTB.Text), User.userName, User.userName);
+                Address address = new Address(addressID, address1TB.Text, address2TB.Text, city.CheckCities(), postalCodeTB.Text, phoneNumberTB.Text, User.userName, User.userName);
                 Address.AddAddress(address);
             }
             catch { }
@@ -76,9 +76,9 @@ namespace C969_Task1.Forms.Customer
 
         private void button2_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(Address.NewAddressID().ToString());
-            /*this.Close();
-            main.Show();*/
+
+            this.Close();
+            main.Show();
         }
 
         private void customerNameTB_KeyPress(object sender, KeyPressEventArgs e)
