@@ -25,6 +25,7 @@ namespace C969_Task1.Models
 
         public static DataTable appointmentInfo = new DataTable();
         public static DataTable userAppointmentInfo = new DataTable();
+        public static DataTable calendarAppointmentInfo = new DataTable();
 
 
         public Appointment(int appointmentID, int customerID, int userID, string title, string description, string location, string Type,string contact, string url, DateTime start, DateTime end)
@@ -47,6 +48,19 @@ namespace C969_Task1.Models
         {
         }
 
+        public static DateTime dateToHighlight()
+        {
+            DatabaseConnection db = new DatabaseConnection();
+            string Query = "SELECT appointmentID, customerID, userID, title, type, description, contact, url, start, end FROM appointment";
+            MySqlDataReader rdr = db.DBCommand(Query).ExecuteReader();
+            DateTime date = new DateTime();
+            while (rdr.Read())
+            {
+                date = Convert.ToDateTime(rdr["start"]);
+            }
+            return date;
+
+        }
         public static DataTable AllAppointments()
         {
             DatabaseConnection db = new DatabaseConnection();
@@ -146,6 +160,34 @@ namespace C969_Task1.Models
 
             return userAppointmentInfo;
         }
+
+        public static DataTable AppointmentsByCalendar(string selectedDate)
+        {
+            DatabaseConnection db = new DatabaseConnection();
+
+            calendarAppointmentInfo.Clear();
+
+            string Query = $"SELECT appointmentID, customerID, userID, title, type, description, contact, url, start, end FROM appointment WHERE start = '{selectedDate}'";
+
+            MySqlDataAdapter adapter = new MySqlDataAdapter(db.DBCommand(Query));
+
+            adapter.Fill(calendarAppointmentInfo);
+
+            foreach (DataRow row in calendarAppointmentInfo.Rows)
+            {
+
+                DateTime start = (DateTime)calendarAppointmentInfo.Rows[0]["start"];
+                calendarAppointmentInfo.Rows[0]["start"] = start.ToLocalTime();
+
+                DateTime end = (DateTime)calendarAppointmentInfo.Rows[0]["end"];
+                calendarAppointmentInfo.Rows[0]["end"] = end.ToLocalTime();
+            }
+
+            return calendarAppointmentInfo;
+        }
+
+
+
 
         public static void AddAppointment(Appointment appointment)
         {

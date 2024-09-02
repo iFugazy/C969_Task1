@@ -45,6 +45,7 @@
             this.monthCalendar1.Location = new System.Drawing.Point(130, 20);
             this.monthCalendar1.Name = "monthCalendar1";
             this.monthCalendar1.TabIndex = 0;
+            this.monthCalendar1.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar1_DateChanged);
             // 
             // dataGridView1
             // 
@@ -140,8 +141,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.MonthCalendar monthCalendar1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label1;
@@ -149,5 +148,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button customerBTN;
         private System.Windows.Forms.Button appointmentBTN;
+        public System.Windows.Forms.MonthCalendar monthCalendar1;
     }
 }
