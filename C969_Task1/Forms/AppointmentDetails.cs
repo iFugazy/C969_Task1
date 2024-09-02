@@ -41,6 +41,9 @@ namespace C969_Task1.Forms.Customer
 
             while (drAppointment.Read())
             {
+                DateTime startdateTime = (DateTime)drAppointment.GetValue(9);
+                DateTime enddateTime = (DateTime)drAppointment.GetValue(10);
+
                 appointmentIDTB.Text = drAppointment.GetValue(0).ToString();
                 appointmentTitleTB.Text = drAppointment.GetValue(3).ToString();
                 appointmentDescriptionTB.Text = drAppointment.GetValue(4).ToString();
@@ -48,8 +51,8 @@ namespace C969_Task1.Forms.Customer
                 appointmentTypeTB.Text = drAppointment.GetValue(7).ToString();
                 appointmentContactTB.Text = drAppointment.GetValue(6).ToString();
                 appointmentURLTB.Text = drAppointment.GetValue(8).ToString();
-                appointmentStartTB.Text = drAppointment.GetValue(9).ToString();
-                appointmentEndTB.Text = drAppointment.GetValue(10).ToString();
+                appointmentStartTB.Text = startdateTime.ToLocalTime().ToString();
+                appointmentEndTB.Text = enddateTime.ToLocalTime().ToString();
                 appointmentCreateTB.Text = drAppointment.GetValue(11).ToString();
                 appointmentCreatedTB.Text = drAppointment.GetValue(12).ToString();
                 appointmentUpdateTB.Text = drAppointment.GetValue(13).ToString();

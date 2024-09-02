@@ -63,7 +63,7 @@ namespace C969_Task1.Forms.Customer
         private void button1_Click(object sender, EventArgs e)
         {
             
-            Appointment appointmentToUpdate = new Appointment(appointmentID, int.Parse(customerIDTB.Text), int.Parse(userIDTB.Text), titleTB.Text, descriptionTB.Text, locationTB.Text, typeTB.Text, contactTB.Text, urlTB.Text, startDateTimePicker.Value, endDataTimePicker.Value);
+            Appointment appointmentToUpdate = new Appointment(appointmentID, int.Parse(customerIDTB.Text), int.Parse(userIDTB.Text), titleTB.Text, descriptionTB.Text, locationTB.Text, typeTB.Text, contactTB.Text, urlTB.Text, startDateTimePicker.Value.ToUniversalTime(), endDataTimePicker.Value.ToUniversalTime());
             if (Appointment.OverlappingAppointment(appointmentToUpdate) == true)
             {
                 MessageBox.Show("Appointment overlaps with another appointment. Please select a different time.");

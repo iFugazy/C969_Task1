@@ -26,7 +26,7 @@ namespace C969_Task1.Forms.Customer
         private void button1_Click(object sender, EventArgs e)
         {
 
-            Appointment appointmentToAdd = new Appointment(Appointment.NewAppointmentID(), int.Parse(comboBox1.Text), User.userID, address2TB.Text, textBox1.Text, textBox3.Text, textBox4.Text,postalCodeTB.Text, textBox2.Text, dateTimePicker1.Value, dateTimePicker2.Value);
+            Appointment appointmentToAdd = new Appointment(Appointment.NewAppointmentID(), int.Parse(comboBox1.Text), User.userID, address2TB.Text, textBox1.Text, textBox3.Text, textBox4.Text,postalCodeTB.Text, textBox2.Text, dateTimePicker1.Value.ToUniversalTime(), dateTimePicker2.Value.ToUniversalTime());
             if(Appointment.OverlappingAppointment(appointmentToAdd) == true)
             {
                 MessageBox.Show("Appointment overlaps with another appointment. Please select a different time.");
@@ -68,9 +68,7 @@ namespace C969_Task1.Forms.Customer
             dateTimePicker2.Format = DateTimePickerFormat.Custom;
             dateTimePicker2.CustomFormat = "MM/dd/yyyy hh:mm tt";
 
-            //Add data to datagrids
-            //CHANGE TO ACTUAL LOGGED IN USER
-            dataGridView1.DataSource = Appointment.AppointmentsByUser(1);
+            dataGridView1.DataSource = Appointment.AppointmentsByUser(User.userID);
             dataGridView2.DataSource = Models.Customer.SimpleCustomerData();
         }
 

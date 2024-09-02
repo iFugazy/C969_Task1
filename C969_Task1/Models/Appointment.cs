@@ -74,14 +74,13 @@ namespace C969_Task1.Models
 
             adapter.Fill(appointmentInfo);
 
-            foreach (DataRow row in appointmentInfo.Rows)
+            for (int i = 0; i < appointmentInfo.Rows.Count; i++)
             {
+                DateTime start = (DateTime)appointmentInfo.Rows[i]["start"];
+                appointmentInfo.Rows[i]["start"] = start.ToLocalTime();
 
-                DateTime start = (DateTime)appointmentInfo.Rows[0]["start"];
-                appointmentInfo.Rows[0]["start"] = start.ToLocalTime();
-
-                DateTime end = (DateTime)appointmentInfo.Rows[0]["start"];
-                appointmentInfo.Rows[0]["start"] = start.ToLocalTime();
+                DateTime end = (DateTime)appointmentInfo.Rows[i]["end"];
+                appointmentInfo.Rows[i]["end"] = end.ToLocalTime();
             }
 
             return appointmentInfo;
@@ -99,14 +98,13 @@ namespace C969_Task1.Models
 
             adapter.Fill(appointmentInfo);
 
-            foreach (DataRow row in appointmentInfo.Rows)
+            for (int i = 0; i < appointmentInfo.Rows.Count; i++)
             {
+                DateTime start = (DateTime)appointmentInfo.Rows[i]["start"];
+                appointmentInfo.Rows[i]["start"] = start.ToLocalTime();
 
-                DateTime start = (DateTime)appointmentInfo.Rows[0]["start"];
-                appointmentInfo.Rows[0]["start"] = start.ToLocalTime();
-
-                DateTime end = (DateTime)appointmentInfo.Rows[0]["start"];
-                appointmentInfo.Rows[0]["start"] = start.ToLocalTime();
+                DateTime end = (DateTime)appointmentInfo.Rows[i]["end"];
+                appointmentInfo.Rows[i]["end"] = end.ToLocalTime();
             }
 
             return appointmentInfo;
@@ -124,14 +122,13 @@ namespace C969_Task1.Models
 
             adapter.Fill(appointmentInfo);
 
-            foreach (DataRow row in appointmentInfo.Rows)
+            for (int i = 0; i < appointmentInfo.Rows.Count; i++)
             {
+                DateTime start = (DateTime)appointmentInfo.Rows[i]["start"];
+                appointmentInfo.Rows[i]["start"] = start.ToLocalTime();
 
-                DateTime start = (DateTime)appointmentInfo.Rows[0]["start"];
-                appointmentInfo.Rows[0]["start"] = start.ToLocalTime();
-
-                DateTime end = (DateTime)appointmentInfo.Rows[0]["start"];
-                appointmentInfo.Rows[0]["start"] = start.ToLocalTime();
+                DateTime end = (DateTime)appointmentInfo.Rows[i]["end"];
+                appointmentInfo.Rows[i]["end"] = end.ToLocalTime();
             }
 
             return appointmentInfo;
@@ -149,14 +146,13 @@ namespace C969_Task1.Models
 
             adapter.Fill(userAppointmentInfo);
 
-            foreach (DataRow row in userAppointmentInfo.Rows)
+            for (int i = 0; i < userAppointmentInfo.Rows.Count; i++)
             {
+                DateTime start = (DateTime)appointmentInfo.Rows[i]["start"];
+                appointmentInfo.Rows[i]["start"] = start.ToLocalTime();
 
-                DateTime start = (DateTime)userAppointmentInfo.Rows[0]["start"];
-                userAppointmentInfo.Rows[0]["start"] = start.ToLocalTime();
-
-                DateTime end = (DateTime)userAppointmentInfo.Rows[0]["start"];
-                userAppointmentInfo.Rows[0]["start"] = start.ToLocalTime();
+                DateTime end = (DateTime)appointmentInfo.Rows[i]["end"];
+                appointmentInfo.Rows[i]["end"] = end.ToLocalTime();
             }
 
             return userAppointmentInfo;
@@ -174,14 +170,13 @@ namespace C969_Task1.Models
 
             adapter.Fill(calendarAppointmentInfo);
 
-            foreach (DataRow row in calendarAppointmentInfo.Rows)
+            for (int i = 0; i < calendarAppointmentInfo.Rows.Count; i++)
             {
+                DateTime start = (DateTime)appointmentInfo.Rows[i]["start"];
+                appointmentInfo.Rows[i]["start"] = start.ToLocalTime();
 
-                DateTime start = (DateTime)calendarAppointmentInfo.Rows[0]["start"];
-                calendarAppointmentInfo.Rows[0]["start"] = start.ToLocalTime();
-
-                DateTime end = (DateTime)calendarAppointmentInfo.Rows[0]["end"];
-                calendarAppointmentInfo.Rows[0]["end"] = end.ToLocalTime();
+                DateTime end = (DateTime)appointmentInfo.Rows[i]["end"];
+                appointmentInfo.Rows[i]["end"] = end.ToLocalTime();
             }
 
             return calendarAppointmentInfo;
