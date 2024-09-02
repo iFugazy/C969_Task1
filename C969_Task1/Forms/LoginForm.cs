@@ -20,6 +20,7 @@ namespace C969_Task1
     {
         public string connstring;
         public MySqlConnection cnn;
+        DatabaseConnection db = new DatabaseConnection();
 
         public LoginForm()
         {
@@ -32,13 +33,14 @@ namespace C969_Task1
         private void loginBTN_Click(object sender, EventArgs e)
         {
             int i = 0;
-
-            MySqlCommand cmd = cnn.CreateCommand();
+            string query = "select * from client_schedule.user where userName='" + usernameTB.Text + "' and password= '" + passwordTB.Text + "'";
+            /*MySqlCommand cmd = cnn.CreateCommand();
             cmd.CommandType = CommandType.Text;
             cmd.CommandText = "select * from client_schedule.user where userName='" + usernameTB.Text + "' and password= '" + passwordTB.Text + "'";
-            cmd.ExecuteNonQuery();
+            db.DBCommand(query);
+            cmd.ExecuteNonQuery();*/
             DataTable dt = new DataTable();
-            MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+            MySqlDataAdapter da = new MySqlDataAdapter(db.DBCommand(query));
             da.Fill(dt);
             i = Convert.ToInt32(dt.Rows.Count.ToString());
 
@@ -82,10 +84,8 @@ namespace C969_Task1
         }
 
         private void LoginForm_Load(object sender, EventArgs e)
-        {            
-            connstring = @"server=127.0.0.1; database=client_schedule; userid=sqlUser; password=Passw0rd!";
-            cnn = new MySqlConnection(connstring);
-            cnn.Open();
+        {
+            
         }
     }
 }

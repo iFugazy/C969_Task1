@@ -320,7 +320,7 @@
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(224, 39);
             this.label13.TabIndex = 65;
-            this.label13.Text = "Note: \r\nYou can select the cutromer from this list and \r\nit will automatically se" +
+            this.label13.Text = "Note: \r\nYou can select the customer from this list and \r\nit will automatically se" +
     "t the \"Customer ID\" field.";
             // 
             // AddAppointment

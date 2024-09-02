@@ -110,46 +110,52 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Forms\Customer\AddAppointment.cs">
+    <Compile Include="Forms\AddAppointment.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Customer\AddAppointment.Designer.cs">
+    <Compile Include="Forms\AddAppointment.Designer.cs">
       <DependentUpon>AddAppointment.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Customer\AddCustomer.cs">
+    <Compile Include="Forms\AddCustomer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Customer\AddCustomer.Designer.cs">
+    <Compile Include="Forms\AddCustomer.Designer.cs">
       <DependentUpon>AddCustomer.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Customer\AppointmentDetails.cs">
+    <Compile Include="Forms\AppointmentDetails.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Customer\AppointmentDetails.Designer.cs">
+    <Compile Include="Forms\AppointmentDetails.Designer.cs">
       <DependentUpon>AppointmentDetails.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Customer\EditAppointment.cs">
+    <Compile Include="Forms\CalendarAppointmentView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Customer\EditAppointment.Designer.cs">
+    <Compile Include="Forms\CalendarAppointmentView.Designer.cs">
+      <DependentUpon>CalendarAppointmentView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\EditAppointment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EditAppointment.Designer.cs">
       <DependentUpon>EditAppointment.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Customer\EditCustomer.cs">
+    <Compile Include="Forms\EditCustomer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Customer\EditCustomer.Designer.cs">
+    <Compile Include="Forms\EditCustomer.Designer.cs">
       <DependentUpon>EditCustomer.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Customer\MainAppointmentForm.cs">
+    <Compile Include="Forms\MainAppointmentForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Customer\MainAppointmentForm.Designer.cs">
+    <Compile Include="Forms\MainAppointmentForm.Designer.cs">
       <DependentUpon>MainAppointmentForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Customer\MainCustomerForm.cs">
+    <Compile Include="Forms\MainCustomerForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Customer\MainCustomerForm.Designer.cs">
+    <Compile Include="Forms\MainCustomerForm.Designer.cs">
       <DependentUpon>MainCustomerForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\LoginForm.cs">
@@ -173,25 +179,28 @@
     <Compile Include="Models\User.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Forms\Customer\AddAppointment.resx">
+    <EmbeddedResource Include="Forms\AddAppointment.resx">
       <DependentUpon>AddAppointment.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Customer\AddCustomer.resx">
+    <EmbeddedResource Include="Forms\AddCustomer.resx">
       <DependentUpon>AddCustomer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Customer\AppointmentDetails.resx">
+    <EmbeddedResource Include="Forms\AppointmentDetails.resx">
       <DependentUpon>AppointmentDetails.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Customer\EditAppointment.resx">
+    <EmbeddedResource Include="Forms\CalendarAppointmentView.resx">
+      <DependentUpon>CalendarAppointmentView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EditAppointment.resx">
       <DependentUpon>EditAppointment.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Customer\EditCustomer.resx">
+    <EmbeddedResource Include="Forms\EditCustomer.resx">
       <DependentUpon>EditCustomer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Customer\MainAppointmentForm.resx">
+    <EmbeddedResource Include="Forms\MainAppointmentForm.resx">
       <DependentUpon>MainAppointmentForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Customer\MainCustomerForm.resx">
+    <EmbeddedResource Include="Forms\MainCustomerForm.resx">
       <DependentUpon>MainCustomerForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\LoginForm.resx">

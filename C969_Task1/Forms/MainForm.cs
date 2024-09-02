@@ -43,11 +43,13 @@ namespace C969_Task1
                 comboBox1.Items.Add(item);
             }
 
+            monthCalendar1.AddBoldedDate(Appointment.dateToHighlight());
 
         }
 
         private void comboBox1_DropDownClosed(object sender, EventArgs e)
         {
+            
             if (comboBox1.Text == "All")
             {
                 dataGridView1.DataSource = Appointment.AllAppointments();
@@ -81,6 +83,13 @@ namespace C969_Task1
         {
             this.Close();
             mainAppointment.Show();
+        }
+
+        private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
+        {
+            CalendarAppointmentView calendar = new CalendarAppointmentView(e.Start.ToString("yyyy-MM-dd HH:mm:ss"));
+            calendar.Show();
+
         }
     }
 }
