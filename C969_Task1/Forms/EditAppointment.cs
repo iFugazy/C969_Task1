@@ -52,8 +52,8 @@ namespace C969_Task1.Forms.Customer
                 typeTB.Text = dr.GetValue(6).ToString();
                 contactTB.Text = dr.GetValue(7).ToString();
                 urlTB.Text = dr.GetValue(8).ToString();
-                startDateTimePicker.Value = Convert.ToDateTime(dr.GetValue(9));
-                endDataTimePicker.Value = Convert.ToDateTime(dr.GetValue(10));
+                startDateTimePicker.Value = Convert.ToDateTime(dr.GetValue(9)).ToLocalTime();
+                endDataTimePicker.Value = Convert.ToDateTime(dr.GetValue(10)).ToLocalTime();
               
             }
 

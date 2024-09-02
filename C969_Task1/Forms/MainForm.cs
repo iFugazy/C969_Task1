@@ -27,7 +27,7 @@ namespace C969_Task1
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            label1.Text = $"Welcome {User.userName}!";
+            label3.Text = $"Username: {User.userName}";   
 
             List<string> comboboxItems = new List<string>
             {
