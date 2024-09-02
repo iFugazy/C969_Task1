@@ -96,5 +96,11 @@ namespace C969_Task1
             calendar.Show();
 
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            ReportsForm reportsForm = new ReportsForm();
+            reportsForm.Show();
+        }
     }
 }
