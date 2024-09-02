@@ -26,20 +26,23 @@ namespace C969_Task1.Forms.Customer
         private void button1_Click(object sender, EventArgs e)
         {
 
-            Appointment appointmentToAdd = new Appointment(Appointment.NewAppointmentID(), int.Parse(comboBox1.Text), User.userID, address2TB.Text, textBox1.Text, textBox3.Text, textBox4.Text,postalCodeTB.Text, textBox2.Text, dateTimePicker1.Value.ToUniversalTime(), dateTimePicker2.Value.ToUniversalTime());
-            if(Appointment.OverlappingAppointment(appointmentToAdd) == true)
+            Appointment appointmentToAdd = new Appointment(Appointment.NewAppointmentID(), int.Parse(comboBox1.Text), User.userID, address2TB.Text, textBox1.Text, textBox3.Text, textBox4.Text,postalCodeTB.Text, textBox2.Text, dateTimePicker1.Value, dateTimePicker2.Value);
+            if (Appointment.WithinBusinessHours(appointmentToAdd))
             {
-                MessageBox.Show("Appointment overlaps with another appointment. Please select a different time.");
-                return;
-            }
-            else if(Appointment.WithinBusinessHours(appointmentToAdd) == true)
-            {
-                MessageBox.Show("Appointment is outside of business hours. Please select a different time.");
-                return;
+                if (Appointment.OverlappingAppointment(appointmentToAdd))
+                {
+                    Appointment.AddAppointment(appointmentToAdd);
+                    dataGridView1.DataSource = Appointment.AppointmentsByUser(User.userID);
+
+                }
+                else
+                {
+                    MessageBox.Show("Appointment times overlap another appointment for this user.");
+                }
             }
             else
             {
-                Appointment.AddAppointment(appointmentToAdd);
+                MessageBox.Show("Appointment is scheduled outside of business hours 8 AM to 5 PM.");
             }
         }
 
@@ -75,6 +78,11 @@ namespace C969_Task1.Forms.Customer
         private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             comboBox1.Text = dataGridView2.CurrentRow.Cells[0].Value.ToString();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

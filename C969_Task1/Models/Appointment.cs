@@ -6,6 +6,7 @@ using System.Data.Common;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace C969_Task1.Models
 {
@@ -145,15 +146,22 @@ namespace C969_Task1.Models
             MySqlDataAdapter adapter = new MySqlDataAdapter(db.DBCommand(Query));
 
             adapter.Fill(userAppointmentInfo);
-
-            for (int i = 0; i < userAppointmentInfo.Rows.Count; i++)
+            try
             {
-                DateTime start = (DateTime)appointmentInfo.Rows[i]["start"];
-                appointmentInfo.Rows[i]["start"] = start.ToLocalTime();
+                for (int i = 0; i < userAppointmentInfo.Rows.Count; i++)
+                {
+                    DateTime start = (DateTime)appointmentInfo.Rows[i]["start"];
+                    appointmentInfo.Rows[i]["start"] = start.ToLocalTime();
 
-                DateTime end = (DateTime)appointmentInfo.Rows[i]["end"];
-                appointmentInfo.Rows[i]["end"] = end.ToLocalTime();
+                    DateTime end = (DateTime)appointmentInfo.Rows[i]["end"];
+                    appointmentInfo.Rows[i]["end"] = end.ToLocalTime();
+                }
             }
+            catch 
+            {
+                
+            }
+           
 
             return userAppointmentInfo;
         }
@@ -244,22 +252,24 @@ namespace C969_Task1.Models
         {
             DatabaseConnection db = new DatabaseConnection();
             
-            string qry = $"SELECT * FROM appointment WHERE userId = '{appointment.userID}' and ((start >= '{appointment.start.ToUniversalTime().ToString("yyyy-MM-dd HH:mm:ss")}' and start <= '{appointment.end.ToUniversalTime().ToString("yyyy-MM-dd HH:mm:ss")}') or (end >= '{appointment.start.ToUniversalTime().ToString("yyyy-MM-dd HH:mm:ss")}' and end <= '{appointment.end.ToUniversalTime().ToString("yyyy-MM-dd HH:mm:ss")}'))";
+            string qry = $"SELECT * FROM appointment WHERE userId = '{appointment.userID}' and ((start >= '{appointment.start.ToUniversalTime().ToString("yyyy-MM-dd HH:mm:ss")}' and end <= '{appointment.end.ToUniversalTime().ToString("yyyy-MM-dd HH:mm:ss")}') or (end >= '{appointment.start.ToUniversalTime().ToString("yyyy-MM-dd HH:mm:ss")}' and end <= '{appointment.end.ToUniversalTime().ToString("yyyy-MM-dd HH:mm:ss")}'))";
 
             MySqlDataReader rdr = db.DBCommand(qry).ExecuteReader();
 
-            rdr.Read();
-
-            if (rdr.HasRows)
+            while (rdr.Read()) ;
             {
-                rdr.Close();
-                return false;
+                if (rdr.HasRows)
+                {
+                    rdr.Close();
+                    return false;
+                }
+                else
+                {
+                    rdr.Close();
+                    return true;
+                }
             }
-            else
-            {
-                rdr.Close();
-                return true;
-            }
+            
         }
 
         public static bool WithinBusinessHours(Appointment appointment)
@@ -278,6 +288,20 @@ namespace C969_Task1.Models
             {
                 return false;
             }
+        }
+
+        public static List<Appointment> checkUserReminders(int userID)
+        {
+            List<Appointment> appts = new List<Appointment>();
+            DateTime currentUtc = DateTime.UtcNow;
+            DatabaseConnection db = new DatabaseConnection();
+            string query = $"SELECT * FROM appointment WHERE userId = '{userID}' and TIMESTAMPDIFF(MINUTE, start, '{currentUtc}') < 15";
+
+            MySqlCommand cmd = db.DBCommand(query);
+            cmd.ExecuteNonQuery();
+
+            
+            return appts;
         }
     }
 }

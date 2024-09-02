@@ -21,14 +21,19 @@ namespace C969_Task1
         {
             InitializeComponent();
 
-
             dataGridView1.DataSource = Appointment.AppointmentsByWeek();
+
+            if (Appointment.checkUserReminders(User.userID).Count == 0)
+            {
+                MessageBox.Show("You have no upcoming appointments!");
+            };
         }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            label3.Text = $"Username: {User.userName}";   
-
+            label3.Text = $"Username: {User.userName}";
+            
+            
             List<string> comboboxItems = new List<string>
             {
                 "All",
