@@ -25,10 +25,22 @@ namespace C969_Task1.Forms.Customer
 
         private void button1_Click(object sender, EventArgs e)
         {
-            // Add appointment to database
-            //CHANGE USER ID TO ACTUAL USER ID PROP
-            Appointment appointmentToAdd = new Appointment(Appointment.NewAppointmentID(), int.Parse(comboBox1.Text), 1, address2TB.Text, textBox1.Text, textBox3.Text, textBox4.Text,postalCodeTB.Text, textBox2.Text, dateTimePicker1.Value, dateTimePicker2.Value);
-            Appointment.AddAppointment(appointmentToAdd);
+
+            Appointment appointmentToAdd = new Appointment(Appointment.NewAppointmentID(), int.Parse(comboBox1.Text), User.userID, address2TB.Text, textBox1.Text, textBox3.Text, textBox4.Text,postalCodeTB.Text, textBox2.Text, dateTimePicker1.Value, dateTimePicker2.Value);
+            if(Appointment.OverlappingAppointment(appointmentToAdd) == true)
+            {
+                MessageBox.Show("Appointment overlaps with another appointment. Please select a different time.");
+                return;
+            }
+            else if(Appointment.WithinBusinessHours(appointmentToAdd) == true)
+            {
+                MessageBox.Show("Appointment is outside of business hours. Please select a different time.");
+                return;
+            }
+            else
+            {
+                Appointment.AddAppointment(appointmentToAdd);
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
