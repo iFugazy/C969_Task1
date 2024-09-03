@@ -15,14 +15,21 @@ namespace C969_Task1.Forms.Customer
     public partial class AddAppointment : Form
     {
         DatabaseConnection db = new DatabaseConnection();
+
+        /// <summary>
+        /// Constructor used to initialize the form.
+        /// </summary>
         public AddAppointment()
         {
             InitializeComponent();
-
-            
-
         }
 
+        /// <summary>
+        /// When the button is clicked, the appointment is checked to see if it overlaps with another appointment and if
+        /// it is within business hours. If those are correct, the appointment is added to the database.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
 
@@ -46,11 +53,23 @@ namespace C969_Task1.Forms.Customer
             }
         }
 
+        /// <summary>
+        /// This button closes the form and opens the main appointment form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button2_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(Appointment.NewAppointmentID().ToString());
+            this.Close();
+            MainAppointmentForm main = new MainAppointmentForm();
+            main.Show();
         }
 
+        /// <summary>
+        /// This method is used to populate the combobox with the customer IDs 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void AddAppointment_Load(object sender, EventArgs e)
         {
             string query = "SELECT * FROM client_schedule.customer";
@@ -75,11 +94,21 @@ namespace C969_Task1.Forms.Customer
             dataGridView2.DataSource = Models.Customer.SimpleCustomerData();
         }
 
+        /// <summary>
+        /// This method is used to populate the textboxes with the customer's address information when the combobox is clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             comboBox1.Text = dataGridView2.CurrentRow.Cells[0].Value.ToString();
         }
 
+        /// <summary>
+        /// This is used to close the form and open the main appointment form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button3_Click(object sender, EventArgs e)
         {
             this.Close();

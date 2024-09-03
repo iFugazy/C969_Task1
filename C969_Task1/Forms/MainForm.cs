@@ -44,6 +44,7 @@ namespace C969_Task1
             }
 
             monthCalendar1.AddBoldedDate(Appointment.dateToHighlight());
+            dataGridView1.DataSource = Appointment.AppointmentsByUser(User.userID);
 
         }
 

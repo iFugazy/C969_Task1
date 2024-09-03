@@ -12,15 +12,15 @@ namespace C969_Task1.Models
 {
     public class DatabaseConnection
     {
-        public string connstring = "server = localhost; user = root; pwd = Giants12!; database = client_schedule";
-        //public string connstring = "server=localhost; user=sqlUser; pwd=Passw0rd!; Database=client_schedule";
+        
+        public string connstring = "server=localhost; user=sqlUser; pwd=Passw0rd!; Database=client_schedule";
 
         public string mainTableString = "SELECT customer.customerID as \"Customer ID\",\r\ncustomer.customerName as \"Customer Name\",\r\ncustomer.active as \"Active\", \r\naddress.address as \"Address 1\", \r\naddress.address2 as \"Address 2\",\r\naddress.PostalCode as \"Postal Code\",\r\naddress.Phone as \"Phone Number\"\r\n\r\nFROM client_schedule.address, client_schedule.customer\r\n\r\nWhere customer.addressId = address.addressId;";
 
         public MySqlConnection GetConnection()
         {
             MySqlConnection cnn = new MySqlConnection(connstring);
-            //MySqlConnection conn = new MySqlConnection(connstring)
+            
 
             return cnn;
         }
