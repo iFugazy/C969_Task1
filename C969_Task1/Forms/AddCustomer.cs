@@ -111,6 +111,10 @@ namespace C969_Task1.Forms.Customer
             {
                 cityCB.BackColor = Color.IndianRed;
             }
+            else
+            {
+                cityCB.BackColor = Color.White;
+            }
         }
 
         private void countryCB_Leave(object sender, EventArgs e)
@@ -118,6 +122,10 @@ namespace C969_Task1.Forms.Customer
             if (countryCB.Text == "")
             {
                 countryCB.BackColor = Color.IndianRed;
+            }
+            else
+            {
+                countryCB.BackColor = Color.White;
             }
         }
 

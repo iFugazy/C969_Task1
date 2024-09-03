@@ -32,8 +32,9 @@ namespace C969_Task1.Forms
             comboBox2.Hide();
         }
 
-        private void PopulateAppointmentTypes()
+        Func<DataTable> getAppointmentTypes = () =>
         {
+            DatabaseConnection db = new DatabaseConnection();
             DataTable appointmentTypes = new DataTable();
 
             string qry = "SELECT MONTHNAME(start) as Month, type as Type, COUNT(*) as 'Total' FROM appointment GROUP BY type, Month;";
@@ -41,31 +42,53 @@ namespace C969_Task1.Forms
             MySqlDataAdapter adp = new MySqlDataAdapter(db.DBCommand(qry));
             adp.Fill(appointmentTypes);
 
-            dataGridView2.DataSource = appointmentTypes;
-        }
+            return appointmentTypes;
+        };
+
 
         private void ReportsForm_Load(object sender, EventArgs e)
         {
-            PopulateAppointmentTypes();
+            DataTable appointmentTypes = getAppointmentTypes();
+            dataGridView2.DataSource = appointmentTypes;
         }
-        
-        public void PopulateUserSchedules()
+
+
+        Func<int, DataTable> getUserSchedules = (userId) =>
         {
+            DatabaseConnection db = new DatabaseConnection();
             DataTable userSchedules = new DataTable();
- 
-            string qry = $"SELECT userName, start, end FROM appointment JOIN user ON appointment.userID = {userID};";
+         
+            string qry = $"SELECT userName, start, end FROM appointment JOIN user ON appointment.userID = {userId};";
 
             MySqlDataAdapter adp = new MySqlDataAdapter(db.DBCommand(qry));
             adp.Fill(userSchedules);
 
-            dataGridView2.DataSource = userSchedules;
-        }
+            return userSchedules;
+        };
+
+        Func<DataTable> getAllCustomers = () =>
+        {
+            DatabaseConnection db = new DatabaseConnection();
+            DataTable AllCustomers = new DataTable();
+
+            string qry = "SELECT customerId, customerName FROM customer;";
+
+            MySqlDataAdapter adp = new MySqlDataAdapter(db.DBCommand(qry));
+            adp.Fill(AllCustomers);
+
+            return AllCustomers;
+        };
+
+
+
         private void comboBox1_DropDownClosed(object sender, EventArgs e)
         {
+
             if (comboBox1.Text == "All User Schedules")
             {
                 comboBox2.Show();
                 comboBox2.Items.Clear();
+
                 string qry = "SELECT userName, userID FROM user;";
                 
                 MySqlDataReader rdr = db.DBCommand(qry).ExecuteReader();
@@ -80,20 +103,22 @@ namespace C969_Task1.Forms
 
                     comboBox2.Items.Add(userid + " - " + username );
                 }
+
             }
             else if (comboBox1.Text == "Appointments by Type")
             {
-                PopulateAppointmentTypes();
+                DataTable appointmentTypes = getAppointmentTypes();
+                dataGridView2.DataSource = appointmentTypes;
+                
+                comboBox2.Items.Clear();
                 comboBox2.Hide();
             }
             else if (comboBox1.Text == "All Customers")
             {
-                DataTable customers = new DataTable();
-                string qry = "SELECT customerId, customerName FROM customer;";
-                MySqlDataAdapter adp = new MySqlDataAdapter(db.DBCommand(qry));
-                adp.Fill(customers);
-
-                dataGridView2.DataSource = customers;
+                DataTable AllCustomers = getAllCustomers();
+                dataGridView2.DataSource = AllCustomers;
+                
+                comboBox2.Items.Clear();
                 comboBox2.Hide();
             }
 
@@ -101,14 +126,22 @@ namespace C969_Task1.Forms
 
         private void comboBox2_DropDownClosed(object sender, EventArgs e)
         {
+            DataTable userSchedules = getUserSchedules(User.userID);
+            
             if (comboBox2.Text == null)
             {
                 dataGridView2.DataSource = null;
             }
             else
             {
-            PopulateUserSchedules();
+                dataGridView2.DataSource = userSchedules;
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+
         }
     }
 }

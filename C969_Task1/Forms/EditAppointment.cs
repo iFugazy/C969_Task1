@@ -49,8 +49,8 @@ namespace C969_Task1.Forms.Customer
                 titleTB.Text = dr.GetValue(3).ToString();
                 descriptionTB.Text = dr.GetValue(4).ToString();
                 locationTB.Text = dr.GetValue(5).ToString();
-                typeTB.Text = dr.GetValue(6).ToString();
-                contactTB.Text = dr.GetValue(7).ToString();
+                typeTB.Text = dr.GetValue(7).ToString();
+                contactTB.Text = dr.GetValue(6).ToString();
                 urlTB.Text = dr.GetValue(8).ToString();
                 startDateTimePicker.Value = Convert.ToDateTime(dr.GetValue(9)).ToLocalTime();
                 endDataTimePicker.Value = Convert.ToDateTime(dr.GetValue(10)).ToLocalTime();
@@ -64,20 +64,21 @@ namespace C969_Task1.Forms.Customer
         {
             
             Appointment appointmentToUpdate = new Appointment(appointmentID, int.Parse(customerIDTB.Text), int.Parse(userIDTB.Text), titleTB.Text, descriptionTB.Text, locationTB.Text, typeTB.Text, contactTB.Text, urlTB.Text, startDateTimePicker.Value.ToUniversalTime(), endDataTimePicker.Value.ToUniversalTime());
-            if (Appointment.OverlappingAppointment(appointmentToUpdate) == true)
+            if (Appointment.WithinBusinessHours(appointmentToUpdate))
             {
-                MessageBox.Show("Appointment overlaps with another appointment. Please select a different time.");
-                return;
-            }
-            else if (Appointment.WithinBusinessHours(appointmentToUpdate) == true)
-            {
-                MessageBox.Show("Appointment is outside of business hours. Please select a different time.");
-                return;
+                if (Appointment.OverlappingAppointment(appointmentToUpdate))
+                {
+                    Appointment.AddAppointment(appointmentToUpdate);
+
+                }
+                else
+                {
+                    MessageBox.Show("Appointment times overlap another appointment.");
+                }
             }
             else
             {
-                Appointment.UpdateAppointment(appointmentToUpdate);
-                Appointment.RefreshData(Appointment.AppointmentsByUser(1), mainAppointmentForm.dataGridView1);
+                MessageBox.Show("Please schedule appoint within business hours (8AM - 5PM / M-F).");
             }
 
             this.Close();

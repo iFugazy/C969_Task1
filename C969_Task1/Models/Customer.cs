@@ -64,29 +64,51 @@ namespace C969_Task1.Models
 
         public static void AddCustomer(Customer customer)
         {
-            DatabaseConnection db = new DatabaseConnection();
+            try
+            {
+                DatabaseConnection db = new DatabaseConnection();
 
-            string Query = "INSERT INTO customer (customerID, customerName, addressID, active, createDate, createdBy, lastUpdate, lastUpdateBy) VALUES ('" + customer.customerID + "', '" + customer.customerName + "', '" + customer.addressID + "', '" + customer.active + "', NOW(), '" + customer.createdBy + "', NOW(), '" + customer.lastUpdateBy + "')";
+                string Query = "INSERT INTO customer (customerID, customerName, addressID, active, createDate, createdBy, lastUpdate, lastUpdateBy) VALUES ('" + customer.customerID + "', '" + customer.customerName + "', '" + customer.addressID + "', '" + customer.active + "', NOW(), '" + customer.createdBy + "', NOW(), '" + customer.lastUpdateBy + "')";
 
-            db.DBCommand(Query).ExecuteNonQuery();
+                db.DBCommand(Query).ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         public static void UpdateCustomer(Customer customer)
         {
-            DatabaseConnection db = new DatabaseConnection();
+            try
+            {
+                DatabaseConnection db = new DatabaseConnection();
 
-            string Query = "UPDATE customer SET customerName = '" + customer.customerName + "', addressID = '" + customer.addressID + "', active = '" + customer.active + "', createDate = now(), createdBy = '" + customer.createdBy + "', lastUpdate = now(), lastUpdateBy = '" + customer.lastUpdateBy + "' WHERE customerID = '" + customer.customerID + "'";
+                string Query = "UPDATE customer SET customerName = '" + customer.customerName + "', addressID = '" + customer.addressID + "', active = '" + customer.active + "', createDate = now(), createdBy = '" + customer.createdBy + "', lastUpdate = now(), lastUpdateBy = '" + customer.lastUpdateBy + "' WHERE customerID = '" + customer.customerID + "'";
 
-            db.DBCommand(Query).ExecuteNonQuery();
+                db.DBCommand(Query).ExecuteNonQuery();
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            
         }
 
         public static void DeleteCustomer(int CustomerID)
         {
-            DatabaseConnection db = new DatabaseConnection();
+            try
+            {
+                DatabaseConnection db = new DatabaseConnection();
 
-            string Query = "DELETE FROM customer WHERE customerID = '" + CustomerID + "'";
+                string Query = "DELETE FROM customer WHERE customerID = '" + CustomerID + "'";
 
-            db.DBCommand(Query).ExecuteNonQuery();
+                db.DBCommand(Query).ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         public static int NewCustomerID()

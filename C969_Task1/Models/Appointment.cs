@@ -37,12 +37,12 @@ namespace C969_Task1.Models
             this.userID = userID;
             this.title = title;
             this.description = description;
+            this.location = location;
+            this.Type = Type;
             this.contact = contact;
             this.url = url;
             this.start = start;
             this.end = end;
-            this.location = location;
-            this.Type = Type;
          
         }
 
@@ -195,29 +195,51 @@ namespace C969_Task1.Models
 
         public static void AddAppointment(Appointment appointment)
         {
-            DatabaseConnection db = new DatabaseConnection();
+            try
+            {
+                DatabaseConnection db = new DatabaseConnection();
 
-            string Query = $"INSERT INTO appointment (appointmentID, customerID, userID, title, description, location, type, contact, url, start, end, createDate, createdBy, lastUpdate, lastUpdateBy ) VALUES ({appointment.appointmentID},{appointment.customerID}, {appointment.userID}, '{appointment.title}', '{appointment.description}', '{appointment.location}', '{appointment.Type}', '{appointment.contact}', '{appointment.url}', '{appointment.start.ToUniversalTime().ToString("yyyy-MM-dd HH:mm:ss")}', '{appointment.end.ToUniversalTime().ToString("yyyy-MM-dd HH:mm:ss")}', Now(), 'test', Now(), 'test')";
+                string Query = $"INSERT INTO appointment (appointmentID, customerID, userID, title, description, location, type, contact, url, start, end, createDate, createdBy, lastUpdate, lastUpdateBy ) VALUES ({appointment.appointmentID},{appointment.customerID}, {appointment.userID}, '{appointment.title}', '{appointment.description}', '{appointment.location}', '{appointment.Type}', '{appointment.contact}', '{appointment.url}', '{appointment.start.ToUniversalTime().ToString("yyyy-MM-dd HH:mm:ss")}', '{appointment.end.ToUniversalTime().ToString("yyyy-MM-dd HH:mm:ss")}', Now(), 'test', Now(), 'test')";
 
-            db.DBCommand(Query);
+                db.DBCommand(Query);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
         }
 
         public static void UpdateAppointment(Appointment appointment)
         {
-            DatabaseConnection db = new DatabaseConnection();
+            try
+            {
+                DatabaseConnection db = new DatabaseConnection();
 
-            string Query = $"UPDATE appointment SET customerID = {appointment.customerID}, userID = {appointment.userID}, title = '{appointment.title}', description = '{appointment.description}', contact = '{appointment.contact}', url = '{appointment.url}', start = '{appointment.start.ToUniversalTime().ToString("yyyy-MM-dd HH:mm:ss")}', end = '{appointment.end.ToUniversalTime().ToString("yyyy-MM-dd HH:mm:ss")}' WHERE appointmentID = {appointment.appointmentID}";
+                string Query = $"UPDATE appointment SET customerID = {appointment.customerID}, userID = {appointment.userID}, title = '{appointment.title}', type = '{appointment.Type}', description = '{appointment.description}', contact = '{appointment.contact}', url = '{appointment.url}', location = '{appointment.location}', start = '{appointment.start.ToUniversalTime().ToString("yyyy-MM-dd HH:mm:ss")}', end = '{appointment.end.ToUniversalTime().ToString("yyyy-MM-dd HH:mm:ss")}' WHERE appointmentID = {appointment.appointmentID}";
 
-            db.DBCommand(Query);
+                db.DBCommand(Query);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         public static void DeleteAppointment(int appointmentID)
         {
-            DatabaseConnection db = new DatabaseConnection();
+            try
+            {
+                DatabaseConnection db = new DatabaseConnection();
 
-            string Query = $"DELETE FROM appointment WHERE appointmentID = {appointmentID}";
+                string Query = $"DELETE FROM appointment WHERE appointmentID = {appointmentID}";
 
-            db.DBCommand(Query);
+                db.DBCommand(Query);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
 
 
         }

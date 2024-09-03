@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace C969_Task1
 {
@@ -22,17 +23,11 @@ namespace C969_Task1
             InitializeComponent();
 
             dataGridView1.DataSource = Appointment.AppointmentsByWeek();
-
-            if (Appointment.checkUserReminders(User.userID).Count == 0)
-            {
-                MessageBox.Show("You have no upcoming appointments!");
-            };
         }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            label3.Text = $"Username: {User.userName}";
-            
+            label3.Text = $"Username: {User.userName}";      
             
             List<string> comboboxItems = new List<string>
             {
@@ -101,6 +96,19 @@ namespace C969_Task1
         {
             ReportsForm reportsForm = new ReportsForm();
             reportsForm.Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            string filePath = "login_History.txt";
+            string timestamp = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+            string logEntry = $"{timestamp} - {User.userName} - {User.userID} logged in";
+            using (System.IO.StreamWriter file = new System.IO.StreamWriter(filePath, true))
+            {
+                file.WriteLine(logEntry);
+            }
+
+            MessageBox.Show("Login history saved to login_History.txt");
         }
     }
 }

@@ -37,12 +37,12 @@ namespace C969_Task1.Forms.Customer
                 }
                 else
                 {
-                    MessageBox.Show("Appointment times overlap another appointment for this user.");
+                    MessageBox.Show("Appointment times overlap another appointment.");
                 }
             }
             else
             {
-                MessageBox.Show("Appointment is scheduled outside of business hours 8 AM to 5 PM.");
+                MessageBox.Show("Please schedule appoint within business hours (8AM - 5PM / M-F).");
             }
         }
 
@@ -83,6 +83,8 @@ namespace C969_Task1.Forms.Customer
         private void button3_Click(object sender, EventArgs e)
         {
             this.Close();
+            MainAppointmentForm main = new MainAppointmentForm();
+            main.Show();
         }
     }
 }
