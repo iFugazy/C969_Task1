@@ -45,11 +45,13 @@ namespace C969_Task1.Forms.Customer
                 else
                 {
                     MessageBox.Show("Appointment times overlap another appointment.");
+                    return;
                 }
             }
             else
             {
                 MessageBox.Show("Please schedule appoint within business hours (8AM - 5PM / M-F).");
+                return;
             }
         }
 

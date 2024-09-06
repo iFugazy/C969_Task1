@@ -273,8 +273,8 @@ namespace C969_Task1.Models
         public static bool OverlappingAppointment(Appointment appointment)
         {
             DatabaseConnection db = new DatabaseConnection();
-            
-            string qry = $"SELECT * FROM appointment WHERE userId = '{appointment.userID}' and ((start >= '{appointment.start.ToUniversalTime().ToString("yyyy-MM-dd HH:mm:ss")}' and end <= '{appointment.end.ToUniversalTime().ToString("yyyy-MM-dd HH:mm:ss")}') or (end >= '{appointment.start.ToUniversalTime().ToString("yyyy-MM-dd HH:mm:ss")}' and end <= '{appointment.end.ToUniversalTime().ToString("yyyy-MM-dd HH:mm:ss")}'))";
+
+            string qry = $"SELECT * FROM appointment WHERE userId = '{appointment.userID}' and appointmentid != {appointment.appointmentID} and ((start >= '{appointment.start.ToUniversalTime().ToString("yyyy-MM-dd HH:mm:ss")}' and start <= '{appointment.end.ToUniversalTime().ToString("yyyy-MM-dd HH:mm:ss")}') or (end >= '{appointment.start.ToUniversalTime().ToString("yyyy-MM-dd HH:mm:ss")}' and end <= '{appointment.end.ToUniversalTime().ToString("yyyy-MM-dd HH:mm:ss")}'))"; 
 
             MySqlDataReader rdr = db.DBCommand(qry).ExecuteReader();
 

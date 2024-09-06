@@ -68,17 +68,20 @@ namespace C969_Task1.Forms.Customer
             {
                 if (Appointment.OverlappingAppointment(appointmentToUpdate))
                 {
-                    Appointment.AddAppointment(appointmentToUpdate);
+
+                    Appointment.UpdateAppointment(appointmentToUpdate);
 
                 }
                 else
                 {
                     MessageBox.Show("Appointment times overlap another appointment.");
+                    return;
                 }
             }
             else
             {
                 MessageBox.Show("Please schedule appoint within business hours (8AM - 5PM / M-F).");
+                return;
             }
 
             this.Close();
