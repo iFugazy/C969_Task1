@@ -43,7 +43,6 @@ namespace C969_Task1
                 comboBox1.Items.Add(item);
             }
 
-            monthCalendar1.AddBoldedDate(Appointment.dateToHighlight());
             dataGridView1.DataSource = Appointment.AppointmentsByUser(User.userID);
 
         }
@@ -88,9 +87,9 @@ namespace C969_Task1
 
         private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
         {
-            CalendarAppointmentView calendar = new CalendarAppointmentView(e.Start.ToString("yyyy-MM-dd HH:mm:ss"));
+            CalendarAppointmentView calendar = new CalendarAppointmentView(e.Start.ToString("yyyy-MM-dd HH:mm:ss"), e.End.ToString("yyyy-MM-dd HH:mm:ss"));
             calendar.Show();
-
+           
         }
 
         private void button2_Click(object sender, EventArgs e)

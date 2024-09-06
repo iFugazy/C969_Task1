@@ -50,19 +50,7 @@ namespace C969_Task1.Models
         {
         }
 
-        public static DateTime dateToHighlight()
-        {
-            DatabaseConnection db = new DatabaseConnection();
-            string Query = "SELECT appointmentID, customerID, userID, title, type, description, contact, url, start, end FROM appointment";
-            MySqlDataReader rdr = db.DBCommand(Query).ExecuteReader();
-            DateTime date = new DateTime();
-            while (rdr.Read())
-            {
-                date = Convert.ToDateTime(rdr["start"]);
-            }
-            return date;
 
-        }
         public static DataTable AllAppointments()
         {
             DatabaseConnection db = new DatabaseConnection();
@@ -166,26 +154,18 @@ namespace C969_Task1.Models
             return userAppointmentInfo;
         }
 
-        public static DataTable AppointmentsByCalendar(string selectedDate)
+        public static DataTable AppointmentsByCalendar(string selectedStartDate, string selectedEndDate)
         {
             DatabaseConnection db = new DatabaseConnection();
 
             calendarAppointmentInfo.Clear();
 
-            string Query = $"SELECT appointmentID, customerID, userID, title, type, description, contact, url, start, end FROM appointment WHERE start = '{selectedDate}'";
+            string Query = $"SELECT appointmentID, customerID, userID, title, type, description, contact, url, start, end FROM appointment WHERE start >= '{selectedStartDate}' and end <= '{selectedEndDate}'";
 
             MySqlDataAdapter adapter = new MySqlDataAdapter(db.DBCommand(Query));
 
             adapter.Fill(calendarAppointmentInfo);
 
-            for (int i = 0; i < calendarAppointmentInfo.Rows.Count; i++)
-            {
-                DateTime start = (DateTime)appointmentInfo.Rows[i]["start"];
-                appointmentInfo.Rows[i]["start"] = start.ToLocalTime();
-
-                DateTime end = (DateTime)appointmentInfo.Rows[i]["end"];
-                appointmentInfo.Rows[i]["end"] = end.ToLocalTime();
-            }
 
             return calendarAppointmentInfo;
         }
