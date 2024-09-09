@@ -44,7 +44,6 @@ namespace C969_Task1
             MySqlDataAdapter da = new MySqlDataAdapter(db.DBCommand(query));
             da.Fill(dt);
             i = Convert.ToInt32(dt.Rows.Count.ToString());
-            Appointment.checkUserReminders(User.userID);
 
 
             if (i == 0)

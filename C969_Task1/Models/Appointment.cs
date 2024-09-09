@@ -304,11 +304,6 @@ namespace C969_Task1.Models
             {
                 MessageBox.Show("You have an appointment within the next 15 minutes");
             }
-            else
-            {
-                MessageBox.Show("huhh");
-
-            }
         }
     }
 }
