@@ -292,18 +292,23 @@ namespace C969_Task1.Models
             }
         }
 
-        public static List<Appointment> checkUserReminders(int userID)
+        public static void checkUserReminders(int userID)
         {
-            List<Appointment> appts = new List<Appointment>();
             DateTime currentUtc = DateTime.UtcNow;
             DatabaseConnection db = new DatabaseConnection();
-            string query = $"SELECT * FROM appointment WHERE userId = '{userID}' and TIMESTAMPDIFF(MINUTE, start, '{currentUtc}') < 15";
+            string query = $"SELECT *\r\nFROM appointment\r\nWHERE userid = {userID} and start BETWEEN NOW() AND NOW() + INTERVAL 15 MINUTE;";
 
-            MySqlCommand cmd = db.DBCommand(query);
-            cmd.ExecuteNonQuery();
-
+            MySqlDataReader rdr = db.DBCommand(query).ExecuteReader();
             
-            return appts;
+            if (rdr.HasRows)
+            {
+                MessageBox.Show("You have an appointment within the next 15 minutes");
+            }
+            else
+            {
+                MessageBox.Show("huhh");
+
+            }
         }
     }
 }

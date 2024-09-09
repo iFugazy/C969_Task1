@@ -21,12 +21,11 @@ namespace C969_Task1
         public MainForm()
         {
             InitializeComponent();
-
-            dataGridView1.DataSource = Appointment.AppointmentsByWeek();
         }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            Appointment.checkUserReminders(User.userID);
             label3.Text = $"Username: {User.userName}";      
             
             List<string> comboboxItems = new List<string>
@@ -44,6 +43,7 @@ namespace C969_Task1
             }
 
             dataGridView1.DataSource = Appointment.AppointmentsByUser(User.userID);
+
 
         }
 
