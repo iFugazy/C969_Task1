@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -100,7 +101,16 @@ namespace C969_Task1
 
         private void button3_Click(object sender, EventArgs e)
         {
-            string filePath = "login_History.txt";
+            string foldername = "DataFiles";
+            string folderPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, foldername);
+
+            if (!Directory.Exists(folderPath))
+            {
+                Directory.CreateDirectory(folderPath);
+            }
+
+            string fileName = "login_History.txt";
+            string filePath = Path.Combine(folderPath, fileName);
             string timestamp = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
             string logEntry = $"{timestamp} - {User.userName} - {User.userID} logged in";
             using (System.IO.StreamWriter file = new System.IO.StreamWriter(filePath, true))
@@ -108,7 +118,7 @@ namespace C969_Task1
                 file.WriteLine(logEntry);
             }
 
-            MessageBox.Show("Login history saved to login_History.txt");
+            MessageBox.Show("Login history saved to C969_Task1\\bin\\Debug\\DataFiles\\login_History.txt", "Saved Successfully");
         }
     }
 }
