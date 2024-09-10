@@ -126,10 +126,10 @@ namespace C969_Task1.Models
         public static DataTable AppointmentsByUser(int userID)
         {
             DatabaseConnection db = new DatabaseConnection();
-
+            
             userAppointmentInfo.Clear();
 
-            string Query = $"SELECT appointmentID, customerID, userID, title, type, description, location, contact, url, start, end FROM appointment WHERE userID = {userID}";
+            string Query = $"SELECT appointmentID, customerID, title, type, description, location, contact, url, start, end FROM appointment WHERE userID = {userID}";
 
             MySqlDataAdapter adapter = new MySqlDataAdapter(db.DBCommand(Query));
 

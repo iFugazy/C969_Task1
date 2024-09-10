@@ -32,6 +32,7 @@ namespace C969_Task1.Models
         public static DateTime lastUpdate { get; set; }
         public static string lastUpdateBy { get; set; }
 
+        
 
         public async static void UserLocationString(LoginForm loginForm)
         {

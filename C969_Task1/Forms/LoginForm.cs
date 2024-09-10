@@ -48,7 +48,12 @@ namespace C969_Task1
 
             if (i == 0)
             {
-                if (spanishRBTN.Checked is true)
+                var regKeyGeoId = Microsoft.Win32.Registry.CurrentUser.OpenSubKey(@"Control Panel\International\Geo");
+                var geoID = (string)regKeyGeoId.GetValue("Nation");
+                var allRegions = CultureInfo.GetCultures(CultureTypes.SpecificCultures).Select(x => new RegionInfo(x.ToString()));
+                var regionInfo = allRegions.FirstOrDefault(r => r.GeoId == Int32.Parse(geoID));
+
+                if (regionInfo.Name != "United States")
                 {
                     MessageBox.Show("El nombre de usuario y la contraseña no coinciden", "Error de inicio de sesión");
 

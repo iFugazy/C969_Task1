@@ -35,8 +35,6 @@
             this.userLocationLBL = new System.Windows.Forms.Label();
             this.loginBTN = new System.Windows.Forms.Button();
             this.cancelBTN = new System.Windows.Forms.Button();
-            this.englishRBTN = new System.Windows.Forms.RadioButton();
-            this.spanishRBTN = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -84,7 +82,7 @@
             // userLocationLBL
             // 
             this.userLocationLBL.AutoSize = true;
-            this.userLocationLBL.Location = new System.Drawing.Point(66, 13);
+            this.userLocationLBL.Location = new System.Drawing.Point(65, 13);
             this.userLocationLBL.Name = "userLocationLBL";
             this.userLocationLBL.Size = new System.Drawing.Size(0, 13);
             this.userLocationLBL.TabIndex = 8;
@@ -109,28 +107,6 @@
             this.cancelBTN.UseVisualStyleBackColor = true;
             this.cancelBTN.Click += new System.EventHandler(this.cancelBTN_Click);
             // 
-            // englishRBTN
-            // 
-            this.englishRBTN.AutoSize = true;
-            this.englishRBTN.Checked = true;
-            this.englishRBTN.Location = new System.Drawing.Point(16, 229);
-            this.englishRBTN.Name = "englishRBTN";
-            this.englishRBTN.Size = new System.Drawing.Size(40, 17);
-            this.englishRBTN.TabIndex = 11;
-            this.englishRBTN.TabStop = true;
-            this.englishRBTN.Text = "EN";
-            this.englishRBTN.UseVisualStyleBackColor = true;
-            // 
-            // spanishRBTN
-            // 
-            this.spanishRBTN.AutoSize = true;
-            this.spanishRBTN.Location = new System.Drawing.Point(68, 229);
-            this.spanishRBTN.Name = "spanishRBTN";
-            this.spanishRBTN.Size = new System.Drawing.Size(39, 17);
-            this.spanishRBTN.TabIndex = 12;
-            this.spanishRBTN.Text = "ES";
-            this.spanishRBTN.UseVisualStyleBackColor = true;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -143,11 +119,10 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(60, 13);
+            this.label2.Location = new System.Drawing.Point(65, 13);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(47, 13);
+            this.label2.Size = new System.Drawing.Size(0, 13);
             this.label2.TabIndex = 14;
-            this.label2.Text = "location:";
             // 
             // LoginForm
             // 
@@ -157,8 +132,6 @@
             this.ClientSize = new System.Drawing.Size(518, 264);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.spanishRBTN);
-            this.Controls.Add(this.englishRBTN);
             this.Controls.Add(this.cancelBTN);
             this.Controls.Add(this.loginBTN);
             this.Controls.Add(this.userLocationLBL);
@@ -182,8 +155,6 @@
         public System.Windows.Forms.Label passwordLBL;
         public System.Windows.Forms.Button loginBTN;
         public System.Windows.Forms.Button cancelBTN;
-        public System.Windows.Forms.RadioButton englishRBTN;
-        public System.Windows.Forms.RadioButton spanishRBTN;
         public System.Windows.Forms.Label label1;
         public System.Windows.Forms.Label label2;
     }

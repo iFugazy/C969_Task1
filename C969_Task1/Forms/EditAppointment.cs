@@ -68,8 +68,10 @@ namespace C969_Task1.Forms.Customer
             {
                 if (Appointment.OverlappingAppointment(appointmentToUpdate))
                 {
-
+                    MainAppointmentForm main = new MainAppointmentForm();
                     Appointment.UpdateAppointment(appointmentToUpdate);
+                    main.dataGridView1.DataSource = Appointment.AppointmentsByUser(1);
+
 
                 }
                 else
