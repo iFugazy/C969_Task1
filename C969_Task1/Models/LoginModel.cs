@@ -25,9 +25,12 @@ namespace C969_Task1.Models
         {
             var client = new IpDataClient(ipdataAPIKey);
             var ipInfo = await client.Lookup();
+            var regKeyGeoId = Microsoft.Win32.Registry.CurrentUser.OpenSubKey(@"Control Panel\International\Geo");
+            var geoID = (string)regKeyGeoId.GetValue("Nation");
+            var allRegions = CultureInfo.GetCultures(CultureTypes.SpecificCultures).Select(x => new RegionInfo(x.ToString()));
+            var regionInfo = allRegions.FirstOrDefault(ref => ref.GeoId == Int32.Parse(geoID));
             
-            
-            loginForm.userLocationLBL.Text = ipInfo.City + "/" + ipInfo.Region;
+            loginForm.userLocationLBL.Text = regionInfo;
             
             
         }

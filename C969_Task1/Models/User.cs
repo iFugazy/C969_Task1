@@ -39,19 +39,19 @@ namespace C969_Task1.Models
             {
                 var client = new IpDataClient(ipdataAPIKey);
                 var ipInfo = await client.Lookup();
-                loginForm.userLocationLBL.Text = ipInfo.City + "/" + ipInfo.Region;
+                var regKeyGeoId = Microsoft.Win32.Registry.CurrentUser.OpenSubKey(@"Control Panel\International\Geo");
+                var geoID = (string)regKeyGeoId.GetValue("Nation");
+                var allRegions = CultureInfo.GetCultures(CultureTypes.SpecificCultures).Select(x => new RegionInfo(x.ToString()));
+                var regionInfo = allRegions.FirstOrDefault(r => r.GeoId == Int32.Parse(geoID));
+
+                loginForm.label2.Text = regionInfo.EnglishName;
 
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Error with location API\n\n {ex.Message}", "API Error");
             }
-            
-            
-            
-            
-            
-            
+
         }
 
         public  User(string userName, string password)
@@ -89,9 +89,14 @@ namespace C969_Task1.Models
 
         public static void LoginTranslator(LoginForm loginForm)
         {
-            if (loginForm.spanishRBTN.Checked is true)
+            var regKeyGeoId = Microsoft.Win32.Registry.CurrentUser.OpenSubKey(@"Control Panel\International\Geo");
+            var geoID = (string)regKeyGeoId.GetValue("Nation");
+            var allRegions = CultureInfo.GetCultures(CultureTypes.SpecificCultures).Select(x => new RegionInfo(x.ToString()));
+            var regionInfo = allRegions.FirstOrDefault(r => r.GeoId == Int32.Parse(geoID));
+
+            if (regionInfo.EnglishName != "United States")
             {
-                loginForm.locationLBL.Text = "Ubicación:";
+                loginForm.label1.Text = "Ubicación:";
                 loginForm.usernameLBL.Text = "Nombre de usuario:";
                 loginForm.passwordLBL.Text = "Contraseña:";
                 loginForm.loginBTN.Text = "Acceso";
@@ -101,7 +106,7 @@ namespace C969_Task1.Models
             }
             else
             {
-                loginForm.locationLBL.Text = "Location:";
+                loginForm.label1.Text = "Location:";
                 loginForm.usernameLBL.Text = "Username:";
                 loginForm.passwordLBL.Text = "Password:";
                 loginForm.loginBTN.Text = "Login";
