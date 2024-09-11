@@ -44,8 +44,10 @@ namespace C969_Task1.Models
                 var geoID = (string)regKeyGeoId.GetValue("Nation");
                 var allRegions = CultureInfo.GetCultures(CultureTypes.SpecificCultures).Select(x => new RegionInfo(x.ToString()));
                 var regionInfo = allRegions.FirstOrDefault(r => r.GeoId == Int32.Parse(geoID));
+                var localZone = System.TimeZone.CurrentTimeZone;
 
                 loginForm.label2.Text = regionInfo.EnglishName;
+                loginForm.label3.Text = localZone.DaylightName;
 
             }
             catch (Exception ex)

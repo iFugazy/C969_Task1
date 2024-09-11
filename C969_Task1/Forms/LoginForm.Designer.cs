@@ -37,6 +37,7 @@
             this.cancelBTN = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // usernameTB
@@ -124,12 +125,22 @@
             this.label2.Size = new System.Drawing.Size(0, 13);
             this.label2.TabIndex = 14;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(12, 26);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(61, 13);
+            this.label3.TabIndex = 15;
+            this.label3.Text = "Time Zone:";
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(518, 264);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cancelBTN);
@@ -157,6 +168,7 @@
         public System.Windows.Forms.Button cancelBTN;
         public System.Windows.Forms.Label label1;
         public System.Windows.Forms.Label label2;
+        public System.Windows.Forms.Label label3;
     }
 }
 
