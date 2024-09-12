@@ -46,8 +46,8 @@ namespace C969_Task1.Models
                 var regionInfo = allRegions.FirstOrDefault(r => r.GeoId == Int32.Parse(geoID));
                 var localZone = System.TimeZone.CurrentTimeZone;
 
-                loginForm.label2.Text = regionInfo.EnglishName;
-                loginForm.label3.Text = localZone.DaylightName;
+                loginForm.label1.Text = $"Location: {regionInfo.EnglishName}";
+                loginForm.label3.Text = $"Time Zone: {localZone.DaylightName}";
 
             }
             catch (Exception ex)
