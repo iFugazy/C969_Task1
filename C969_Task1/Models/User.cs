@@ -92,28 +92,36 @@ namespace C969_Task1.Models
 
         public static void LoginTranslator(LoginForm loginForm)
         {
+            LoginForm login = new LoginForm(); 
             var regKeyGeoId = Microsoft.Win32.Registry.CurrentUser.OpenSubKey(@"Control Panel\International\Geo");
             var geoID = (string)regKeyGeoId.GetValue("Nation");
             var allRegions = CultureInfo.GetCultures(CultureTypes.SpecificCultures).Select(x => new RegionInfo(x.ToString()));
-            var regionInfo = allRegions.FirstOrDefault(r => r.GeoId == Int32.Parse(geoID));
+            var regionInfo = allRegions.FirstOrDefault(r => r.GeoId == Int32.Parse(geoID));       
+            var localZone = System.TimeZone.CurrentTimeZone;
 
             if (regionInfo.EnglishName != "United States")
             {
-                loginForm.label1.Text = "Ubicación:";
+                loginForm.label1.Text = $"Ubicación: {regionInfo.EnglishName}";
+                loginForm.label3.Text = $"Huso horario: {localZone.DaylightName}";
                 loginForm.usernameLBL.Text = "Nombre de usuario:";
                 loginForm.passwordLBL.Text = "Contraseña:";
                 loginForm.loginBTN.Text = "Acceso";
                 loginForm.cancelBTN.Text = "Cancelar";
-
+                
 
             }
-            else
+            else if (regionInfo.EnglishName == "United States")
             {
-                loginForm.label1.Text = "Location:";
+
+                loginForm.label1.Text = $"Location: {regionInfo.EnglishName}";
+                loginForm.label3.Text = $"Time Zone: {localZone.DaylightName}";
                 loginForm.usernameLBL.Text = "Username:";
                 loginForm.passwordLBL.Text = "Password:";
                 loginForm.loginBTN.Text = "Login";
                 loginForm.cancelBTN.Text = "Cancel";
+                
+
+                
             }
         }
     }

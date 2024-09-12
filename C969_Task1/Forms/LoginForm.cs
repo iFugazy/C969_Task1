@@ -89,5 +89,38 @@ namespace C969_Task1
             User.UserLocationString(this);
             User.LoginTranslator(this);
         }
+
+        private void radioButton1_Click(object sender, EventArgs e)
+        {
+            var regKeyGeoId = Microsoft.Win32.Registry.CurrentUser.OpenSubKey(@"Control Panel\International\Geo");
+            var geoID = (string)regKeyGeoId.GetValue("Nation");
+            var allRegions = CultureInfo.GetCultures(CultureTypes.SpecificCultures).Select(x => new RegionInfo(x.ToString()));
+            var regionInfo = allRegions.FirstOrDefault(r => r.GeoId == Int32.Parse(geoID));
+            var localZone = System.TimeZone.CurrentTimeZone;
+
+            label1.Text = $"Location: {regionInfo.EnglishName}";
+            label3.Text = $"Time Zone: {localZone.DaylightName}";
+            usernameLBL.Text = "Username:";
+            passwordLBL.Text = "Password:";
+            loginBTN.Text = "Login";
+            cancelBTN.Text = "Cancel";
+
+        }
+
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+            var regKeyGeoId = Microsoft.Win32.Registry.CurrentUser.OpenSubKey(@"Control Panel\International\Geo");
+            var geoID = (string)regKeyGeoId.GetValue("Nation");
+            var allRegions = CultureInfo.GetCultures(CultureTypes.SpecificCultures).Select(x => new RegionInfo(x.ToString()));
+            var regionInfo = allRegions.FirstOrDefault(r => r.GeoId == Int32.Parse(geoID));
+            var localZone = System.TimeZone.CurrentTimeZone;
+
+            label1.Text = $"Ubicación: {regionInfo.EnglishName}";
+            label3.Text = $"Huso horario: {localZone.DaylightName}";
+            usernameLBL.Text = "Nombre de usuario:";
+            passwordLBL.Text = "Contraseña:";
+            loginBTN.Text = "Acceso";
+            cancelBTN.Text = "Cancelar";
+        }
     }
 }
