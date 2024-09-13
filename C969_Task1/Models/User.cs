@@ -14,6 +14,7 @@ namespace C969_Task1.Models
 {
     public class User
     {
+        
         public static DatabaseConnection db = new DatabaseConnection();
 
         public static TimeZoneInfo localZone = TimeZoneInfo.Local;
