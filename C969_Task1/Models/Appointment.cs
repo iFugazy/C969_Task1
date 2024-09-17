@@ -63,13 +63,15 @@ namespace C969_Task1.Models
 
             adapter.Fill(appointmentInfo);
 
-            for (int i = 0; i < appointmentInfo.Rows.Count; i++)
+            for (int i = 0; i < userAppointmentInfo.Rows.Count; i++)
             {
-                DateTime start = (DateTime)appointmentInfo.Rows[i]["start"];
-                appointmentInfo.Rows[i]["start"] = start.ToLocalTime();
+                DateTime start = (DateTime)userAppointmentInfo.Rows[i]["start"];
+                start = DateTime.SpecifyKind(start, DateTimeKind.Utc).ToLocalTime();
+                userAppointmentInfo.Rows[i]["start"] = start;
 
-                DateTime end = (DateTime)appointmentInfo.Rows[i]["end"];
-                appointmentInfo.Rows[i]["end"] = end.ToLocalTime();
+                DateTime end = (DateTime)userAppointmentInfo.Rows[i]["end"];
+                end = DateTime.SpecifyKind(end, DateTimeKind.Utc).ToLocalTime();
+                userAppointmentInfo.Rows[i]["end"] = end;
             }
 
             return appointmentInfo;
@@ -87,13 +89,15 @@ namespace C969_Task1.Models
 
             adapter.Fill(appointmentInfo);
 
-            for (int i = 0; i < appointmentInfo.Rows.Count; i++)
+            for (int i = 0; i < userAppointmentInfo.Rows.Count; i++)
             {
-                DateTime start = (DateTime)appointmentInfo.Rows[i]["start"];
-                appointmentInfo.Rows[i]["start"] = start.ToLocalTime();
+                DateTime start = (DateTime)userAppointmentInfo.Rows[i]["start"];
+                start = DateTime.SpecifyKind(start, DateTimeKind.Utc).ToLocalTime();
+                userAppointmentInfo.Rows[i]["start"] = start;
 
-                DateTime end = (DateTime)appointmentInfo.Rows[i]["end"];
-                appointmentInfo.Rows[i]["end"] = end.ToLocalTime();
+                DateTime end = (DateTime)userAppointmentInfo.Rows[i]["end"];
+                end = DateTime.SpecifyKind(end, DateTimeKind.Utc).ToLocalTime();
+                userAppointmentInfo.Rows[i]["end"] = end;
             }
 
             return appointmentInfo;
@@ -111,13 +115,15 @@ namespace C969_Task1.Models
 
             adapter.Fill(appointmentInfo);
 
-            for (int i = 0; i < appointmentInfo.Rows.Count; i++)
+            for (int i = 0; i < userAppointmentInfo.Rows.Count; i++)
             {
-                DateTime start = (DateTime)appointmentInfo.Rows[i]["start"];
-                appointmentInfo.Rows[i]["start"] = start.ToLocalTime();
+                DateTime start = (DateTime)userAppointmentInfo.Rows[i]["start"];
+                start = DateTime.SpecifyKind(start, DateTimeKind.Utc).ToLocalTime();
+                userAppointmentInfo.Rows[i]["start"] = start;
 
-                DateTime end = (DateTime)appointmentInfo.Rows[i]["end"];
-                appointmentInfo.Rows[i]["end"] = end.ToLocalTime();
+                DateTime end = (DateTime)userAppointmentInfo.Rows[i]["end"];
+                end = DateTime.SpecifyKind(end, DateTimeKind.Utc).ToLocalTime();
+                userAppointmentInfo.Rows[i]["end"] = end;
             }
 
             return appointmentInfo;
@@ -136,15 +142,20 @@ namespace C969_Task1.Models
             adapter.Fill(userAppointmentInfo);
             try
             {
+                
                 for (int i = 0; i < userAppointmentInfo.Rows.Count; i++)
                 {
-                    DateTime start = (DateTime)appointmentInfo.Rows[i]["start"];
-                    appointmentInfo.Rows[i]["start"] = start.ToLocalTime();
+                DateTime start = (DateTime)userAppointmentInfo.Rows[i]["start"];
+                start = DateTime.SpecifyKind(start, DateTimeKind.Utc).ToLocalTime();
+                userAppointmentInfo.Rows[i]["start"] = start;
 
-                    DateTime end = (DateTime)appointmentInfo.Rows[i]["end"];
-                    appointmentInfo.Rows[i]["end"] = end.ToLocalTime();
+                DateTime end = (DateTime)userAppointmentInfo.Rows[i]["end"];
+                end = DateTime.SpecifyKind(end, DateTimeKind.Utc).ToLocalTime();
+                userAppointmentInfo.Rows[i]["end"] = end;
                 }
             }
+           
+
             catch 
             {
                 

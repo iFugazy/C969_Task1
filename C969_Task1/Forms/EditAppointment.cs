@@ -63,7 +63,7 @@ namespace C969_Task1.Forms.Customer
         private void button1_Click(object sender, EventArgs e)
         {
             
-            Appointment appointmentToUpdate = new Appointment(appointmentID, int.Parse(customerIDTB.Text), int.Parse(userIDTB.Text), titleTB.Text, descriptionTB.Text, locationTB.Text, typeTB.Text, contactTB.Text, urlTB.Text, startDateTimePicker.Value.ToUniversalTime(), endDataTimePicker.Value.ToUniversalTime());
+            Appointment appointmentToUpdate = new Appointment(appointmentID, int.Parse(customerIDTB.Text), int.Parse(userIDTB.Text), titleTB.Text, descriptionTB.Text, locationTB.Text, typeTB.Text, contactTB.Text, urlTB.Text, startDateTimePicker.Value, endDataTimePicker.Value);
             if (Appointment.WithinBusinessHours(appointmentToUpdate))
             {
                 if (Appointment.OverlappingAppointment(appointmentToUpdate))
