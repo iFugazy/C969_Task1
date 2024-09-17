@@ -288,12 +288,12 @@ namespace C969_Task1.Models
         public static bool WithinBusinessHours(Appointment appointment)
         {
             DateTime businessStart = DateTime.Today.AddHours(8);
-            DateTime businessEnd = DateTime.Today.AddHours(17);
+            DateTime businessEnd = DateTime.Today.AddHours(17).AddMinutes(1);
 
             DateTime appointmentStart = DateTime.Parse(appointment.start.ToString());
             DateTime appointmentEnd = DateTime.Parse(appointment.end.ToString());
 
-            if (appointmentStart.TimeOfDay >= businessStart.TimeOfDay && appointmentStart.TimeOfDay <= businessEnd.TimeOfDay && appointmentEnd.TimeOfDay > businessStart.TimeOfDay && appointmentEnd.TimeOfDay <= businessEnd.TimeOfDay)
+            if (appointmentStart.TimeOfDay >= businessStart.TimeOfDay && appointmentStart.TimeOfDay <= businessEnd.TimeOfDay && appointmentEnd.TimeOfDay >= businessStart.TimeOfDay && appointmentEnd.TimeOfDay <= businessEnd.TimeOfDay)
             {
                 return true;
             }

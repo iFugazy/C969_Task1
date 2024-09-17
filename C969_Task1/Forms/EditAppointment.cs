@@ -70,7 +70,7 @@ namespace C969_Task1.Forms.Customer
                 {
                     MainAppointmentForm main = new MainAppointmentForm();
                     Appointment.UpdateAppointment(appointmentToUpdate);
-                    main.dataGridView1.DataSource = Appointment.AppointmentsByUser(1);
+                    main.dataGridView1.DataSource = Appointment.AppointmentsByUser(User.userID);
 
 
                 }
